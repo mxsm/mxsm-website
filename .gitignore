@@ -1,9 +1,6 @@
+
 public/
 resources/
 node_modules/
-package-lock.json
+tech-doc-hugo
 
-*.iml
-.idea/
-
-.DS_Store
