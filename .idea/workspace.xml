@@ -2,60 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e8047f9-10e8-444c-827b-4add9a1d0cda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/scss/_variables_project.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/_index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/about/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/about/featured-background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/blog/Netty/Netty-ByteBuf组件.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/blog/Netty/Netty-ChannelHandler组件.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/blog/Netty/Netty-EventLoop.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/blog/Netty/Netty-channel组件.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/blog/Netty/Netty.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/blog/Netty/Netty优化.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/blog/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/community/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Adding content/Shortcodes/index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Adding content/Shortcodes/spruce.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Adding content/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Adding content/content.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Adding content/feedback.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Adding content/iconsimages.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Adding content/lookandfeel.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Adding content/navigation.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Adding content/print.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Adding content/repository-links.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Adding content/versioning.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Best practices/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Best practices/organizing-content.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Best practices/site-guidance.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Contribution guidelines/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Deployment/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Examples/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Getting started/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Language/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/Updating/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/docs/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/featured-background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/others/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/search.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/spring/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/spring/featured-background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/i18n/en.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layouts/sitemap.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/google6a6ae8b5b016a20d.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/feedback.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/no.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/version-banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/yes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layouts/partials/hooks/body-end.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layouts/partials/hooks/head-end.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitmodules" beforeDir="false" afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/config.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/Java修饰符.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,13 +74,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -145,6 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609385263843</updated>
       <workItem from="1609385265149" duration="8613000" />
+      <workItem from="1609641444878" duration="13903000" />
     </task>
     <servers />
   </component>

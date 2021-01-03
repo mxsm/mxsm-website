@@ -35,7 +35,7 @@ pygmentsStyle = "tango"
 #blog = "/:section/:year/:month/:day/:slug/"
 
 [outputs]
-home = [ "HTML", "JSON" ]
+home = [ "HTML", "JSON"]
 page = [ "HTML" ]
 section = [ "HTML", "RSS", "print"]
 
@@ -123,10 +123,10 @@ time_format_default = "2006-01-02"
 rss_sections = ["blog"]
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
-gcs_engine_id = "011217106833237091527:la2vtv2emlw"
+#gcs_engine_id = "011217106833237091527:la2vtv2emlw"
 
 # Enable Algolia DocSearch
-algolia_docsearch = false
+algolia_docsearch = true
 
 #Enable offline search with Lunr.js
 offlineSearch = false
@@ -139,11 +139,11 @@ prism_syntax_highlighting = false
 # User interface configuration
 [params.ui]
 # Enable to show the side bar menu in its compact state.
-sidebar_menu_compact = false
+sidebar_menu_compact = true
 #  Set to true to disable breadcrumb navigation.
 breadcrumb_disable = false
 #  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
-sidebar_search_disable = false
+sidebar_search_disable = true
 #  Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
 navbar_logo = true
 
@@ -204,3 +204,8 @@ theme = "default"
 
 [params.print]
 disable_toc = false
+
+[sitemap]
+changefreq = "monthly"
+filename = "sitemap.xml"
+priority = 0.5
