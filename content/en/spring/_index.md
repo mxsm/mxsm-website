@@ -3,7 +3,7 @@ title: Spring
 linkTitle: Spring
 menu:
   main:
-    weight: 50
+    weight: 30
 ---
 
 {{% blocks/cover title="Spring makes Java" height="auto" %}}
@@ -16,11 +16,11 @@ Spring makes programming Java quicker, easier, and safer for everybody. Spring�
 
 {{< blocks/section color="dark" type="features">}}
 
-{{% blocks/feature icon="fa fa-leaf" title="Spring Framework Blog" url="../springframework/" %}}
+{{% blocks/feature icon="fa fa-leaf" title="Spring Framework Blog" url="/springframework/" %}}
 Spring Framework相关的源码解析以及Spring Framework框架的自定义拓展例子.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fas fa-power-off" title="Spring Boot" url="https://spring.io/projects/spring-boot" %}}
+{{% blocks/feature icon="fas fa-power-off" title="Spring Boot" url="/springboot/" %}}
 Spring Boot源码解析和Spring Boot自定义拓展的技巧
 {{% /blocks/feature %}}
 

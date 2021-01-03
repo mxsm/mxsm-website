@@ -1,6 +1,6 @@
 ---
-title: 关于我
-linkTitle: 主页
+title: Home
+linkTitle: Home
 menu:
   main:
     weight: 10

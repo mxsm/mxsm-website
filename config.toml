@@ -53,10 +53,10 @@ quality = 75
 anchor = "smart"
 
 # Additional menu items
-[[menu.main]]
-    name = "中间件"
-    weight = 100
-    url = "https://github.com/mxsm"
+#[[menu.main]]
+#   name = "中间件"
+#    weight = 100
+#    url = "https://github.com/mxsm"
 
 [services]
 [services.googleAnalytics]
@@ -67,7 +67,7 @@ id = "UA-00000000-0"
 
 [languages]
 [languages.en]
-title = "mxsm"
+title = "蚂蚁背大象"
 description = "Docsy does docs"
 languageName ="English"
 # Weight used for sorting.
@@ -143,7 +143,7 @@ sidebar_menu_compact = true
 #  Set to true to disable breadcrumb navigation.
 breadcrumb_disable = false
 #  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
-sidebar_search_disable = true
+sidebar_search_disable = false
 #  Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
 navbar_logo = true
 

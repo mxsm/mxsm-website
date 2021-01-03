@@ -1,10 +1,7 @@
 
 ---
-title: "Others"
-linkTitle: "Others"
-menu:
-  main:
-    weight: 60
+title: "Spring Framework"
+linkTitle: "Spring Framework"
 ---
 
 Welcome to the Docsy theme user guide! This guide shows you how to get started creating technical documentation sites using Docsy, including site customization and how to use Docsy's blocks and templates.
