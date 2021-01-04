@@ -1,0 +1,27 @@
+{
+  "index_name": "mxsm",
+  "start_urls": [
+    "http://192.168.31.182:1313/docs/",
+    "http://192.168.31.182:1313/blog/"
+  ],
+  "sitemap_urls": [
+    "http://192.168.31.182:1313/sitemap.xml"
+  ],
+  "stop_urls": [],
+  "selectors": {
+    "lvl0": {
+      "selector": ".td-sidebar-link.td-sidebar-link__page",
+      "default_value": "Documentation"
+    },
+    "lvl1": "main h1",
+    "lvl2": "main h2",
+    "lvl3": "main h3",
+    "lvl4": "main h4",
+    "lvl5": "main h5",
+    "text": "main p, main li"
+  },
+  "conversation_id": [
+    "963433462"
+  ],
+  "nb_hits": 621
+}
