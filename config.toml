@@ -10,7 +10,7 @@ theme = ["docsy"]
 enableGitInfo = true
 
 # Language settings
-contentDir = "content/"
+contentDir = "content/en"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 # Useful when translating.
@@ -70,7 +70,7 @@ id = "UA-00000000-0"
 [languages]
 [languages.en]
 title = "蚂蚁背大象"
-description = "Docsy does docs"
+description = "蚂蚁背大象博客"
 languageName ="English"
 # Weight used for sorting.
 weight = 1
