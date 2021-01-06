@@ -10,7 +10,7 @@ theme = ["docsy"]
 enableGitInfo = true
 
 # Language settings
-contentDir = "content/en"
+contentDir = "content/"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 # Useful when translating.
@@ -107,12 +107,12 @@ version = "0.0"
 
 # A link to latest version of the docs. Used in the "version-banner" partial to
 # point people to the main doc site.
-url_latest_version = "https://example.com"
+url_latest_version = "https://blog.ljbmxsm.com"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/google/docsy"
+github_repo = "https://github.com/mxsm/mxsm-website"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/google/docsy"
+github_project_repo = "https://github.com/mxsm/mxsm-website"
 
 # Specify a value here if your content directory is not in your repo's root directory
 github_subdir = "userguide"
@@ -154,7 +154,7 @@ navbar_logo = true
 # If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
 # add "hide_feedback: true" to the page's front matter.
 [params.ui.feedback]
-enable = true
+enable = false
 # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
 # Update with your own repository and response text.
 yes = 'Glad to hear it! Please <a href="https://github.com/google/docsy/issues/new">tell us how we can improve</a>.'

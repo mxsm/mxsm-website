@@ -20,11 +20,11 @@ Spring makes programming Java quicker, easier, and safer for everybody. Spring�
 Spring Framework相关的源码解析以及Spring Framework框架的自定义拓展例子.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fas fa-power-off" title="Spring Boot" url="/springboot/" %}}
+{{% blocks/feature icon="fas fa-power-off" title="Spring Boot Blog" url="/springboot/" %}}
 Spring Boot源码解析和Spring Boot自定义拓展的技巧
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fas fa-cloud" title="Spring Cloud" url="/springcloud/" %}}
+{{% blocks/feature icon="fas fa-cloud" title="Spring Cloud Blog" url="/springcloud/" %}}
 Spring Cloud源码解析和一些Spring Cloud的相关开发知识
 {{% /blocks/feature %}}
 
