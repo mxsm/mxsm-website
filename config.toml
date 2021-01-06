@@ -115,7 +115,9 @@ github_repo = "https://github.com/mxsm/mxsm-website"
 github_project_repo = "https://github.com/mxsm/mxsm-website"
 
 # Specify a value here if your content directory is not in your repo's root directory
-github_subdir = "userguide"
+#github_subdir = "usergaid"
+github_subdir = ""
+github_branch = "main"
 
 time_format_blog = "2006-01-02"
 #time_format_blog = "Monday, January 02, 2006"
