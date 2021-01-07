@@ -127,7 +127,7 @@ time_format_default = "2006-01-02"
 rss_sections = ["blog"]
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
-#gcs_engine_id = "011217106833237091527:la2vtv2emlw"
+#gcs_engine_id = "96a08d37bb585ab44"
 
 # Enable Algolia DocSearch
 algolia_docsearch = true
