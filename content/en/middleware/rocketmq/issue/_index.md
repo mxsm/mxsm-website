@@ -1,9 +1,10 @@
-
 ---
-title: "问题"
-linkTitle: "问题记录"
+title: "问题记录"
+linkTitle: "Issue"
 weight: 20
 ---
+
+
 
 
 

@@ -1,7 +1,6 @@
-
 ---
-title: "查询DSL"
-linkTitle: "查询DSL"
+title: "Elasticsearch 查询DSL"
+linkTitle: "Elasticsearch 查询DSL"
 weight: 20
 ---
 

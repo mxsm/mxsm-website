@@ -1,7 +1,6 @@
-
 ---
-title: "Mapping"
-linkTitle: "Mapping"
+title: "Elasticsearch Mapping"
+linkTitle: "Elasticsearch Mapping"
 weight: 20
 ---
 
