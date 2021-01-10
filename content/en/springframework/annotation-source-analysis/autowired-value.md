@@ -1,18 +1,8 @@
 ---
-title: spring注解源码解析之-Autowired和Value
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之注解
-  - Spring注解源码解析之配置类注解
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之注解
-abbrlink: 3212314f
+title: Spring注解源码解析之-Autowired和Value
+linkTitle: Spring注解源码解析之-Autowired和Value
 date: 2019-05-14 01:38:32
+weight: 1
 ---
 ### 1. @Autowired和@Value注解--Spring5.2.X
 

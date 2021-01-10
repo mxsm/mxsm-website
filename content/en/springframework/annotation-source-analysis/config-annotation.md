@@ -1,18 +1,8 @@
 ---
 title: spring注解源码解析之-配置类注解
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之注解
-  - Spring注解源码解析之配置类注解
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之注解
-abbrlink: 93ffe81c
+linkTitle: spring注解源码解析之-配置类注解
 date: 2018-03-09 08:21:21
+weight: 3
 ---
 ### 1. Spring配置类注解
 在Spring中的配置类主要包含五个注解：  

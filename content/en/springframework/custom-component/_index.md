@@ -1,7 +1,7 @@
 ---
-title: "spring framework 自定义组件"
-linkTitle: "自定义组件"
-weight: 20
+title: "Spring framework自定义组件"
+linkTitle: "Spring framework自定义组件"
+weight: 4 
 ---
 
 

@@ -1,18 +1,8 @@
 ---
 title: spring注解源码解析之-Conditional
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之注解
-  - Spring注解源码解析之其他注解
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之注解
-abbrlink: 8e253442
+linkTitle: spring注解源码解析之-Conditional
 date: 2018-04-15 23:18:34
+weight: 2
 ---
 ### 1. Conditional注解的作用
 
