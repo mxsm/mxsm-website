@@ -215,3 +215,6 @@ disable_toc = false
 changefreq = "monthly"
 filename = "sitemap.xml"
 priority = 0.5
+
+[params.custom.plugin]
+fancybox = true
