@@ -4,7 +4,9 @@ linkTitle: Spring注解源码解析之-Autowired和Value
 date: 2019-05-14 01:38:32
 weight: 1
 ---
-### 1. @Autowired和@Value注解--Spring5.2.X
+### 1. @Autowired和@Value注解
+
+> 源码版本Spring5.2.X
 
 首先来看一下这两个注解的源码
 
