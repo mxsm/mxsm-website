@@ -208,6 +208,9 @@ enable = false
 enable = true
 theme = "default"
 
+[params.flowchart]
+enable = true
+
 [params.print]
 disable_toc = false
 
