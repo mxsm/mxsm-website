@@ -1,16 +1,6 @@
 ---
 title: HashMap源码解析
-categories:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Map集合源码解析
-tags:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Map集合源码解析
-abbrlink: a2a7cca8
+likeTitle: HashMap源码解析
 date: 2018-11-10 11:32:18
 ---
 ### 哈希算法
@@ -20,7 +10,7 @@ hash是具有唯一性且不可逆的，唯一性指的是相同的输入产生�
 
 一个完美的散列函数要能够做到均匀地将key分布到buckets中，每一个key分配到一个bucket，但这是不可能的。虽然hash算法具有唯一性，但同时它还具有重复性，**唯一性保证了相同输入的输出是一致的，却没有保证不同输入的输出是不一致的**，也就是说，**完全有可能两个不同的key被分配到了同一个bucket（因为它们的hash code可能是相同的），这叫做碰撞冲突**。总之，理想很丰满，现实很骨感，散列函数只能尽可能地减少冲突，没有办法完全消除冲突。
 
-### 什么时候会产生冲突HashMap
+### HashMap的哈希冲突
 HashMap中调用hashCode()方法来计算hashCode。
 由于在Java中两个不同的对象可能有一样的hashCode,所以不同的键可能有一样hashCode，从而导致冲突的产生。
 
@@ -33,13 +23,7 @@ HashMap中调用hashCode()方法来计算hashCode。
 以上就是Java中HashMap如何处理冲突。这种方法被称为链地址法，因为使用链表存储同一桶内的元素。通常情况HashMap，HashSet，LinkedHashSet，LinkedHashMap，ConcurrentHashMap，HashTable，IdentityHashMap和WeakHashMap均采用这种方法处理冲突。  
 从JDK 8开始，HashMap，LinkedHashMap和ConcurrentHashMap为了提升性能，在频繁冲突的时候使用平衡树来替代链表。因为HashSet内部使用了HashMap，LinkedHashSet内部使用了LinkedHashMap，所以他们的性能也会得到提升。
 
-在Java 8 之前， 如果发生碰撞往往是将该value直接链接到该位置的其他所有value的末尾，即相互碰撞的所有value形成一个链表。
-
-因此，在最坏情况下，HashMap的查找时间复杂度将退化到O（n）.
-
-但是在Java 8 中，该碰撞后的处理进行了改进。当一个位置所在的冲突过多时，存储的value将形成一个排序二叉树，排序依据为key的hashcode。
-
-则，在最坏情况下，HashMap的查找时间复杂度将从O（1）退化到O（logn）。
+在Java 8 之前， 如果发生碰撞往往是将该value直接链接到该位置的其他所有value的末尾，即相互碰撞的所有value形成一个链表。因此，在最坏情况下，HashMap的查找时间复杂度将退化到O（n）.但是在Java 8 中，该碰撞后的处理进行了改进。当一个位置所在的冲突过多时，存储的value将形成一个排序二叉树，排序依据为key的hashcode。则在最坏情况下，HashMap的查找时间复杂度将从O（1）退化到O（logn）。
 
 #### 由链表改进为红黑树的好处
 1. 最坏的情况的时间开销由O（n）降到了O（logn）
@@ -65,7 +49,7 @@ HashMap之前实现
 针对这种情况，JDK 1.8 中引入了 红黑树（查找时间复杂度为 O(logn)）来优化这个问题
 常见的算法时间复杂度由小到大依次为：  Ο(1)＜Ο(log2n)＜Ο(n)＜Ο(nlog2n)＜Ο(n2)＜Ο(n3)＜…＜Ο(2n)＜Ο(n!)
 
-#### JDK8 HashMap
+### JDK8 HashMap
 HashMap数据结构示意图见(哈希表+单链表+红黑树)：![HashMap内部结构图示](https://github.com/mxsm/document/blob/master/image/JSE/hashmapdatastruct.png?raw=true)
 
 HashMap几个重要的变量：
