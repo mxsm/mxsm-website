@@ -1313,7 +1313,7 @@ public abstract class AbstractQueuedSynchronizer
 
 ```
 
-### 4 Semaphore(信号量) — 允许多个线程同时访问
+### 4. Semaphore(信号量) — 允许多个线程同时访问
 
 关键字 **`synchronized`**  和  **`ReentrantLock`** 都是只允许一个线程访问某个资源。Semaphore(信号量)可以指定多个线程同时访问某个资源。
 
@@ -1356,11 +1356,11 @@ public class SemaphoreExample1 {
 
 **`Semaphore`** 好比是一条高速公路，构造函数好比说明了高速公路拥有几条车道，公平和非公平是否允许这条高速公路插队。每一个线程好比高速公路上面的汽车，**acquire** 方法好比一台骑车占用几个车道，如果占用一个车道5车道就能跑5辆车，如果要占用5个车道就只能跑一辆车。
 
-### 6. CountDownLatch
+### 5. CountDownLatch
 
 **`CountDownLatch`** 是一个同步工具类，它允许一个或多个线程一直等待，直到其他线程的操作执行完后再执行。
 
-#### 6.1 CountDownLatch的三种经典用法
+#### 5.1 CountDownLatch的三种经典用法
 
 - **某一线程在开始运行前等待n个线程执行完毕。**
 
@@ -1480,11 +1480,11 @@ public class SemaphoreExample1 {
 
 - **死锁检测**
 
-#### 6.2  CountDownLatch不足
+#### 5.2  CountDownLatch不足
 
 CountDownLatch是一次性的，计数器的值只能在构造方法中初始化一次，之后没有任何机制再次对其设置值，当CountDownLatch使用完毕后，它不能再次被使用。
 
-### 7. CyclicBarrier (循环栅栏)
+### 6. CyclicBarrier (循环栅栏)
 
 CyclicBarrier 的字面意思是可循环使用（Cyclic）的屏障（Barrier）,好比一桌人吃饭一样，比如8个人一桌，人到齐了就可以开饭。如果如果小于八个人就不能开饭。能实现和CountDownLatch相类似的功能。
 
