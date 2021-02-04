@@ -380,7 +380,7 @@ public abstract class AbstractExecutorService implements ExecutorService {
 
 从上面可以看出来上面方法实现主要是通过调用  **`execute`** 和 **`ExecutorCompletionService`** 这个类。来实现了 **`submit`** , **`doInvokeAny`**  ,**`invokeAll`** 这些方法。
 
-### 3 看看最常用的实现 **`ThreadPoolExecutor`**
+### 3. 看看最常用的实现 **`ThreadPoolExecutor`**
 
 首先我们来看一下 **`ThreadPoolExecutor`** 类中包含的成员变量进行逐一的分析
 
@@ -439,10 +439,10 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
     //00100000000000000000000000000000
     private static final int STOP       =  1 << COUNT_BITS;
     
-    //10000000000000000000000000000000
+    //01000000000000000000000000000000
     private static final int TIDYING    =  2 << COUNT_BITS;
     
-    //11000000000000000000000000000000
+    //01100000000000000000000000000000
     private static final int TERMINATED =  3 << COUNT_BITS;
 
     // 拆解出运行状态
@@ -591,7 +591,7 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
     }
 ```
 
-### 3. execute 的实现
+### 4. execute 的实现
 
 从上面可以看出来上面方法实现主要是通过调用  **`execute`** 和 **`ExecutorCompletionService`** 这个类。来实现了 **`submit`** , **`doInvokeAny`**  ,**`invokeAll`** 这些方法。下面就来看一下 **`execute`** 这方法在 **`ThreadPoolExecutor`** 中是如何实现的。
 
@@ -890,7 +890,7 @@ private Runnable getTask() {
 
 
 
-### 2 线程池化的模型图
+### 5. 线程池化的模型图
 
 - 从池的空闲线程列表中选择一个 Thread，并且指派它去运行一个已提交的任务(一个 Runnable，Callable 的实现)
 
@@ -900,7 +900,7 @@ private Runnable getTask() {
 
   
 
-### 3 线程池拒绝策略
+### 6. 线程池拒绝策略
 
 - CallerRunsPolicy：在任务被拒绝添加后，会调用当前线程池的所在的线程去执行被拒绝的任务
 
