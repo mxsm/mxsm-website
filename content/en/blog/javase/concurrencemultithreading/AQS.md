@@ -172,10 +172,12 @@ public abstract class AbstractQueuedSynchronizer
         //在同步队列中等待的线程等待超时或被中断，需要从同步队列中取消该Node的结点，其结点的waitStatus为CANCELLED，即结束状态，进入该状态后的结点将不会再变化。
         static final int CANCELLED =  1;
         /** waitStatus 指示后继线程需要卸载 */
-        //值为-1，被标识为该等待唤醒状态的后继结点，当其前继结点的线程释放了同步锁或被取消，将会通知该后继结点的线程执行。说白了，就是处于唤醒状态，只要前继结点释放锁，就会通知标识为SIGNAL状态的后继结点的线程执行。
+        //值为-1，被标识为该等待唤醒状态的后继结点，当其前继结点的线程释放了同步锁或被取消，将会通知该后继结点的线程执行。
+	//说白了，就是处于唤醒状态，只要前继结点释放锁，就会通知标识为SIGNAL状态的后继结点的线程执行。
         static final int SIGNAL    = -1;
         /** waitStatus 只是线程在condition上面等待  */
-        //值为-2，与Condition相关，该标识的结点处于等待队列中，结点的线程等待在Condition上，当其他线程调用了Condition的signal()方法后，CONDITION状态的结点将从等待队列转移到同步队列中，等待获取同步锁。
+        //值为-2，与Condition相关，该标识的结点处于等待队列中，结点的线程等待在Condition上，当其他线程调用了Condition的signal()方法后，
+	//CONDITION状态的结点将从等待队列转移到同步队列中，等待获取同步锁。
         static final int CONDITION = -2;
         /**
          * waitStatus 值指示下一个acquireShared应该无条件传播
