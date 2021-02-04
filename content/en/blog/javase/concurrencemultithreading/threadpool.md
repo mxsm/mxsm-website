@@ -439,10 +439,10 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
     //00100000000000000000000000000000
     private static final int STOP       =  1 << COUNT_BITS;
     
-    //10000000000000000000000000000000
+    //01000000000000000000000000000000
     private static final int TIDYING    =  2 << COUNT_BITS;
     
-    //11000000000000000000000000000000
+    //01100000000000000000000000000000
     private static final int TERMINATED =  3 << COUNT_BITS;
 
     // 拆解出运行状态
