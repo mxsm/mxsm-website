@@ -1,14 +1,7 @@
 ---
-title: Thread的常用方法
-categories:
-  - Java
-  - JSE
-  - 并发和多线程
-tags:
-  - Java
-  - JSE
-  - 并发和多线程
-abbrlink: bd87e127
+title: "Thread的常用方法"
+linkTitle: "Thread的常用方法"
+weight: 3
 date: 2019-02-22 04:08:49
 ---
 ### Thread.sleep—static方法
@@ -143,7 +136,7 @@ false
 
 ### Thread.interrupt — 实例方法
 
-作用：调用**`Thread`对象**的**`interrupt`**函数并不是立中断线程，而只是将**线程中的终端状态设置为true**,当线程运行其中有调用阻塞的函数时(Thread.sleep,Object.wait,Thread.join等)，阻塞函数调用后会不断的轮询检测中断状态的标注是否为true,这停止阻塞并且抛出**`InterruptedException`**异常，同时还会重置中断状态标志位**false**。有循环则继续阻塞直到正常结束。
+作用：调用 **`Thread`对象** 的 **`interrupt`** 函数并不是立中断线程，而只是将**线程中的终端状态设置为true**,当线程运行其中有调用阻塞的函数时(Thread.sleep,Object.wait,Thread.join等)，阻塞函数调用后会不断的轮询检测中断状态的标注是否为true,这停止阻塞并且抛出 **`InterruptedException`** 异常，同时还会重置中断状态标志位 **false** 。有循环则继续阻塞直到正常结束。
 
 演示代码如下：
 
@@ -294,7 +287,7 @@ Java中的线程分为两类：
 
 - **有超时参数**：调用 **`join()`** 方法不带超时时间，引用的线程阻塞或者执行时间较长，那么线程就会一直阻塞，这样可能会变成一个没有响应的问题。为了解决这个问题我们设置一个超时时间。超时时间为0将不会超时。和没有超时参数是一个效果。
 
-- **join()和同步**：调用 **`join()`** 方法有同步的效果，等待线程直到引用中止。join()创建了 **Happens-before** 关系（*All actions in a thread happen-before any other thread successfully returns from a join() on that thread*）。这就意味着当线程**t1**调用**t2.join()**所有的 **t2** 的改变返回在 **t1** 都是可见的，然而我们不调用 **join()** 或者使用其他的同步机制。我们不能保证当 **t2** 完成或者甚至其他的线程完成在 **t1** 线程中可见。因此即使被调用的线程是中止状态立刻返回，在某些情况下我们仍然需要调用。
+- **join()和同步**：调用 **`join()`** 方法有同步的效果，等待线程直到引用中止。join()创建了 **Happens-before** 关系（*All actions in a thread happen-before any other thread successfully returns from a join() on that thread*）。这就意味着当线程**t1**调用 **t2.join()** 所有的 **t2** 的改变返回在 **t1** 都是可见的，然而我们不调用 **join()** 或者使用其他的同步机制。我们不能保证当 **t2** 完成或者甚至其他的线程完成在 **t1** 线程中可见。因此即使被调用的线程是中止状态立刻返回，在某些情况下我们仍然需要调用。
 
   ```java
   SampleThread t4 = new SampleThread(10);

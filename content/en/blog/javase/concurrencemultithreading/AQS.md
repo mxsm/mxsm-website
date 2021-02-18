@@ -1,13 +1,7 @@
 ---
-title: AQS
-categories:
-  - Java
-  - JSE
-  - 并发和多线程
-tags:
-  - Java
-  - JSE
-  - 并发和多线程
+title: "AQS源码解析"
+linkTitle: "AQS源码解析"
+weight: 2
 date: 2018-05-11 05:48:46
 ---
 ### 1. 什么是AQS
