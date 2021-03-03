@@ -1,7 +1,7 @@
 ---
 title: SpringBoot源码解析之ConditionalOnXXX
 linkTitle: SpringBoot源码解析之ConditionalOnXXX
-date: 2019-12-09 11:19:31
+date: 2019-12-09
 weight: 3
 ---
 ### 1. SpringBoot中的ConditionalOnXXX类型的注解

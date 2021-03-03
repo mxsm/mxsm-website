@@ -1,15 +1,6 @@
 ---
 title: JVM常用的命令
-categories:
-  - Java
-  - JSE
-  - JVM
-tags:
-  - Java
-  - JSE
-  - JVM
-abbrlink: 9242f220
-date: 2018-09-29 02:30:04
+date: 2018-09-29
 ---
 ### 查看JVM默认垃圾收集器
 

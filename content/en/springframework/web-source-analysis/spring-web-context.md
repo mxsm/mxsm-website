@@ -1,15 +1,6 @@
 ---
 title: Spring Web Context
-categories:
-  - Spring
-  - Springframework
-  - Spring-web分析
-tags:
-  - Spring
-  - Springframework
-  - Spring-web分析
-abbrlink: 605e46fe
-date: 2018-10-30 06:53:43
+date: 2018-10-30
 ---
 ### 1. Spring Web Contexts
 

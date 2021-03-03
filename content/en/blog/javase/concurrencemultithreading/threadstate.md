@@ -1,15 +1,6 @@
 ---
 title: 线程的状态
-categories:
-  - Java
-  - JSE
-  - 并发和多线程
-tags:
-  - Java
-  - JSE
-  - 并发和多线程
-abbrlink: bdf09a3
-date: 2019-10-16 17:32:48
+date: 2019-10-16
 ---
 ### 线程状态
 

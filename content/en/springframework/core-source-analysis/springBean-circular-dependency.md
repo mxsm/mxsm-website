@@ -1,17 +1,6 @@
 ---
 title: SpringBean循环依赖源码解析
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之关键代码
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之关键代码
-abbrlink: 20870c52
-date: 2018-06-18 05:22:13
+date: 2018-06-18
 ---
 ### 1. 什么是Spring Bean的循环依赖
 

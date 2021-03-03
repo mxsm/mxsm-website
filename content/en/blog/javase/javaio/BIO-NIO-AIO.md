@@ -1,15 +1,6 @@
 ---
 title: BIO NIO AIO
-categories:
-  - Java
-  - JSE
-  - IO
-tags:
-  - Java
-  - JSE
-  - IO
-abbrlink: 8f23e9b4
-date: 2019-05-13 20:03:29
+date: 2019-05-13
 ---
 ### 几个概念
 

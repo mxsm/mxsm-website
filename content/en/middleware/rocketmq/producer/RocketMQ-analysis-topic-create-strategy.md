@@ -1,16 +1,6 @@
 ---
 title: RocketMQ源码解析-topic创建机制
-categories:
-  - MQ
-  - RocketMQ
-  - producer
-tags:
-  - MQ
-  - RocketMQ
-  - producer
-  - topic创建
-abbrlink: c63ffe4a
-date: 2020-03-25 00:00:00
+date: 2020-03-25
 ---
 
 

@@ -1,18 +1,6 @@
 ---
 title: Spring如何解析自定义xml的源码解析
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring 自定义拓展
-  - XML自定义拓展
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring 自定义拓展
-abbrlink: 366cf890
-date: 2018-10-19 07:40:56
+date: 2018-10-19
 ---
 ### 1. Spring如何加载自定义的xml Element
 

@@ -1,13 +1,6 @@
 ---
 title: 简单工厂模式
-categories:
-  - 设计模式
-  - 创建型模式
-tags:
-  - 设计模式
-  - 创建型模式
-abbrlink: 6b3bea20
-date: 2019-02-08 12:36:22
+date: 2019-02-08
 ---
 ### 简单工厂模式(Simple Factory Pattern)
 

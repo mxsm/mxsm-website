@@ -1,17 +1,6 @@
 ---
 title: 索引的类型
-categories:
-  - 数据库
-  - MYSQL
-  - 高性能MySQL读书笔记
-  - 索引
-tags:
-  - 数据库
-  - MYSQL
-  - 高性能MySQL读书笔记
-  - 索引
-abbrlink: ea553bd8
-date: 2018-07-24 09:26:49
+date: 2018-07-24
 ---
 **从索引的角度来提高数据库速度**
 

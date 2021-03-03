@@ -1,13 +1,6 @@
 ---
 title: Redis持久化
-categories:
-  - 缓存技术
-  - Redis
-tags:
-  - 缓存技术
-  - Redis
-abbrlink: 119ed1dc
-date: 2019-10-17 03:49:04
+date: 2019-10-17
 ---
 ### RDB 持久化 --Redis默认
 

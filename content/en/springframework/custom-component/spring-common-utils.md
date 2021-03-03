@@ -1,17 +1,6 @@
 ---
 title: Spring中常用的工具类
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring常用的工具类说明
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring常用的工具类说明
-abbrlink: 221d8220
-date: 2018-05-04 02:25:41
+date: 2018-05-04
 ---
 ### Spring常用的工具类说明
 

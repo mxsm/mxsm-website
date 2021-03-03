@@ -1,7 +1,7 @@
 ---
 title: SpringBoot源码解析之autoconfigure
 linkTitle: SpringBoot源码解析之autoconfigure
-date: 2018-05-08 22:26:57
+date: 2018-05-08
 ---
 ### 1. SpringBootApplication注解
 SpringBootApplication注解是SpringBoot中最重要的一个注解，用来启动SprintBoot应用。

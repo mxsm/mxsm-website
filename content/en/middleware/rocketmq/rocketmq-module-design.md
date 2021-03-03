@@ -1,14 +1,6 @@
 ---
 title: rocketmq-模块设计
-categories:
-  - MQ
-  - RocketMQ
-tags:
-  - MQ
-  - RocketMQ
-  - rocketmq-模块设计
-abbrlink: '7802083'
-date: 2020-03-18 00:00:00
+date: 2020-03-18
 ---
 
 

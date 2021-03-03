@@ -1,15 +1,6 @@
 ---
 title: 覆盖索引
-categories:
-  - 数据库
-  - MYSQL
-  - mysql
-tags:
-  - 数据库
-  - MYSQL
-  - mysql
-abbrlink: 9627de3
-date: 2018-07-10 15:11:37
+date: 2018-07-10
 ---
 ### 1. 什么是MySQL的覆盖索引
 

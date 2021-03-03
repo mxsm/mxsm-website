@@ -1,18 +1,6 @@
 ---
 title: ConfigurationClassPostProcessor源码解析
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之核心类核心代码
-  - Spring源码解析之Bean
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之Bean
-abbrlink: 4e69d808
-date: 2018-04-02 05:25:26
+date: 2018-04-02
 ---
 ### 1. ConfigurationClassPostProcessor
 这个类主要用来处理Spring中的配置注解，Spring的配置注解主要包含一下几个：

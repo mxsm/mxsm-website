@@ -1,15 +1,6 @@
 ---
 title: MySQL的优化
-categories:
-  - 数据库
-  - MYSQL
-  - mysql
-tags:
-  - 数据库
-  - MYSQL
-  - mysql
-abbrlink: f1e1e97a
-date: 2018-06-28 09:15:20
+date: 2018-06-28
 ---
 ### 1. MySQL优化的三个方面
 

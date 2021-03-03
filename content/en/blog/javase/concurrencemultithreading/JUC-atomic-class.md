@@ -1,15 +1,6 @@
 ---
 title: JUC包中的原子类
-categories:
-  - Java
-  - JSE
-  - 并发和多线程
-tags:
-  - Java
-  - JSE
-  - 并发和多线程
-abbrlink: b0273a49
-date: 2018-08-08 00:41:07
+date: 2018-08-08
 ---
 ### 1 Atomic原子类介绍
 

@@ -1,18 +1,6 @@
 ---
 title: Spring ApplicationContext源码解析
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之核心类核心代码
-  - Spring源码解析之ApplicationContext
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之Application
-abbrlink: 33dbb0a0
-date: 2018-11-06 19:18:34
+date: 2018-11-06 
 ---
 ### 1. ApplicationContext源码解析
 

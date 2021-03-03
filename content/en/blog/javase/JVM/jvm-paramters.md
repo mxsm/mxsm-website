@@ -1,15 +1,6 @@
 ---
 title: JVM参数
-categories:
-  - Java
-  - JSE
-  - JVM
-tags:
-  - Java
-  - JSE
-  - JVM
-abbrlink: 4377c1cc
-date: 2018-06-19 20:33:37
+date: 2018-06-19
 ---
 ### 1. 参数分类
 

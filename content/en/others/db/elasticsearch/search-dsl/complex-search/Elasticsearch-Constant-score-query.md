@@ -1,19 +1,6 @@
 ---
 title: Elasticsearch复合查询-Constant score query查询
-categories:
-  - 数据库
-  - elasticsearch
-  - 查询DSL
-  - 复合查询
-tags:
-  - 数据库
-  - elasticsearch
-  - 布尔查询
-  - DSL
-  - Constant score query
-  - Elasticsearch复合查询
-abbrlink: '49285978'
-date: 2020-02-15 14:48:00
+date: 2020-02-15
 ---
 
 > 注意：以下语法都是基于Elasticsearch的7.6版本

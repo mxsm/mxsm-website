@@ -1,15 +1,6 @@
 ---
 title: Config模块分析
-categories:
-  - RPC
-  - Dubbo
-  - 源码解析
-tags:
-  - RPC
-  - Dubbo
-  - 源码解析
-abbrlink: 5333f15d
-date: 2019-03-12 14:49:29
+date: 2019-03-12
 ---
 ### 类之间的继承关系
 

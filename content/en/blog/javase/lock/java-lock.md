@@ -1,15 +1,6 @@
 ---
 title: Java中的那些锁事-1
-categories:
-  - Java
-  - JSE
-  - 锁
-tags:
-  - Java
-  - JSE
-  - 锁
-abbrlink: f1779fa4
-date: 2018-08-26 22:37:40
+date: 2019-08-26
 ---
 ### 1. 锁的特性
 

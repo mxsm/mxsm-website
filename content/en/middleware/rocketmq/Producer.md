@@ -1,13 +1,6 @@
 ---
 title: Producer
-categories:
-  - MQ
-  - RocketMQ
-tags:
-  - MQ
-  - RocketMQ
-abbrlink: 6e122b8a
-date: 2019-01-19 14:45:17
+date: 2019-01-19
 ---
 ### 1. 消息发送的基本流程
 

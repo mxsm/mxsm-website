@@ -1,13 +1,6 @@
 ---
 title: 希尔排序
-categories:
-  - 算法
-  - 排序算法
-tags:
-  - 算法
-  - 排序算法
-abbrlink: 1ac49179
-date: 2019-06-05 07:46:58
+date: 2019-06-05
 ---
 ### 希尔排序(Shell Sort)
 

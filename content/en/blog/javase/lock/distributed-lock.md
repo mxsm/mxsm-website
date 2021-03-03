@@ -1,16 +1,6 @@
 ---
 title: 分布式锁
-categories:
-  - Java
-  - JSE
-  - 锁
-tags:
-  - Java
-  - JSE
-  - 锁
-  - 分布式锁
-abbrlink: 4eb3381c
-date: 2020-04-25 21:33:00
+date: 2020-04-25
 ---
 
 ### 分布式锁的特点

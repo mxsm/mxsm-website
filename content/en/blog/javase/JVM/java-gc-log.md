@@ -1,15 +1,6 @@
 ---
 title: Java GC日志图解
-categories:
-  - Java
-  - JSE
-  - JVM
-tags:
-  - Java
-  - JSE
-  - JVM
-abbrlink: 43a48c8f
-date: 2018-07-14 04:30:09
+date: 2018-07-14
 ---
 ### 1. GC日志开启
 

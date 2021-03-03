@@ -1,17 +1,6 @@
 ---
 title: LinkedList源码解析
-categories:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Collection集合源码分析
-tags:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Collection集合源码分析
-abbrlink: 2fbc4786
-date: 2019-11-17 05:33:53
+date: 2019-11-17
 ---
 ### 链表的数据结构
 

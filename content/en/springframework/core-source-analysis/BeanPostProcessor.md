@@ -1,18 +1,6 @@
 ---
 title: BeanPostProcessor讲解
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之核心类核心代码
-  - Spring源码解析之BeanPostProcessor系列
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之核心类
-abbrlink: d507e427
-date: 2019-11-26 17:26:17
+date: 2019-11-26
 ---
 ### 1. BeanPostProcessor是干什么的？
 

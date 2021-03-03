@@ -1,7 +1,7 @@
 ---
 title: SpringBoot源码解析之-AutoConfigureBefore、AutoConfigureOrder、AutoConfigureAfter
 linkTitle: SpringBoot源码解析之-AutoConfigureBefore、Order、After
-date: 2018-04-15 22:43:25
+date: 2018-04-15
 weight: 2
 ---
 ### 1. SpringBoot的类加载顺序注解

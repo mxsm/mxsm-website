@@ -1,15 +1,6 @@
 ---
 title: 深入了解WebApplicationInitializer是消除web.xml和springMVC的配置文件
-categories:
-  - Spring
-  - Springframework
-  - Spring-web分析
-tags:
-  - Spring
-  - Springframework
-  - Spring-web分析
-abbrlink: 8bb328cb
-date: 2019-02-21 07:43:45
+date: 2019-02-21
 ---
 ### 1. Servlet3.x规范一些知识
 #### 1.1 java Servlet3.x的相关规范

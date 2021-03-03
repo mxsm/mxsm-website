@@ -1,13 +1,6 @@
 ---
 title: Java源码简单吊炸天的设计
-categories:
-  - Java
-  - Java心得
-tags:
-  - Java
-  - Java心得
-abbrlink: 9e3fbfae
-date: 2019-02-17 08:43:18
+date: 2019-02-17
 ---
 ### `HashMap`中tableSizeFor函数
 

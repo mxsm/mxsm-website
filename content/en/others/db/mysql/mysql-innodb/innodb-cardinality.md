@@ -1,9 +1,12 @@
 ---
-title: "mysql引擎InnoDB索引中的cardinality关键字"
-linkTitle: "mysql引擎InnoDB索引中的cardinality关键字"
+
+title: mysql引擎InnoDB索引中的cardinality关键字  
+linkTitle: mysql引擎InnoDB索引中的cardinality关键字
 weight: 5
-date: 2021-02-25 20:43:00
+date: 2021-02-25 
 ---
+
+
 
 ### 什么是Cardinality
 cardinality用来统计字段的可选择性。例如：  

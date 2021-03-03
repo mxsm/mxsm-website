@@ -1,13 +1,6 @@
 ---
 title: Spring框架中接口命名的艺术
-categories:
-  - Spring
-  - Spring系列源码的艺术
-tags:
-  - Spring
-  - Spring系列源码的艺术
-abbrlink: 3fbcb0f2
-date: 2020-05-02 15:45:41
+date: 2020-05-02
 ---
 
 在Spring中有对外的拓展接口或者是内部的接口有很多。这些接口命名有一些规律。以后自己的代码也可以参照Spring的接口命名方式来进行命名。

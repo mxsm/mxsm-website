@@ -1,13 +1,6 @@
 ---
 title: Git版本回退
-categories:
-  - 开发工具
-  - git
-tags:
-  - git
-  - 版本回退
-abbrlink: 675ca355
-date: 2020-04-05 19:34:56
+date: 2020-04-05
 ---
 
 ### 使用命令

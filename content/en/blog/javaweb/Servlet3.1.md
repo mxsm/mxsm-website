@@ -1,13 +1,6 @@
 ---
 title: Servlet3.1
-categories:
-  - Java
-  - Java Web
-tags:
-  - Java
-  - Java Web
-abbrlink: 70ddb022
-date: 2018-05-19 11:05:33
+date: 2018-05-19
 ---
 ### 1. 什么是Servlet
 

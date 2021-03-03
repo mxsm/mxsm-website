@@ -1,15 +1,6 @@
 ---
 title: 自适应机制解析
-categories:
-  - RPC
-  - Dubbo
-  - 源码解析
-tags:
-  - RPC
-  - Dubbo
-  - 源码解析
-abbrlink: 3494c684
-date: 2018-03-05 21:01:19
+date: 2018-03-05
 ---
 ### 1. 两个注解
 

@@ -1,13 +1,6 @@
 ---
 title: Redis数据淘汰策略
-categories:
-  - 缓存技术
-  - Redis
-tags:
-  - 缓存技术
-  - Redis
-abbrlink: c2cf257f
-date: 2018-07-01 17:17:16
+date: 2018-07-01
 ---
 ### Redis数据回收
 

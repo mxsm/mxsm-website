@@ -1,15 +1,6 @@
 ---
 title: JVM垃圾收集器
-categories:
-  - Java
-  - JSE
-  - JVM
-tags:
-  - Java
-  - JSE
-  - JVM
-abbrlink: b38f68fb
-date: 2019-08-12 17:53:47
+date: 2019-08-12
 ---
 ### 1 垃圾收集算法
 

@@ -1,13 +1,6 @@
 ---
 title: volatile详解
-categories:
-  - Java
-  - JSE
-tags:
-  - Java
-  - JSE
-abbrlink: 6e37ac90
-date: 2019-11-06 03:20:07
+date: 2019-11-06
 ---
 ### volatile的官方定义
 

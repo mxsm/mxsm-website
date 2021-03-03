@@ -1,15 +1,6 @@
 ---
 title: 线程池
-categories:
-  - Java
-  - JSE
-  - 并发和多线程
-tags:
-  - Java
-  - JSE
-  - 并发和多线程
-abbrlink: de7c53fe
-date: 2018-11-12 18:20:15
+date: 2018-11-12
 ---
 ### 1. 线程池的继承关系
 

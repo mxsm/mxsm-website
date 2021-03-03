@@ -1,13 +1,6 @@
 ---
 title: 插入排序
-categories:
-  - 算法
-  - 排序算法
-tags:
-  - 算法
-  - 排序算法
-abbrlink: 96555fb2
-date: 2018-07-04 04:47:14
+date: 2018-07-04
 ---
 ### 插入排序(Insertion Sort)
 

@@ -1,15 +1,6 @@
 ---
 title: 类的加载
-categories:
-  - Java
-  - JSE
-  - JVM
-tags:
-  - Java
-  - JSE
-  - JVM
-abbrlink: 807bd2a4
-date: 2019-04-27 01:15:32
+date: 2019-04-27
 ---
 ### 1. 虚拟机类的加载
 

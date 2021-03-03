@@ -1,18 +1,6 @@
 ---
 title: ClassPathXmlApplicationContext源码解析
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之核心类核心代码
-  - Spring源码解析之ApplicationContext
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之Application
-abbrlink: a272be0e
-date: 2019-02-26 13:54:31
+date: 2019-02-26
 ---
 ### 1. ClassPathXmlApplicationContext源码解析
 
@@ -272,24 +260,27 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
                //加载Bean的定义
          		loadBeanDefinitions(beanDefinitionReader);
          	}
-        ```
+       ```
      
   2. **getBeanFactory --- 抽象方法由子类(AbstractRefreshableApplicationContext)实现**
   
      ```java
    @Override
      	public final ConfigurableListableBeanFactory getBeanFactory() {
+     ```
+  
    		synchronized (this.beanFactoryMonitor) {
-     			if (this.beanFactory == null) {
-     				throw new IllegalStateException("BeanFactory not initialized or already closed - " +
-     						"call 'refresh' before accessing beans via the ApplicationContext");
-     			}
-     			return this.beanFactory;
-     		}
-     	}
+   			if (this.beanFactory == null) {
+   				throw new IllegalStateException("BeanFactory not initialized or already closed - " +
+   						"call 'refresh' before accessing beans via the ApplicationContext");
+   			}
+   			return this.beanFactory;
+   		}
+   	}
      ```
      
      
+     ```
   
 - **`prepareBeanFactory(beanFactory)`**
 

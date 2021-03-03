@@ -1,14 +1,6 @@
 ---
 title: elasticsearch基本概念
-categories:
-  - 数据库
-  - elasticsearch
-tags:
-  - 数据库
-  - elasticsearch
-  - elasticsearch基本概念
-abbrlink: 30e5d631
-date: 2020-02-14 14:27:00
+date: 2020-02-14
 ---
 
 

@@ -1,17 +1,6 @@
 ---
 title: RocketMQ源码解析-RocketMQ顺序消息的投递与消费
-categories:
-  - MQ
-  - RocketMQ
-  - consumer
-tags:
-  - MQ
-  - RocketMQ
-  - consumer
-  - consumer消费策略
-  - RocketMQ顺序消息的投递与消费
-abbrlink: 96edbe8
-date: 2020-04-19 21:00:00
+date: 2020-04-19
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

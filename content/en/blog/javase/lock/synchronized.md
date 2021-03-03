@@ -1,15 +1,6 @@
 ---
 title: Java中的琐事-synchronized
-categories:
-  - Java
-  - JSE
-  - 锁
-tags:
-  - Java
-  - JSE
-  - 锁
-abbrlink: 57e6d4e7
-date: 2019-04-24 12:24:44
+date: 2019-04-24
 ---
 ### 1.  java的内置锁和显示锁
 

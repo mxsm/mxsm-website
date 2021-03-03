@@ -1,13 +1,6 @@
 ---
 title: Git常用命令-Tag
-categories:
-  - 开发工具
-  - git
-tags:
-  - git
-  - Tag
-abbrlink: be394dd2
-date: 2020-02-11 15:34:56
+date: 2020-02-11
 ---
 
 ### Git 基础 - 打标签

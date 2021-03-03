@@ -1,18 +1,6 @@
 ---
 title: AnnotationConfigApplicationContext源码解析
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之核心类核心代码
-  - Spring源码解析之ApplicationContext
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之Application
-abbrlink: 92b6b71b
-date: 2019-08-20 19:18:00
+date: 2019-08-20
 ---
 ### 1. AnnotationConfigApplicationContext  
 对于Application的实现是不同的，现在来分析一下常用的注解的实现。

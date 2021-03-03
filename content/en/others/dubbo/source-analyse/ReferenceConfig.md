@@ -1,15 +1,6 @@
 ---
 title: ReferenceConfig分析
-categories:
-  - RPC
-  - Dubbo
-  - 源码解析
-tags:
-  - RPC
-  - Dubbo
-  - 源码解析
-abbrlink: c2b11d2
-date: 2019-03-25 02:54:32
+date: 2019-03-25
 ---
 ###  ReferenceConfig代码分析
 

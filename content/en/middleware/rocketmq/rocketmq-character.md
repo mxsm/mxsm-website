@@ -1,14 +1,6 @@
 ---
 title: rocketmq-特性
-categories:
-  - MQ
-  - RocketMQ
-tags:
-  - MQ
-  - RocketMQ
-  - rocketmq-特性
-abbrlink: fdb76771
-date: 2020-03-10 00:00:00
+date: 2020-03-10
 ---
 
 

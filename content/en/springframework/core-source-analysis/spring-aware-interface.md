@@ -1,15 +1,6 @@
 ---
 title: Spring中的Aware接口
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-abbrlink: e71659e8
-date: 2018-08-25 13:48:54
+date: 2018-08-25
 ---
 #### 1. ApplicationContextAware
 

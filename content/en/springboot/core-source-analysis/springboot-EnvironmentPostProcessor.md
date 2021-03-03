@@ -1,7 +1,7 @@
 ---
 title: SpringBoot源码解析之spring.factories配置-EnvironmentPostProcessor
 linkTiletitle: SpringBoot源码解析之spring.factories配置-EnvironmentPostProcessor
-date: 2020-01-15 11:00:00
+date: 2020-01-15
 ---
 
 ### EnvironmentPostProcessor的作用

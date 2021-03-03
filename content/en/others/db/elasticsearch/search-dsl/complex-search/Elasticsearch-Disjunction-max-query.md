@@ -1,20 +1,6 @@
 ---
 title: Elasticsearch复合查询-Disjunction max query
-categories:
-  - 数据库
-  - elasticsearch
-  - 查询DSL
-  - 复合查询
-tags:
-  - 数据库
-  - elasticsearch
-  - 布尔查询
-  - DSL
-  - 复合查询
-  - Elasticsearch复合查询
-  - Elasticsearch-最佳匹配查询
-abbrlink: 8507d54f
-date: 2020-02-14 23:15:00
+date: 2020-02-14
 ---
 
 > 注意：以下语法都是基于Elasticsearch的7.6版本

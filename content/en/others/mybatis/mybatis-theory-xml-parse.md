@@ -1,14 +1,6 @@
 ---
 title: 深入理解mybatis原理-MyBatis配置xml文件解析
-categories:
-  - ORM框架
-  - mybatis
-tags:
-  - ORM框架
-  - mybatis
-  - MyBatis配置
-abbrlink: 8cdc37d1
-date: 2020-02-11 15:37:31
+date: 2020-02-11
 ---
 ### Mybatis创建的两种方式
 

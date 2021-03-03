@@ -1,11 +1,6 @@
 ---
 title: Netty
-categories:
-  - Netty
-tags:
-  - Netty
-abbrlink: 1c6ba3e2
-date: 2018-12-17 14:25:36
+date: 2018-12-17
 ---
 ### Netty 线程模型
 

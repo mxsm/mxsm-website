@@ -2,7 +2,7 @@
 title: "Thread的常用方法"
 linkTitle: "Thread的常用方法"
 weight: 3
-date: 2019-02-22 04:08:49
+date: 2019-02-22
 ---
 ### Thread.sleep—static方法
 

@@ -1,13 +1,6 @@
 ---
 title: Spring Cloud Gateway-新一代API网关服务
-categories:
-  - Spring
-  - Spring-Cloud
-  - Spring-Cloud-Gateway
-tags:
-  - Spring Cloud
-  - Spring-Cloud-Gateway
-date: 2020-11-21 20:18:41
+date: 2020-11-22
 weight: 1
 ---
 

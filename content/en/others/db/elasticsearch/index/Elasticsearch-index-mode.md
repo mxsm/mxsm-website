@@ -1,15 +1,6 @@
 ---
 title: Elasticsearch-索引模式
-categories:
-  - 数据库
-  - elasticsearch
-  - index
-tags:
-  - 数据库
-  - elasticsearch
-  - 索引
-abbrlink: c3654f9
-date: 2020-02-14 23:14:00
+date: 2020-02-14
 ---
 
 > 注意：以下语法都是基于Elasticsearch的7.6版本

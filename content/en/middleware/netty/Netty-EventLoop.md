@@ -1,11 +1,6 @@
 ---
 title: Netty-EventLoop
-categories:
-  - Netty
-tags:
-  - Netty
-abbrlink: a3d931d0
-date: 2019-09-24 12:13:47
+date: 2019-09-24
 ---
 ### 1. 什么是EventLoop?
 

@@ -1,17 +1,6 @@
 ---
 title: RocketMQ源码解析-Broker消息存储CommitLog
-categories:
-  - MQ
-  - RocketMQ
-  - Broker
-tags:
-  - MQ
-  - RocketMQ
-  - Broker源码解析
-  - 消息存储机制
-  - CommitLog
-abbrlink: 6c818462
-date: 2020-03-21 23:00:00
+date: 2020-03-21
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

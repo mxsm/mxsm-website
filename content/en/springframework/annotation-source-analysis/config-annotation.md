@@ -1,7 +1,7 @@
 ---
 title: spring注解源码解析之-配置类注解
 linkTitle: spring注解源码解析之-配置类注解
-date: 2018-03-09 08:21:21
+date: 2018-03-09
 weight: 3
 ---
 ### 1. Spring配置类注解

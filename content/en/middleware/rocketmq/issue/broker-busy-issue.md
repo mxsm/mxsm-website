@@ -1,16 +1,6 @@
 ---
 title: broker busy问题
-categories:
-  - MQ
-  - RocketMQ
-  - producer
-tags:
-  - MQ
-  - RocketMQ
-  - producer
-  - broker busy问题
-abbrlink: b194cb57
-date: 2020-04-05 21:40:00
+date: 2020-04-05
 ---
 
 

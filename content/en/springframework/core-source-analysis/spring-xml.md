@@ -1,17 +1,6 @@
 ---
 title: Spring XML解析源码分析
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之关键代码
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之关键代码
-abbrlink: '15697909'
-date: 2019-06-28 03:33:43
+date: 2019-06-28
 ---
 ### 1. Spring XML解析
 

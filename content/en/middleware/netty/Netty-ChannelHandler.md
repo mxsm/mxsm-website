@@ -1,11 +1,6 @@
 ---
 title: Netty-ChannelHandler组件
-categories:
-  - Netty
-tags:
-  - Netty
-abbrlink: b8798a09
-date: 2018-09-15 20:00:56
+date: 2018-09-15
 ---
 ### Channel的生命周期
 

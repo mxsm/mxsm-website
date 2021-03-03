@@ -1,7 +1,7 @@
 ---
 title: SpringBoot注解解析之ConditionalOnXXX条件注解
 linkeTitle: SpringBoot注解解析之ConditionalOnXXX条件注解
-date: 2020-01-14 12:35:25
+date: 2020-01-14
 ---
 ### 1 SpringBoot starter
 Spring starter主要通过ConditionXXX来实现的。

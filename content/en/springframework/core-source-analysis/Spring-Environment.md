@@ -1,18 +1,6 @@
 ---
 title: Spring Environment源码解析
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之组件
-  - Environment
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之组件
-abbrlink: '78940654'
-date: 2019-01-23 18:30:48
+date: 2019-01-23
 ---
 ### Environment关系图
 

@@ -1,13 +1,6 @@
 ---
 title: 动态代理与静态代理
-categories:
-  - Java
-  - JSE
-tags:
-  - Java
-  - JSE
-abbrlink: 5072383b
-date: 2018-08-11 19:08:33
+date: 2018-08-11
 ---
 #### 1. 什么是静态代理和动态代理？
 

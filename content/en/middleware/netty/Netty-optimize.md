@@ -1,11 +1,6 @@
 ---
 title: Netty优化
-categories:
-  - Netty
-tags:
-  - Netty
-abbrlink: 25b752cd
-date: 2018-09-07 22:18:31
+date: 2018-09-07
 ---
 ### backlog的设置
 

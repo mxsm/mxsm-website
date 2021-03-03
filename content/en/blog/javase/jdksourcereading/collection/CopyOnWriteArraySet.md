@@ -1,17 +1,6 @@
 ---
 title: CopyOnWriteArraySet源码解析
-categories:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Collection集合源码分析
-tags:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Collection集合源码分析
-abbrlink: 31dc46fb
-date: 2019-05-22 15:04:27
+date: 2019-05-22
 ---
 ### 1. CopyOnWriteArraySet的构造函数
 

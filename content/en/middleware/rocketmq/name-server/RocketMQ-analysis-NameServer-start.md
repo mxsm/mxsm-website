@@ -1,16 +1,6 @@
 ---
 title: RocketMQ源码解析-NameServer启动
-categories:
-  - MQ
-  - RocketMQ
-  - NameServer
-tags:
-  - MQ
-  - RocketMQ
-  - NameServer源码解析
-  - NameServer工作机制
-abbrlink: ed397a06
-date: 2020-03-11 00:00:00
+date: 2020-03-11
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

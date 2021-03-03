@@ -1,15 +1,6 @@
 ---
 title: 查询性能优化
-categories:
-  - 数据库
-  - MYSQL
-  - 高性能MySQL读书笔记
-tags:
-  - 数据库
-  - MYSQL
-  - 高性能MySQL读书笔记
-abbrlink: 55a87d5e
-date: 2018-05-05 18:47:30
+date: 2018-05-05
 ---
 ### 慢查询的基础：优化数据访问
 

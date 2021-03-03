@@ -1,15 +1,6 @@
 ---
 title: 常用的JDK工具命令
-categories:
-  - Java
-  - JSE
-  - JDK自带工具
-tags:
-  - Java
-  - JSE
-  - JDK自带工具
-abbrlink: '3618693'
-date: 2019-08-02 06:51:15
+date: 2019-08-02
 ---
 ### JDK常用的工具--JDK8
 

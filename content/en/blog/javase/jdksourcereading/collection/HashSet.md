@@ -1,17 +1,6 @@
 ---
 title: HashSet源码解析
-categories:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Collection集合源码分析
-tags:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Collection集合源码分析
-abbrlink: d2a3ae1f
-date: 2018-11-27 01:51:44
+date: 2018-11-27
 ---
 ### HashSet
 

@@ -1,15 +1,6 @@
 ---
 title: ContextLoaderListener 源码分析
-categories:
-  - Spring
-  - Springframework
-  - Spring-web分析
-tags:
-  - Spring
-  - Springframework
-  - Spring-web分析
-abbrlink: 4ad074b6
-date: 2018-09-18 04:12:16
+date: 2018-09-18
 ---
 ### 1. ContextLoaderListener类
 

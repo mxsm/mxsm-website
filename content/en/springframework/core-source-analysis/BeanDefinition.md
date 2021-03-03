@@ -1,17 +1,6 @@
 ---
 title: BeanDefinition详解
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之核心类
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之核心类
-abbrlink: b7e0d088
-date: 2019-11-11 15:18:35
+date: 2019-11-11
 ---
 ### 1. BeanDefinition的继承图
 

@@ -1,15 +1,6 @@
 ---
 title: 查看线程的CPU使用
-categories:
-  - Java
-  - JSE
-  - Java查问题
-tags:
-  - Java
-  - JSE
-  - Java查问题
-abbrlink: dbdfb061
-date: 2018-05-29 03:46:33
+date: 2018-05-29
 ---
 #### 1 查看Java程序运行的进程号
 

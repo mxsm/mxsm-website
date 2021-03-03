@@ -1,16 +1,6 @@
 ---
 title: RocketMQ源码解析-生产者投递消息策略
-categories:
-  - MQ
-  - RocketMQ
-  - producer
-tags:
-  - MQ
-  - RocketMQ
-  - producer
-  - 生产者投递消息策略
-abbrlink: 544b0df5
-date: 2020-03-25 23:00:00
+date: 2020-03-25
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

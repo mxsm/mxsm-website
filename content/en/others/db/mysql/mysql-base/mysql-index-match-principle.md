@@ -1,15 +1,6 @@
 ---
 title: Mysql的组合索引和最左匹配原则
-categories:
-  - 数据库
-  - MYSQL
-  - mysql
-tags:
-  - 数据库
-  - MYSQL
-  - mysql
-abbrlink: 244a560f
-date: 2019-01-26 22:54:20
+date: 2019-01-26
 ---
 ### 1. 什么时候创建组合索引
 

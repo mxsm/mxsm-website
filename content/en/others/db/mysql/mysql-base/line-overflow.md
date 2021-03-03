@@ -1,15 +1,6 @@
 ---
 title: 行溢出
-categories:
-  - 数据库
-  - MYSQL
-  - mysql
-tags:
-  - 数据库
-  - MYSQL
-  - mysql
-abbrlink: c3e12f38
-date: 2018-11-16 09:07:00
+date: 2018-11-16
 ---
 ### 行溢出参考
 

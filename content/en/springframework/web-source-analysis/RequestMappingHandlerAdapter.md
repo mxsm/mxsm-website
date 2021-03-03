@@ -1,15 +1,6 @@
 ---
 title: RequestMappingHandlerAdapter源码分析
-categories:
-  - Spring
-  - Springframework
-  - Spring-web分析
-tags:
-  - Spring
-  - Springframework
-  - Spring-web分析
-abbrlink: 83c490e6
-date: 2018-04-09 19:27:43
+date: 2018-04-09
 ---
 ### 1. RequestMappingHandlerAdapter初始化
 首先看一下构造函数

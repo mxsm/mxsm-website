@@ -1,15 +1,6 @@
 ---
 title: 存储引擎
-categories:
-  - 数据库
-  - MYSQL
-  - mysql
-tags:
-  - 数据库
-  - MYSQL
-  - mysql
-abbrlink: b2aef391
-date: 2018-08-16 17:46:00
+date: 2018-08-16
 ---
 ### 1. MyISAM存储引擎
 

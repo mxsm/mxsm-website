@@ -1,17 +1,6 @@
 ---
 title: Spring Event源码解析
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之事件驱动
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之事件驱动
-abbrlink: 4fd7c545
-date: 2018-04-05 23:51:27
+date: 2018-04-05
 ---
 ### 1. Spring事件机制
 事件驱动模型通常也被理解成观察者模式或者发布/订阅模型

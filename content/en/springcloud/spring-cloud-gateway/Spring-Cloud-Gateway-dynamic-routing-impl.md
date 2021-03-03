@@ -1,14 +1,6 @@
 ---
 title: Spring Cloud Gateway-动态路由器实现
-categories:
-  - Spring
-  - Spring-Cloud
-  - Spring-Cloud-Gateway
-tags:
-  - Spring Cloud
-  - Spring-Cloud-Gateway
-  - 动态路由器
-date: 2020-12-08 20:18:41
+date: 2020-12-08
 weight: 2
 ---
 

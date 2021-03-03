@@ -1,17 +1,6 @@
 ---
 title: FactoryBean解析
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之关键代码
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之关键代码
-abbrlink: feb6204e
-date: 2019-09-24 19:35:19
+date: 2019-09-24
 ---
 ### Spring FactoryBean应用
 

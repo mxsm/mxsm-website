@@ -1,13 +1,6 @@
 ---
 title: 接口抽象类的抉择
-categories:
-  - Java
-  - Java心得
-tags:
-  - Java
-  - Java心得
-abbrlink: d2d4228a
-date: 2019-12-17 04:48:21
+date: 2019-12-17
 ---
 ### 抽象类
 

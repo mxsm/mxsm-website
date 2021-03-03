@@ -1,15 +1,6 @@
 ---
 title: 深入理解mybatis原理-SQL的执行过程
-categories:
-  - ORM框架
-  - mybatis
-tags:
-  - ORM框架
-  - mybatis
-  - MyBatis原理
-  - SQL的执行过程
-abbrlink: 4b75ed66
-date: 2020-03-01 14:40:00
+date: 2020-03-01
 ---
 
 > 以下分析基于mybatis 3.5.2版本

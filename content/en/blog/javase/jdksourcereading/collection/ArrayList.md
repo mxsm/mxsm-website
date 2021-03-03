@@ -1,17 +1,6 @@
 ---
 title: ArrayList源码分析
-categories:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Collection集合源码分析
-tags:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Collection集合源码分析
-abbrlink: c352a0f3
-date: 2018-05-07 09:34:55
+date: 2018-05-07
 ---
 ### ArrayList
 

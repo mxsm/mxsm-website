@@ -1,15 +1,6 @@
 ---
 title: ServiceConfig源码分析
-categories:
-  - RPC
-  - Dubbo
-  - 源码解析
-tags:
-  - RPC
-  - Dubbo
-  - 源码解析
-abbrlink: 343f66
-date: 2018-07-17 14:09:26
+date: 2018-07-17
 ---
 服务导出的代码入口：
 

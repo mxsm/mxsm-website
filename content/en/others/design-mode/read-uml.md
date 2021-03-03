@@ -1,11 +1,6 @@
 ---
 title: 看懂UML图
-categories:
-  - 设计模式
-tags:
-  - 设计模式
-abbrlink: b9cc0f3c
-date: 2019-12-11 05:10:48
+date: 2019-12-11
 ---
 ### 类UML图
 

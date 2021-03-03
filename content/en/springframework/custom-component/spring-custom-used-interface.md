@@ -1,18 +1,6 @@
 ---
 title: Spring中自定义常见的接口
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring 自定义拓展
-  - 自定义拓展的技巧
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring 自定义拓展
-abbrlink: 2829cf9f
-date: 2019-05-24 22:34:22
+date: 2019-05-24
 ---
 ### 1. 常见的拓展接口
 

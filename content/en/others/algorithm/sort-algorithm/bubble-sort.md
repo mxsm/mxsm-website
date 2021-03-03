@@ -1,13 +1,6 @@
 ---
 title: 冒泡排序
-categories:
-  - 算法
-  - 排序算法
-tags:
-  - 算法
-  - 排序算法
-abbrlink: 14e6f1eb
-date: 2019-12-05 12:42:35
+date: 2019-12-05
 ---
 ### 冒泡排序(Bubble Sort)
 

@@ -1,15 +1,6 @@
 ---
 title: MySQL几种索引的区别
-categories:
-  - 数据库
-  - MYSQL
-  - mysql
-tags:
-  - 数据库
-  - MYSQL
-  - mysql
-abbrlink: 8d64d9b5
-date: 2019-07-13 01:50:56
+date: 2019-07-13
 ---
 ### 主键和唯一索引的区别
 

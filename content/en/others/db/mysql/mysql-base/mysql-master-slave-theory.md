@@ -1,15 +1,6 @@
 ---
 title: MySQL主从复制原理
-categories:
-  - 数据库
-  - MYSQL
-  - mysql
-tags:
-  - 数据库
-  - MYSQL
-  - mysql
-abbrlink: 5e46a137
-date: 2018-02-16 15:25:29
+date: 2018-02-16
 ---
 ### 1. MySQL的主从形式
 

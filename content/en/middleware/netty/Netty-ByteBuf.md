@@ -1,11 +1,6 @@
 ---
 title: Netty-ByteBuf组件
-categories:
-  - Netty
-tags:
-  - Netty
-abbrlink: 7217df8b
-date: 2018-07-25 22:55:13
+date: 2018-07-25
 ---
 ### ByteBuf --- netty的数据容器
 

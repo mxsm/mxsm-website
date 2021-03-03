@@ -1,18 +1,6 @@
 ---
 title: Spring自定义xml
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring 自定义拓展
-  - XML自定义拓展
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring 自定义拓展
-abbrlink: c14a2e36
-date: 2019-10-17 14:31:51
+date: 2019-10-17
 ---
 ### 1. Spring中的XML schema扩展机制
 

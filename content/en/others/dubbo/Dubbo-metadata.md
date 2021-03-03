@@ -1,13 +1,6 @@
 ---
 title: Dubbo元数据
-categories:
-  - RPC
-  - Dubbo
-tags:
-  - RPC
-  - Dubbo
-abbrlink: c66929c2
-date: 2019-12-23 16:44:15
+date: 2019-12-23
 ---
 ### 如何使用元数据？
 

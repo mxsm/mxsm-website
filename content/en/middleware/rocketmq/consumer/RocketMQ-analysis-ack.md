@@ -1,18 +1,6 @@
 ---
 title: RocketMQ源码解析-RocketMQ消息ACK机制及消费进度管理
-categories:
-  - MQ
-  - RocketMQ
-  - consumer
-tags:
-  - MQ
-  - RocketMQ
-  - consumer
-  - RocketMQ消息ACK机制
-  - 消费进度管理
-  - RocketMQ消息ACK机制及消费进度管理
-abbrlink: fa30b572
-date: 2020-04-21 00:02:00
+date: 2020-04-21
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

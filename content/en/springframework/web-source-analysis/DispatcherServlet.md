@@ -1,15 +1,6 @@
 ---
 title: DispatcherServlet源码解析
-categories:
-  - Spring
-  - Springframework
-  - Spring-web分析
-tags:
-  - Spring
-  - Springframework
-  - Spring-web分析
-abbrlink: d8d3733
-date: 2018-08-09 16:19:07
+date: 2018-08-09
 ---
 ### 1. DispatcherServlet是什么？
 从本质上是说DispatcherServlet就是一个Servlet规范的实现。也就是一个Servlet！

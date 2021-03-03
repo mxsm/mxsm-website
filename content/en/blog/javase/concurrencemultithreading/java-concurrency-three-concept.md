@@ -1,15 +1,6 @@
 ---
 title: Java并发编程中的三个概念
-categories:
-  - Java
-  - JSE
-  - 并发和多线程
-tags:
-  - Java
-  - JSE
-  - 并发和多线程
-abbrlink: 37d1776b
-date: 2019-03-18 21:50:51
+date: 2019-03-18
 ---
 ### 1 原子性
 

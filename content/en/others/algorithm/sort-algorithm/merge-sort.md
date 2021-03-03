@@ -1,13 +1,6 @@
 ---
 title: 归并排序
-categories:
-  - 算法
-  - 排序算法
-tags:
-  - 算法
-  - 排序算法
-abbrlink: 1599bffe
-date: 2019-08-29 09:17:31
+date: 2019-08-29
 ---
 ### 归并排序(Merge Sort)
 

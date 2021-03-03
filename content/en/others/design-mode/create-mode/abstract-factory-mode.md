@@ -1,13 +1,6 @@
 ---
 title: 抽象工厂模式
-categories:
-  - 设计模式
-  - 创建型模式
-tags:
-  - 设计模式
-  - 创建型模式
-abbrlink: 9b7d6e62
-date: 2020-01-01 23:00:46
+date: 2020-01-01
 ---
 ### 抽象工厂模式(Abstract Factory)
 

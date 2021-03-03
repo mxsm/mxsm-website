@@ -1,18 +1,6 @@
 ---
 title: RocketMQ源码解析-Broker接收拉取消息
-categories:
-  - MQ
-  - RocketMQ
-  - Broker
-tags:
-  - MQ
-  - RocketMQ
-  - Broker源码解析
-  - Broker工作机制
-  - Broker接收拉取消息
-  - PullMessageProcessor
-abbrlink: f8c36960
-date: 2020-03-28 15:21:00
+date: 2020-03-28
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

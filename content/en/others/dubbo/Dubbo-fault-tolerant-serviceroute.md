@@ -1,13 +1,6 @@
 ---
 title: Dubbo容错四大利器之— 服务路由
-categories:
-  - RPC
-  - Dubbo
-tags:
-  - RPC
-  - Dubbo
-abbrlink: 92a725e4
-date: 2019-06-04 15:30:59
+date: 2019-06-04
 ---
 ### 1 什么是服务路由？
 

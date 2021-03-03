@@ -1,13 +1,6 @@
 ---
 title: 工厂方法模式
-categories:
-  - 设计模式
-  - 创建型模式
-tags:
-  - 设计模式
-  - 创建型模式
-abbrlink: '48598499'
-date: 2019-09-14 22:21:55
+date: 2019-09-14
 ---
 ### 工厂方法模式(Factory Method Pattern)
 

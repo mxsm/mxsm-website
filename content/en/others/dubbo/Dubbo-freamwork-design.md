@@ -1,15 +1,6 @@
 ---
 title: Dubbo框架设计
-categories:
-  - RPC
-  - Dubbo
-  - 源码解析
-tags:
-  - RPC
-  - Dubbo
-  - 源码解析
-abbrlink: 5edcf15a
-date: 2019-05-16 09:01:08
+date: 2019-05-16
 ---
 ### 框架设计图
 

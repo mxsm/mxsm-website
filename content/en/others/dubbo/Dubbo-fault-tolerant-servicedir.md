@@ -1,13 +1,6 @@
 ---
 title: Dubbo容错四大利器之—服务目录
-categories:
-  - RPC
-  - Dubbo
-tags:
-  - RPC
-  - Dubbo
-abbrlink: 324f88e2
-date: 2019-12-31 17:04:37
+date: 2019-12-31
 ---
 ### 1. 集群容错包含哪些组件？
 

@@ -1,13 +1,7 @@
 ---
 title: Redis底层-数据结构
-categories:
-  - 缓存技术
-  - Redis
-tags:
-  - 缓存技术
-  - Redis
-abbrlink: 8f0a2a01
-date: 2018-06-08 08:55:27
+date: 2018-06-08
+weight: 1
 ---
 ### 什么是简单动态字符串？
 

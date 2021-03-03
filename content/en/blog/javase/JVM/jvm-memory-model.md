@@ -1,15 +1,6 @@
 ---
 title: JVM的内存模型
-categories:
-  - Java
-  - JSE
-  - JVM
-tags:
-  - Java
-  - JSE
-  - JVM
-abbrlink: 5805834a
-date: 2018-11-04 23:38:42
+date: 2018-11-04
 ---
 ### 1.  JVM的内存模型
 

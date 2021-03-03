@@ -2,7 +2,7 @@
 title: SpringBoot源码解析之ConfigurationProperties原理
 linkeTitle: SpringBoot源码解析之ConfigurationProperties原理
 weight: 4
-date: 2020-01-16 13:53:00
+date: 2020-01-16
 ---
 ### ConfigurationProperties的作用
 配置文件的信息，读取并自动封装成实体类。

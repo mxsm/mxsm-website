@@ -1,17 +1,6 @@
 ---
 title: Elasticsearch-元数据
-categories:
-  - 数据库
-  - elasticsearch
-  - Mapping
-tags:
-  - 数据库
-  - elasticsearch
-  - 索引
-  - Mapping
-  - 元数据
-abbrlink: 3ecb808c
-date: 2020-02-15 19:05:00
+date: 2020-02-15
 ---
 
 > 注意：以下语法都是基于Elasticsearch的7.6版本

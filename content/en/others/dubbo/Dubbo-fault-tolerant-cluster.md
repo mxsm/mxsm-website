@@ -1,13 +1,6 @@
 ---
 title: Dubbo容错四大利器之—集群
-categories:
-  - RPC
-  - Dubbo
-tags:
-  - RPC
-  - Dubbo
-abbrlink: fa3459b1
-date: 2019-05-28 15:38:51
+date: 2019-05-28
 ---
 ### 1. 集群容错
 

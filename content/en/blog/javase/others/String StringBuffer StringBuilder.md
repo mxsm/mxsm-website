@@ -1,15 +1,6 @@
 ---
 title: String StringBuffer StringBuilder
-categories:
-  - Java
-  - JSE
-  - 字符串的那些事
-tags:
-  - Java
-  - JSE
-  - 字符串的那些事
-abbrlink: 5393164d
-date: 2018-07-18 05:34:32
+date: 2018-07-18
 ---
 ### 三者的说明
 

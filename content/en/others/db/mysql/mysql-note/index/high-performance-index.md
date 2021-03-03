@@ -1,17 +1,6 @@
 ---
 title: 高性能索引策略
-categories:
-  - 数据库
-  - MYSQL
-  - 高性能MySQL读书笔记
-  - 索引
-tags:
-  - 数据库
-  - MYSQL
-  - 高性能MySQL读书笔记
-  - 索引
-abbrlink: d14da1ac
-date: 2019-07-16 17:50:36
+date: 2019-07-16
 ---
 **从索引的角度来提高数据库速度**
 

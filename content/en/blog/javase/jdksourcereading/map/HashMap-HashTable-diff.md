@@ -1,17 +1,6 @@
 ---
 title: HashMap和HashTable的区别
-categories:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Map集合源码解析
-tags:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Map集合源码解析
-abbrlink: 8f303c09
-date: 2019-08-09 20:12:54
+date: 2019-08-09
 ---
 ### HashMap和HashTable区别
 

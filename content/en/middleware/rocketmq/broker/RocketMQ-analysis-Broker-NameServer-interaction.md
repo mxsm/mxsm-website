@@ -1,17 +1,6 @@
 ---
 title: RocketMQ源码解析-Broker与NameServer交互
-categories:
-  - MQ
-  - RocketMQ
-  - Broker
-tags:
-  - MQ
-  - RocketMQ
-  - Broker源码解析
-  - Broker工作机制
-  - Broker与NameServer交互
-abbrlink: 76a6b47e
-date: 2020-03-15 00:00:00
+date: 2020-03-15
 
 ---
 > 以下源码基于Rocket MQ 4.7.0

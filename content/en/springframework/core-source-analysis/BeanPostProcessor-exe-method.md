@@ -1,18 +1,6 @@
 ---
 title: BeanPostProcessor相关接口执行的方法
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之核心类核心代码
-  - Spring源码解析之BeanPostProcessor系列
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之核心类
-abbrlink: 921c8beb
-date: 2019-08-18 18:59:18
+date: 2019-08-18 
 ---
 ### 1. BeanPostProcessor相关接口
 - **InstantiationAwareBeanPostProcessor**

@@ -1,15 +1,6 @@
 ---
 title: Java中的引用
-categories:
-  - Java
-  - JSE
-  - JVM
-tags:
-  - Java
-  - JSE
-  - JVM
-abbrlink: 1ae51239
-date: 2019-09-28 02:24:34
+date: 2019-09-28
 ---
 ### Java引用的四种类型
 

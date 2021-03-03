@@ -1,17 +1,6 @@
 ---
 title: EnumMap
-categories:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Map集合源码解析
-tags:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Map集合源码解析
-abbrlink: 157e9ea2
-date: 2018-12-05 20:32:51
+date: 2018-12-05
 ---
 ### EnumMap
 

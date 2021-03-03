@@ -3,7 +3,7 @@ title: "Dubbo隐式参数"
 linkTitle: "Dubbo隐式参数"
 weight: 20
 description: "通过 Dubbo 中的 Attachment 在服务消费方和提供方之间隐式传递参数"
-date: 2021-02-01
+date: 2021-02-01 
 ---
 
 > Dubbo版本：2.7.8

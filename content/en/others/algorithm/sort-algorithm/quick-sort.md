@@ -1,13 +1,6 @@
 ---
 title: 快速排序
-categories:
-  - 算法
-  - 排序算法
-tags:
-  - 算法
-  - 排序算法
-abbrlink: ff8068c0
-date: 2019-05-11 03:26:28
+date: 2019-05-11
 ---
 ### 快速排序(Quick Sort)
 

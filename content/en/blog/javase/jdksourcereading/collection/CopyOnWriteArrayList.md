@@ -1,17 +1,6 @@
 ---
 title: CopyOnWriteArrayList源码解析
-categories:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Collection集合源码分析
-tags:
-  - Java
-  - JSE
-  - JDK源码解析
-  - Collection集合源码分析
-abbrlink: 8f641e02
-date: 2018-07-23 22:55:32
+date: 2018-07-23
 ---
 ### CopyOnWrite容器
 

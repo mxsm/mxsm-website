@@ -1,15 +1,6 @@
 ---
 title: Schema与数据类型优化
-categories:
-  - 数据库
-  - MYSQL
-  - 高性能MySQL读书笔记
-tags:
-  - 数据库
-  - MYSQL
-  - 高性能MySQL读书笔记
-abbrlink: 26ac1f1c
-date: 2019-03-29 14:28:24
+date: 2019-03-29
 ---
 从建表的角度来对提高数据库性能进行优化
 

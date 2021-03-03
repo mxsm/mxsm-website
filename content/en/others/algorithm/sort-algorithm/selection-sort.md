@@ -1,13 +1,6 @@
 ---
 title: 选择排序
-categories:
-  - 算法
-  - 排序算法
-tags:
-  - 算法
-  - 排序算法
-abbrlink: 43d00a99
-date: 2018-09-30 19:06:26
+date: 2018-09-30
 ---
 ### 选择排序(Selection Sort)
 

@@ -1,13 +1,6 @@
 ---
 title: Cglib
-categories:
-  - Java
-  - Java常见的工具包
-tags:
-  - Java
-  - Java常见的工具包
-abbrlink: 29cef8e0
-date: 2019-07-04 12:26:16
+date: 2019-07-04
 ---
 ### 1 Cglib工具包
 

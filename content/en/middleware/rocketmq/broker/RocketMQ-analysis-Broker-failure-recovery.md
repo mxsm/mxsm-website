@@ -1,17 +1,6 @@
 ---
 title: RocketMQ源码解析-Broker故障恢复
-categories:
-  - MQ
-  - RocketMQ
-  - Broker
-tags:
-  - MQ
-  - RocketMQ
-  - Broker源码解析
-  - Broker工作机制
-  - Broker故障恢复
-abbrlink: 136d3803
-date: 2020-04-02 22:21:00
+date: 2020-04-02
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

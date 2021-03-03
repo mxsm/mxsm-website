@@ -1,13 +1,6 @@
 ---
 title: ETCD
-categories:
-  - 缓存技术
-  - ETCD
-tags:
-  - 缓存技术
-  - ETCD
-abbrlink: 4cde6830
-date: 2019-06-26 01:15:15
+date: 2019-06-26
 ---
 ### ETCD选举Leader过程
 

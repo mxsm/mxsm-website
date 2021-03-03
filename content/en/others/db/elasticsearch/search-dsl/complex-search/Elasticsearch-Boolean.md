@@ -1,19 +1,6 @@
 ---
 title: Elasticsearch复合查询-Boolean查询
-categories:
-  - 数据库
-  - elasticsearch
-  - 查询DSL
-  - 复合查询
-tags:
-  - 数据库
-  - elasticsearch
-  - 布尔查询
-  - DSL
-  - 复合查询
-  - Elasticsearch复合查询
-abbrlink: ee006fe
-date: 2020-02-14 23:15:00
+date: 2020-02-14
 ---
 
 > 注意：以下语法都是基于Elasticsearch的7.6版本

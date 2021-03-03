@@ -1,15 +1,6 @@
 ---
 title: ExtensionLoader源码解析
-categories:
-  - RPC
-  - Dubbo
-  - 源码解析
-tags:
-  - RPC
-  - Dubbo
-  - 源码解析
-abbrlink: 9c179cb7
-date: 2019-09-20 19:58:38
+date: 2019-09-20
 ---
 ### ExtensionLoader源码解析(Dubbo-2.7.1版本)
 

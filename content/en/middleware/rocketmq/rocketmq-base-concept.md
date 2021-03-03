@@ -1,14 +1,6 @@
 ---
 title: rocketmq-基本概念
-categories:
-  - MQ
-  - RocketMQ
-tags:
-  - MQ
-  - RocketMQ
-  - rocketmq-基本概念
-abbrlink: '1e1296'
-date: 2020-03-10 00:00:00
+date: 2020-03-10
 ---
 
 

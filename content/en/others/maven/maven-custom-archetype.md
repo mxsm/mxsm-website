@@ -1,13 +1,6 @@
 ---
 title: Maven-自定义archetype
-categories:
-  - 开发工具
-  - Maven
-tags:
-  - Maven
-  - archetype
-abbrlink: ee66def9
-date: 2020-05-16 09:34:56
+date: 2020-05-16
 
 ---
 

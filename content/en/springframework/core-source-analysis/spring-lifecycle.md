@@ -1,15 +1,6 @@
 ---
 title: Spring 生命周期
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-abbrlink: cabc551f
-date: 2019-09-13 03:56:10
+date: 2019-09-13
 ---
 ### 1. Spring Bean的生命周期
 

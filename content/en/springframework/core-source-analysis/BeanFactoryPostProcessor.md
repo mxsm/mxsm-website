@@ -1,18 +1,6 @@
 ---
 title: BeanFactoryPostProcessor详解
-categories:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之核心类核心代码
-  - Spring源码解析之BeanFactoryPostProcessor系列
-tags:
-  - Spring
-  - Springframework
-  - Spring-core分析
-  - Spring源码解析之核心类
-abbrlink: 16ca0958
-date: 2019-02-13 07:52:08
+date: 2019-02-13
 ---
 ### 1. BeanFactoryPostProcessor继承关系
 

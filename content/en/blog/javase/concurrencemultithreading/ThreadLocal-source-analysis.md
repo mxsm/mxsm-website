@@ -1,15 +1,6 @@
 ---
 title: ThreadLocal源码解析
-categories:
-  - Java
-  - JSE
-  - 并发和多线程
-tags:
-  - Java
-  - JSE
-  - 并发和多线程
-abbrlink: '68410011'
-date: 2018-11-30 21:49:43
+date: 2018-11-30
 ---
 ### 1. 什么是ThreadLocal？
 

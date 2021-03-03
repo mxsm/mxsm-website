@@ -1,15 +1,6 @@
 ---
 title: 类加载器和双亲委派模型
-categories:
-  - Java
-  - JSE
-  - JVM
-tags:
-  - Java
-  - JSE
-  - JVM
-abbrlink: '62812392'
-date: 2019-11-11 01:27:31
+date: 2019-11-11
 ---
 ### 类加载器
 

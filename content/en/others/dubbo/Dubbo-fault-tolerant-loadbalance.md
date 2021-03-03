@@ -1,13 +1,6 @@
 ---
 title: Dubbo容错四大利器之—负载均衡
-categories:
-  - RPC
-  - Dubbo
-tags:
-  - RPC
-  - Dubbo
-abbrlink: caeaa196
-date: 2018-09-01 14:15:00
+date: 2018-09-01
 ---
 ### 1. 负载均衡
 

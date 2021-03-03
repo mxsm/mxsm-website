@@ -1,13 +1,6 @@
 ---
 title: Redis集群
-categories:
-  - 缓存技术
-  - Redis
-tags:
-  - 缓存技术
-  - Redis
-abbrlink: 37cf2cfd
-date: 2019-03-29 09:57:03
+date: 2019-03-29
 ---
 ### Redis集群的介绍
 
