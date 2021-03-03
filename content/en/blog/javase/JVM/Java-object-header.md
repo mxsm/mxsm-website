@@ -1,7 +1,7 @@
 ---
 title: 深入理解Java对象头Mark Word
 linkTitle: 深入理解Java对象头Mark Word
-date: 2020-05-06 00:27:00
+date: 2020-05-06
 ---
 
 > 下面是基于JDK13 64位
