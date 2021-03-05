@@ -1,6 +1,7 @@
 ---
 title: AnnotationConfigApplicationContext源码解析
 date: 2019-08-20
+weight: 2
 ---
 ### 1. AnnotationConfigApplicationContext  
 对于Application的实现是不同的，现在来分析一下常用的注解的实现。
