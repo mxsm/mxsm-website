@@ -48,13 +48,13 @@ Spring中循环依赖的场景有：
 Spring主要是通过缓存不同状态下的Bean来解决循环依赖的问题，下面看一下 **`DefaultSingletonBeanRegistry`** 类中的三个缓存变量：
 
 ```java
-	/** Cache of singleton objects: bean name to bean instance. */
+	/** 单例对象缓存 */
 	private final Map<String, Object> singletonObjects = new ConcurrentHashMap<>(256);
 
-	/** Cache of singleton factories: bean name to ObjectFactory. */
+	/** 单例对象工厂缓存 */
 	private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap<>(16);
 
-	/** Cache of early singleton objects: bean name to bean instance. */
+	/** 提前暴露对象缓存 */
 	private final Map<String, Object> earlySingletonObjects = new HashMap<>(16);
 ```
 
@@ -206,7 +206,7 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 
 下面我们用流程图来梳理一下这一段代码的逻辑：
 
-![](https://github.com/mxsm/document/blob/master/image/Spring/Springframework/doGetBean%E6%B5%81%E7%A8%8B.png?raw=true)
+![](https://github.com/mxsm/picture/blob/main/spring/spring%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E8%A7%A3%E5%86%B3%E6%B5%81%E7%A8%8B%E5%9B%BE.png?raw=true)
 
 通过上面的源码可以看出来 ***`Object sharedInstance = getSingleton(beanName)`*** 调用获取是否在缓存中存在。看一下代码
 
