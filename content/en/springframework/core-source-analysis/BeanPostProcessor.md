@@ -4,9 +4,16 @@ date: 2019-11-26
 ---
 ### 1. BeanPostProcessor是干什么的？
 
-BeanPostProcessor接口作用是：如果我们需要在Spring容器完成Bean的实例化、配置和其他的初始化前后添加一些自己的逻辑处理，我们就可以定义一个或者多个BeanPostProcessor接口的实现，然后注册到容器中。(类似于拦截器和过滤器)
+BeanPostProcessor接口作用是：如果我们需要在Spring容器完成Bean的实例化、配置和其他的初始化前后添加一些自己的逻辑处理，我们就可以定义一个或者多个BeanPostProcessor接口的实现，然后注册到容器中。(类似于拦截器和过滤器)。  
+BeanPostProcessor分为三大类如下图：
+![图](等待替换)  
+- 实例化
+- 初始化
+- 销毁
 
-> 通俗的讲就是bean实例化后每个bean就会通过 **BeanPostProcessor** 实现的类的处理。
+
+
+> Bean实例化会执行 **InstantiationAwareBeanPostProcessor** 、 **SmartInstantiationAwareBeanPostProcessor** 这两类处理器，Bean实例化后每个bean就会通过 **BeanPostProcessor** 、 **MergedBeanDefinitionPostProcessor** 实现的类的处理。Bean销毁会通过 **DestructionAwareBeanPostProcessor** 处理器。
 
 Spring Bean的实例化图解：
 
@@ -350,7 +357,7 @@ protected void registerBeanPostProcessors(ConfigurableListableBeanFactory beanFa
 
 ### 总结
 
-**BeanPostProcessor 主要用来处理Bean内部的注解。比如Spring自己实现的@Autowired、@Value等**
+**BeanPostProcessor 主要用来处理Bean内部的注解。比如Spring自己实现的@Autowired、@Value， @EJB，@WebServiceRef，@PostConstruct，@PreDestroy等**
 
 > 1.  自定义类似于@Value，@Autowired的注解，主要用于Java类变量或者方法上的注解
 > 2. 主要用于处理Bean内部的注解实现，主要是变量或者方法上面的注解
