@@ -6,7 +6,8 @@ date: 2019-11-26
 
 BeanPostProcessor接口作用是：如果我们需要在Spring容器完成Bean的实例化、配置和其他的初始化前后添加一些自己的逻辑处理，我们就可以定义一个或者多个BeanPostProcessor接口的实现，然后注册到容器中。(类似于拦截器和过滤器)。  
 BeanPostProcessor分为三大类如下图：
-![图](等待替换)  
+![图](https://github.com/mxsm/picture/blob/main/spring/BeanPostProcessor%E5%88%86%E7%B1%BB.png?raw=true)  
+
 - 实例化
 - 初始化
 - 销毁
