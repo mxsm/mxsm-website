@@ -85,30 +85,32 @@ date: 2019-02-13
 
   - XML的情况下注入
 
+    
+    
     ```java
     public class ContextNamespaceHandler extends NamespaceHandlerSupport {
-    
-    	@Override
-    	public void init() {
-    		registerBeanDefinitionParser("property-placeholder", new PropertyPlaceholderBeanDefinitionParser());
-    		registerBeanDefinitionParser("property-override", new PropertyOverrideBeanDefinitionParser());
+        @Override
+        public void init() {
+            registerBeanDefinitionParser("property-placeholder", new PropertyPlaceholderBeanDefinitionParser());
+            registerBeanDefinitionParser("property-override", new PropertyOverrideBeanDefinitionParser());
             //这个类注入
-    		registerBeanDefinitionParser("annotation-config", new AnnotationConfigBeanDefinitionParser());
+            registerBeanDefinitionParser("annotation-config", new AnnotationConfigBeanDefinitionParser());
             //这个类注入
-    		registerBeanDefinitionParser("component-scan", new ComponentScanBeanDefinitionParser());
-    		registerBeanDefinitionParser("load-time-weaver", new LoadTimeWeaverBeanDefinitionParser());
-    		registerBeanDefinitionParser("spring-configured", new SpringConfiguredBeanDefinitionParser());
-    		registerBeanDefinitionParser("mbean-export", new MBeanExportBeanDefinitionParser());
-    		registerBeanDefinitionParser("mbean-server", new MBeanServerBeanDefinitionParser());
-    	}
-    
+            registerBeanDefinitionParser("component-scan", new ComponentScanBeanDefinitionParser());
+            registerBeanDefinitionParser("load-time-weaver", new LoadTimeWeaverBeanDefinitionParser());
+            registerBeanDefinitionParser("spring-configured", new SpringConfiguredBeanDefinitionParser());
+            registerBeanDefinitionParser("mbean-export", new MBeanExportBeanDefinitionParser());
+            registerBeanDefinitionParser("mbean-server", new MBeanServerBeanDefinitionParser());
+        }
     }
     ```
 
+  - 注解的情况下注入
+  
     > ```java
-    > AnnotationConfigUtils.registerAnnotationConfigProcessors(parserContext.getRegistry(), source);这个方法里面注入了
+  > AnnotationConfigUtils.registerAnnotationConfigProcessors(parserContext.getRegistry(), source);这个方法里面注入了
     > ```
-
+    
     ```java
     	public static Set<BeanDefinitionHolder> registerAnnotationConfigProcessors(
     			BeanDefinitionRegistry registry, @Nullable Object source) {
@@ -124,11 +126,11 @@ date: 2019-02-13
     		}
     
     		Set<BeanDefinitionHolder> beanDefs = new LinkedHashSet<>(8);
-    
+  
     		if (!registry.containsBeanDefinition(CONFIGURATION_ANNOTATION_PROCESSOR_BEAN_NAME)) {
     			//注入ConfigurationClassPostProcessor
                 RootBeanDefinition def = new RootBeanDefinition(ConfigurationClassPostProcessor.class);
-    			def.setSource(source);
+  			def.setSource(source);
     			beanDefs.add(registerPostProcessor(registry, def, CONFIGURATION_ANNOTATION_PROCESSOR_BEAN_NAME));
     		}
     
@@ -174,12 +176,9 @@ date: 2019-02-13
     
     		return beanDefs;
     	}
-    
+  
     ```
-
-    
-
-  - 注解的情况下注入
+  
 
 在Spring源码中主要可以关注一下上面的三个实现类。
 

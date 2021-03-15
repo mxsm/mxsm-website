@@ -1,7 +1,10 @@
 ---
 title: BeanPostProcessor讲解
 date: 2019-11-26
+weight: 5
 ---
+> Spring Framework版本 5.3.4
+
 ### 1. BeanPostProcessor是干什么的？
 
 BeanPostProcessor接口作用是：如果我们需要在Spring容器完成Bean的实例化、配置和其他的初始化前后添加一些自己的逻辑处理，我们就可以定义一个或者多个BeanPostProcessor接口的实现，然后注册到容器中。(类似于拦截器和过滤器)。  
@@ -17,8 +20,6 @@ BeanPostProcessor分为三大类如下图：
 > Bean实例化会执行 **InstantiationAwareBeanPostProcessor** 、 **SmartInstantiationAwareBeanPostProcessor** 这两类处理器，Bean实例化后每个bean就会通过 **BeanPostProcessor** 、 **MergedBeanDefinitionPostProcessor** 实现的类的处理。Bean销毁会通过 **DestructionAwareBeanPostProcessor** 处理器。
 
 Spring Bean的实例化图解：
-
-![图解](https://github.com/mxsm/document/blob/master/image/Spring/Springframework/SpringBean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%B9%8B%E5%88%9D%E5%A7%8B%E5%8C%96.png?raw=true)
 
 ![图](https://github.com/mxsm/document/blob/master/image/Spring/Springframework/bean%E5%AE%9E%E4%BE%8B%E5%8C%96%E8%BF%87%E7%A8%8B.png?raw=true)
 
@@ -40,9 +41,9 @@ Spring Bean的实例化图解：
 
 BeanPostProcessor是在Bean实例化后，在自定义初始化方法前后执行。
 
+### 2. BeanPostProcessor
 
-
-### 2. BeanPostProcessor代码解析
+处理器定义了Bean **`初始化`** 前后执行的方法。
 
 ```java
 public interface BeanPostProcessor {
@@ -61,6 +62,8 @@ public interface BeanPostProcessor {
 
 }
 ```
+
+> 代码示例地址：https://github.com/mxsm/spring-sample/tree/master/spring-beanPostProcessor
 
 代码演示：
 
@@ -139,7 +142,59 @@ public class ApplicationBoot{
 
 通过代码可以看出来执行结果。
 
-### 3. 看一下Spring自身的实现
+### 3. **InstantiationAwareBeanPostProcessor** 
+
+该处理器定义了Bean **`实例化`** 前后执行的方法。
+
+```java
+public interface InstantiationAwareBeanPostProcessor extends BeanPostProcessor {
+    //实例化之前
+	@Nullable
+	default Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException { 
+        //这里可以自定义代理类
+		return null;
+	}
+
+    //实例化后-但是执行在初始化之前
+	default boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
+		return true;
+	}
+
+    //处理bean的Properties值
+	@Nullable
+	default PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName)
+			throws BeansException {
+
+		return null;
+	}
+
+}
+```
+
+
+
+### 4.DestructionAwareBeanPostProcessor
+
+该处理器了销毁Bean之前的操作。
+
+```java
+public interface DestructionAwareBeanPostProcessor extends BeanPostProcessor {
+
+	//bean销毁之前
+	void postProcessBeforeDestruction(Object bean, String beanName) throws BeansException;
+
+	//bean是否需要销毁
+	default boolean requiresDestruction(Object bean) {
+		return true;
+	}
+
+}
+
+```
+
+
+
+### 5. 看一下Spring自身的实现
 
 ```java
 class ApplicationContextAwareProcessor implements BeanPostProcessor {
@@ -218,38 +273,7 @@ class ApplicationContextAwareProcessor implements BeanPostProcessor {
 
 
 
-### 4. InstantiationAwareBeanPostProcessor接口介绍
-
-```java
-public interface InstantiationAwareBeanPostProcessor extends BeanPostProcessor {
-
-	//实例化之前--bean对象还没生成
-	@Nullable
-	default Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
-		return null;
-	}
-
-
-    //实例化之后--bean对象已经生成
-	default boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
-		return true;
-	}
-
-
-	@Nullable
-	default PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName)
-			throws BeansException {
-
-		return null;
-	}
-}
-```
-
-> 代码示例地址：https://github.com/mxsm/spring-sample/tree/master/spring-beanPostProcessor
-
-
-
-### 5. BeanPostProcessor Spring源码分析
+### 6. BeanPostProcessor Spring源码分析
 
 首先明确一点 **`BeanPostProcessor`**  实现的类都是Spring容器中的一个Bean。在 **`AbstractApplicationContext#refresh`** 是最重要的一个方法：
 
@@ -354,9 +378,9 @@ protected void registerBeanPostProcessors(ConfigurableListableBeanFactory beanFa
 	}
 ```
 
+通过该方法将 **`BeanPostProcessor`** 的以上几种实现类都注册到Spring中。
 
-
-### 总结
+### 7. 总结
 
 **BeanPostProcessor 主要用来处理Bean内部的注解。比如Spring自己实现的@Autowired、@Value， @EJB，@WebServiceRef，@PostConstruct，@PreDestroy等**
 
@@ -365,4 +389,7 @@ protected void registerBeanPostProcessors(ConfigurableListableBeanFactory beanFa
 
 
 
-https://cloud.tencent.com/developer/article/1409273
+参考文档：
+
+- https://cloud.tencent.com/developer/article/1409273
+
