@@ -1,6 +1,7 @@
 ---
 title: SpringBean循环依赖源码解析
 date: 2018-06-18
+weight: 4
 ---
 ### 1. 什么是Spring Bean的循环依赖
 
