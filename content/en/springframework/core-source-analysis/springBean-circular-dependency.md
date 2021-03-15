@@ -64,7 +64,7 @@ Spring主要是通过缓存不同状态下的Bean来解决循环依赖的问题�
 | --------------------- | ------------------------------------------------------------ |
 | singletonObjects      | 用于存放完全初始化好的 bean，从该缓存中取出的 bean 可以直接使用 |
 | singletonFactories    | 存放原始的 bean 对象（尚未填充属性），用于解决循环依赖       |
-| earlySingletonObjects | 提前暴光的单例对象的Cache，用于解决循环依赖                  |
+| earlySingletonObjects | 提前暴光的单例对象的Cache，用于解决循环依赖（没有init）                  |
 
 下面来看一下创建Bean实例的主要一个方法 **AbstractBeanFactory#doGetBean**：
 
