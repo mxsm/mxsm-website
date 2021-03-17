@@ -380,6 +380,60 @@ protected void registerBeanPostProcessors(ConfigurableListableBeanFactory beanFa
 
 通过该方法将 **`BeanPostProcessor`** 的以上几种实现类都注册到Spring中。
 
+然后在生成Bean的时候去执行， **`AbstractAutowireCapableBeanFactory.createBean`** 创建Bean
+
+```java
+	protected Object createBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args)
+			throws BeanCreationException {
+        	
+        	//省略代码
+        
+        	try {
+			// 执行实例化之前方法.
+			Object bean = resolveBeforeInstantiation(beanName, mbdToUse);
+			if (bean != null) {
+				return bean;
+			}          
+            //省略代码    
+		}
+    }
+	protected Object resolveBeforeInstantiation(String beanName, RootBeanDefinition mbd) {
+		Object bean = null;
+		if (!Boolean.FALSE.equals(mbd.beforeInstantiationResolved)) {
+			
+			if (!mbd.isSynthetic() && hasInstantiationAwareBeanPostProcessors()) {
+				Class<?> targetType = determineTargetType(beanName, mbd);
+				if (targetType != null) {
+                    //执行InstantiationAwareBeanPostProcessor#postProcessBeforeInstantiation(实例化之前方法)
+					bean = applyBeanPostProcessorsBeforeInstantiation(targetType, beanName);
+					if (bean != null) {
+                        //执行InstantiationAwareBeanPostProcessor#postProcessAfterInitialization(初始化后的方法)
+						bean = applyBeanPostProcessorsAfterInitialization(bean, beanName);
+					}
+				}
+			}
+			mbd.beforeInstantiationResolved = (bean != null);
+		}
+		return bean;
+	}
+```
+
+通过代码可以知道 **`resolveBeforeInstantiation`** 方法执行实例化之前的方法。如果实例化之前的方法返回了对应Bean那么直接执行初始化后的方法。实例化 **`InstantiationAwareBeanPostProcessor#postProcessBeforeInstantiation`** 方法执行返回Bean为空就调用  **`AbstractAutowireCapableBeanFactory#doCreateBean`** 方法。在这个方法里面有如下几个重要的方法：
+
+- **AbstractAutowireCapableBeanFactory#applyMergedBeanDefinitionPostProcessors** 方法
+
+  执行 **`MergedBeanDefinitionPostProcessor#postProcessMergedBeanDefinition`** 方法
+
+- **AbstractAutowireCapableBeanFactory#populateBean** 方法
+
+  执行 **`InstantiationAwareBeanPostProcessor#postProcessAfterInstantiation`** 方法，如果前面方法返回true，执行 **`InstantiationAwareBeanPostProcessor#postProcessProperties`** 方法
+
+- **AbstractAutowireCapableBeanFactory#initializeBean** 方法
+
+  执行 **`BeanPostProcessor#postProcessBeforeInitialization`** 方法，然后执行 **`AbstractAutowireCapableBeanFactory#invokeInitMethods`** 方法(包括实现了InitializingBean接口的方法或者有注解@PostConstruct的方法)，然后执行 **`BeanPostProcessor#postProcessAfterInitialization`**
+
+
+
 ### 7. 总结
 
 **BeanPostProcessor 主要用来处理Bean内部的注解。比如Spring自己实现的@Autowired、@Value， @EJB，@WebServiceRef，@PostConstruct，@PreDestroy等**

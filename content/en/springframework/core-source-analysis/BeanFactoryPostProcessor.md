@@ -107,10 +107,7 @@ date: 2019-02-13
 
   - 注解的情况下注入
   
-    > ```java
-  > AnnotationConfigUtils.registerAnnotationConfigProcessors(parserContext.getRegistry(), source);这个方法里面注入了
-    > ```
-    
+    > AnnotationConfigUtils.registerAnnotationConfigProcessors(parserContext.getRegistry(), source);这个方法里面注入了
     ```java
     	public static Set<BeanDefinitionHolder> registerAnnotationConfigProcessors(
     			BeanDefinitionRegistry registry, @Nullable Object source) {
