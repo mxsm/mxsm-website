@@ -432,7 +432,7 @@ protected void registerBeanPostProcessors(ConfigurableListableBeanFactory beanFa
 
   执行 **`BeanPostProcessor#postProcessBeforeInitialization`** 方法，然后执行 **`AbstractAutowireCapableBeanFactory#invokeInitMethods`** 方法(包括实现了InitializingBean接口的方法或者有注解@PostConstruct的方法)，然后执行 **`BeanPostProcessor#postProcessAfterInitialization`**
 
-
+![图](https://github.com/mxsm/picture/blob/main/spring/BeanPostProcessor%E7%BB%A7%E6%89%BF%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C%E7%9A%84%E6%B5%81%E7%A8%8B.png?raw=true)
 
 ### 7. 总结
 
