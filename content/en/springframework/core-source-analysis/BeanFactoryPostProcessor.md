@@ -1,6 +1,7 @@
 ---
 title: BeanFactoryPostProcessor详解
 date: 2019-02-13
+weight: 6
 ---
 ### 1. BeanFactoryPostProcessor继承关系
 
@@ -363,4 +364,27 @@ public static void invokeBeanFactoryPostProcessors(
 	}
 ```
 
-通过上面的代码可以看出来，**`AbstractApplicationContext#refresh#invokeBeanFactoryPostProcessors`** 这个方法主要用来执行 **`BeanFactoryPostProcessor`** 和 **`BeanDefinitionRegistryPostProcessor`** 这两个类的接口。 **`BeanDefinitionRegistryPostProcessor`** 继承了  **`BeanFactoryPostProcessor`** 接口。从这里可以看出来Spring容器是如何调用这两个类的。
+通过上面的代码可以看出来，**`AbstractApplicationContext#refresh#invokeBeanFactoryPostProcessors`** 这个方法主要用来执行 **`BeanFactoryPostProcessor`** 和 **`BeanDefinitionRegistryPostProcessor`** 这两个类的接口。 **`BeanDefinitionRegistryPostProcessor`** 继承了  **`BeanFactoryPostProcessor`** 接口。从这里可以看出来Spring容器是如何调用这两个类的。这两个类执行的顺序
+
+- **BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry**
+- **BeanFactoryPostProcessor#postProcessBeanFactory**
+
+### 3. 总结
+
+**`BeanFactoryPostProcessor`** 的实现类主要处理类上面的注解比如：
+
+- @Configuration
+- @Order
+- @Component 
+- @PropertySources 
+- @ComponentScans 
+- @ComponentScan  
+- @Import 
+- @ImportResource 
+- @Bean(类内部方法上)
+
+处理顺序图：
+
+![](https://github.com/mxsm/picture/blob/main/spring/BeanFactoryPostProcessor%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86%E9%A1%BA%E5%BA%8F.png?raw=true)
+
+[ConfigurationClassPostProcessor详解](https://blog.ljbmxsm.com/springframework/core-source-analysis/configurationclasspostprocesso/)

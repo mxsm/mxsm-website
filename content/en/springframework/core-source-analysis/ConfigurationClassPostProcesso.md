@@ -1,16 +1,17 @@
 ---
 title: ConfigurationClassPostProcessor源码解析
-date: 2018-04-02
+date: 2021-03-19
+weight: 8
 ---
 ### 1. ConfigurationClassPostProcessor
 这个类主要用来处理Spring中的配置注解，Spring的配置注解主要包含一下几个：
-1. **@Component**
-2. **@ComponentScan 和 @ComponentScans**
-3. **@Import**
-4. **@ImportResource**
-5. **@PropertySource**
-6. **@Bean**
-7. **@Configuration**
+1. **@Configuration**
+2.  **@Component** 
+3.  **@PropertySources、@PropertySource**
+4. **@ComponentScan 、 @ComponentScans**
+5. **@Import**
+6. **@ImportResource**
+7. **@Bean**
 
 以上七个是Spring最常见的配置类注解，下面来分析一下每一个注解在Spring中的实现。
 ### 2. ConfigurationClassPostProcessor源码分析
