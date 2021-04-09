@@ -2,7 +2,7 @@
 title: 类加载器和双亲委派模型
 date: 2019-11-11
 ---
-### 类加载器
+### 1. 类加载器
 
 每一个类加载器拥有一个独立的类命名空间，通俗的说：比较两个类是否相等只有两个类是同一个类加载器才有意义。
 
@@ -34,14 +34,11 @@ java.lang.ClassLoader类的方法 loadClass()封装了代理模式的实现。
 
 
 
-### 双亲委派模型
+### 2. 双亲委派模型
 
 ![图解](https://raw.githubusercontent.com/mxsm/document/master/image/JSE/%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B%E5%9B%BE.png)
 
-```
-这里的类加载器之间的父子关系一般不通过继承（Inheritance）来实现，而是通过组合（Composition）关系来服用父加载器代码。
-双亲委派模型并不是一个强制性约束，而是Java设计者推荐给开发者的一种类加载实现方式。
-```
+> 这里的类加载器之间的父子关系一般不通过继承（Inheritance）来实现，而是通过组合（Composition）关系来服用父加载器代码。双亲委派模型并不是一个强制性约束，而是Java设计者推荐给开发者的一种类加载实现方式。
 
 #### 双亲委派模型的工作过程
 
@@ -95,7 +92,7 @@ java.lang.ClassLoader类的方法 loadClass()封装了代理模式的实现。
     }
 ```
 
-### 自定义类加载器
+### 3. 自定义类加载器
 
 ```java
 package com.github.mxsm;
@@ -153,7 +150,7 @@ public class MxsmClassLoader extends ClassLoader {
 
 这个自定义类加载器的模板可以在 **`ClassLoader`** 类的说明上面找到。这样就实现了自定义的类加载器。
 
-### 自定义类加载器的父类说明
+### 4. 自定义类加载器的父类说明
 
 下图是我运行当前代码的结果：
 
@@ -164,7 +161,7 @@ public class MxsmClassLoader extends ClassLoader {
 
 这里就很好的说明了[双亲委派模型的工作原理](#双亲委派模型的工作过程)
 
-### 类加载器的命名空间
+### 5. 类加载器的命名空间
 
 **每个类加载器都有自己的命名空间，命名空间由该加载器及所有的父加载器所加载的类组成。** 
 
@@ -199,3 +196,5 @@ Caused by: java.lang.ClassCastException: com.github.mxsm.algorithm.A cannot be c
 这里报 java.lang.ClassCastException: com.github.mxsm.algorithm.A cannot be cast to com.github.mxsm.algorithm.A 这是为什么？
 
 原因就在于A的加载是不同的类加载器加载，由于有类加载器命名空间的存在。所以其实加载的是两个不同的类。所以在进行强行转换的时候回出现 A 不能转换 A的情况。
+
+### 
