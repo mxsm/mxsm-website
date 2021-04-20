@@ -1,5 +1,5 @@
 ---
-title: Spring注解源码解析之-Component
+ptitle: Spring注解源码解析之-Component
 linkTitle: Spring注解源码解析之-Component
 date: 2021-04-19
 weight: 201204192015
@@ -22,7 +22,7 @@ public @interface Service {
 }
 ```
 
-在这里代码中还看到一个重要的注解来实现衍生： **`@AliasFor`** 。
+在这里代码中还看到一个重要的注解来实现派生： **`@AliasFor`** 。
 
 ### 2. Component入口
 
@@ -171,6 +171,7 @@ private Set<BeanDefinition> scanCandidateComponents(String basePackage) {
 protected boolean isCandidateComponent(MetadataReader metadataReader) throws IOException {
 	//省略部分代码
 	for (TypeFilter tf : this.includeFilters) {
+        //判断是否为@Component注解修饰
 		if (tf.match(metadataReader, getMetadataReaderFactory())) {
 			return isConditionMatch(metadataReader);
 		}
@@ -179,9 +180,79 @@ protected boolean isCandidateComponent(MetadataReader metadataReader) throws IOE
 }
 ```
 
+在 **`ClassPathScanningCandidateComponentProvider`** 初始化的时候回只设置了 **`@Component`** 注解。并没有看到 **`@Repository`** 、**`@Service`** 、 **`@Controller`**  这些。
+
+```java
+//ClassPathScanningCandidateComponentProvider#registerDefaultFilters
+protected void registerDefaultFilters() {
+	this.includeFilters.add(new AnnotationTypeFilter(Component.class));
+	ClassLoader cl = ClassPathScanningCandidateComponentProvider.class.getClassLoader();
+	try {
+		this.includeFilters.add(new AnnotationTypeFilter(
+				((Class<? extends Annotation>) ClassUtils.forName("javax.annotation.ManagedBean", cl)), false));
+		logger.trace("JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning");
+	}
+	catch (ClassNotFoundException ex) {
+		// JSR-250 1.1 API (as included in Java EE 6) not available - simply skip.
+	}
+	try {
+		this.includeFilters.add(new AnnotationTypeFilter(
+				((Class<? extends Annotation>) ClassUtils.forName("javax.inject.Named", cl)), false));
+		logger.trace("JSR-330 'javax.inject.Named' annotation found and supported for component scanning");
+	}
+	catch (ClassNotFoundException ex) {
+		// JSR-330 API not available - simply skip.
+	}
+}
+```
+
+前面说过 **`@Repository`** 、**`@Service`** 、 **`@Controller`** 都是通过 **`@Component`** 派生来的。
+
+### 6. @Component派生过程解析
+
+在 **`ClassPathScanningCandidateComponentProvider#scanCandidateComponents`** 有这样一段代码
+
+```java
+MetadataReader metadataReader = getMetadataReaderFactory().getMetadataReader(resource);
+
+public final MetadataReaderFactory getMetadataReaderFactory() {
+	if (this.metadataReaderFactory == null) {
+		this.metadataReaderFactory = new CachingMetadataReaderFactory();
+	}
+	return this.metadataReaderFactory;
+}
+```
+
+这一段代码主要是为了获取  **`MetadataReader`** 。该接口定义了获取当前类注解的元数据和当前类的元数据。在Spring框架中唯一的实现就是 **`SimpleMetadataReader`** 。下面来看一下 **`SimpleMetadataReader`** 类的构造函数：
+
+```java
+SimpleMetadataReader(Resource resource, @Nullable ClassLoader classLoader) throws IOException {
+	SimpleAnnotationMetadataReadingVisitor visitor = new SimpleAnnotationMetadataReadingVisitor(classLoader);
+	getClassReader(resource).accept(visitor, PARSING_OPTIONS);
+	this.resource = resource;
+	this.annotationMetadata = visitor.getMetadata();
+}
+```
+
+在构造函数中有两个类：
+
+- **SimpleAnnotationMetadataReadingVisitor**
+
+  主要用于访问注解
+
+  ![](https://github.com/mxsm/picture/blob/main/spring/ClassVisitor.png?raw=true)
+
+- **ClassReader**
+
+  类读取器，基于ASM框架实现的。
+
+这里我们还可以看一下类的元数据类的继承关系：
+
+![](https://github.com/mxsm/picture/blob/main/spring/ClassMetadata.png?raw=true)
 
 
 
+在 **SimpleMetadataReader** 类的构造函数中有这样一段代码 **getClassReader(resource).accept(visitor, PARSING_OPTIONS);** 主要是用来类上面的注解。包括注解上面的注解。
 
-
+> getClassReader(resource).accept(visitor, PARSING_OPTIONS)这段代码就是实现了注解派生的关键
 
