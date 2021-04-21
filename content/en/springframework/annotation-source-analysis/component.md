@@ -7,7 +7,7 @@ weight: 201204192015
 
 > 基于Spring 5.4.2版本分析
 
-### 1. Component概要
+### 1. @Component概要
 
 Spring中有一个重要的注解那就是 **`@Component`** 。对于Spring中不同场景下使用的注解例如：**`@Repository`** 、**`@Service`** 、 **`@Controller`** 都是通过 **`@Component`** 注解衍生出来的。
 
@@ -24,7 +24,7 @@ public @interface Service {
 
 在这里代码中还看到一个重要的注解来实现派生： **`@AliasFor`** 。
 
-### 2. Component入口
+### 2. @Component入口
 
 不论是现在Spring流行的注解方式还是以前的老式的XML配置方式都有一个入口。这里就只分析注解模式。
 
@@ -256,3 +256,32 @@ SimpleMetadataReader(Resource resource, @Nullable ClassLoader classLoader) throw
 
 > getClassReader(resource).accept(visitor, PARSING_OPTIONS)这段代码就是实现了注解派生的关键
 
+### 7. 猜想验证
+
+首先写一个Controller
+
+![](https://github.com/mxsm/picture/blob/main/spring/%E9%AA%8C%E8%AF%81%E7%8C%9C%E6%83%B31.png?raw=true)
+
+然后在 IDEA设置条件断点：
+
+![](https://github.com/mxsm/picture/blob/main/spring/%E9%AA%8C%E8%AF%81%E7%8C%9C%E6%83%B32.png?raw=true)
+
+看一下metadata变量：
+
+![](https://github.com/mxsm/picture/blob/main/spring/%E9%AA%8C%E8%AF%81%E7%8C%9C%E6%83%B33.png?raw=true)
+
+然后看一下变量值annotations:
+
+![](https://github.com/mxsm/picture/blob/main/spring/%E9%AA%8C%E8%AF%81%E7%8C%9C%E6%83%B34.png?raw=true)
+
+这里可以看出来已经读取到了 **`AsyncController`** 类上面的注解，然后在变量中有一个mappings的变量下面来看一下：
+
+![](https://github.com/mxsm/picture/blob/main/spring/%E9%AA%8C%E8%AF%81%E7%8C%9C%E6%83%B35.png?raw=true)
+
+这个里面就包含了除了Java的注解以外的所有注解。（这里由于页面的关系不能完全展示）
+
+### 8. 总结
+
+- @Component是spring注解的基础
+- ClassPathBeanDefinitionScanner扫描制定基础包下面的包含@Component注解
+- 通过ClassReader（基于ASM实现）来读取类上面所有的注解。
