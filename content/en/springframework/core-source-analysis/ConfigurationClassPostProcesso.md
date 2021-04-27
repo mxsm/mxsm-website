@@ -511,3 +511,6 @@ for (MethodMetadata methodMetadata : beanMethods) {
 }
 ```
 
+### 3. 终结
+
+- @Import自定义注解的时候可以放在Bean上面
