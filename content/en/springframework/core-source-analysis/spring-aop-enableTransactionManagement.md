@@ -1,5 +1,6 @@
 ---
-title: @EnableTransactionManagement注解解析来看AOP
+title: EnableTransactionManagement注解解析来看AOP
+linkTitle: EnableTransactionManagement注解解析来看AOP
 date: 2021-04-27
 weight: 202104272345
 ---
