@@ -16,15 +16,15 @@ Spring makes programming Java quicker, easier, and safer for everybody. Spring�
 
 {{< blocks/section color="dark" type="features">}}
 
-{{% blocks/feature icon="fa fa-leaf" title="Spring Framework Blog" url="/springframework/" %}}
+{{% blocks/feature icon="fa fa-leaf" title="Spring Framework Blog" url="/spring-framework/" %}}
 Spring Framework相关的源码解析以及Spring Framework框架的自定义拓展例子.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fas fa-power-off" title="Spring Boot Blog" url="/springboot/" %}}
+{{% blocks/feature icon="fas fa-power-off" title="Spring Boot Blog" url="/spring-boot/" %}}
 Spring Boot源码解析和Spring Boot自定义拓展的技巧
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fas fa-cloud" title="Spring Cloud Blog" url="/springcloud/" %}}
+{{% blocks/feature icon="fas fa-cloud" title="Spring Cloud Blog" url="/spring-cloud/" %}}
 Spring Cloud源码解析和一些Spring Cloud的相关开发知识
 {{% /blocks/feature %}}
 
