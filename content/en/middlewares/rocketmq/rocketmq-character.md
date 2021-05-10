@@ -1,6 +1,7 @@
 ---
 title: rocketmq-特性
-date: 2020-03-10
+date: 2021-05-10
+weight: 202102102303
 ---
 
 
