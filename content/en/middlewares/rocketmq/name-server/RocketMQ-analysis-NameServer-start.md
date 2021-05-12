@@ -1,6 +1,7 @@
 ---
 title: RocketMQ源码解析-NameServer启动
 date: 2020-03-11
+weight: 202105122202
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

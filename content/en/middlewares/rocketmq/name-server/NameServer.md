@@ -1,6 +1,7 @@
 ---
 title: NameServer
 date: 2019-12-07
+weight: 202105122201
 ---
 ### 1. 什么是NameServer?
 
