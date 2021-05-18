@@ -28,7 +28,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
         with:
-		      deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY_MXSM }}
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY_MXSM }}
           external_repository: mxsm/mxsm.github.io
           publish_dir: ./public
           keep_files: false
