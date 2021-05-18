@@ -46,4 +46,5 @@ jobs:
           publish_dir: ./public
           keep_files: false
           publish_branch: gh-pages
+          force_orphan: true
           commit_message: ${{ github.event.head_commit.message }}
