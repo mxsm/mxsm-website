@@ -1,9 +1,9 @@
-name: blog.ljbmxsm.com
+name: blog.ljbmxsm.com deploy
 
 on:
   push:
     branches:
-      - main  # Set a branch name to trigger deployment
+      - main  # Set a branch to deploy
   pull_request:
 
 jobs:
@@ -16,16 +16,21 @@ jobs:
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
-        uses: mxsm/mxsm-website@v2
+        uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
+          # extended: true
 
       - name: Build
         run: hugo --minify
 
       - name: Deploy
-        uses: mxsm/mxsm.github.io@v3
+        uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
         with:
-          github_token: ${{ secrets.LJBMXSM }}
+		      deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY_MXSM }}
+          external_repository: mxsm/mxsm.github.io
           publish_dir: ./public
+          keep_files: false
+          publish_branch: master
+          commit_message: ${{ github.event.head_commit.message }}
