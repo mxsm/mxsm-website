@@ -45,6 +45,6 @@ jobs:
           external_repository: mxsm/mxsm.github.io
           publish_dir: ./public
           keep_files: false
-          publish_branch: gh-pages
+          publish_branch: master
           force_orphan: true
           commit_message: ${{ github.event.head_commit.message }}
