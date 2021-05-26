@@ -43,3 +43,44 @@ public class BrokerData implements Comparable<BrokerData> {
 打印BrokerData元数据信息:{"brokerAddrs":{0:"169.254.144.194:10911"},"brokerName":"mxsm-1","cluster":"MxsmClusterName"}
 ```
 
+### 2 Broker存活状态管理
+
+Broker的存活状态管理分为两种：
+
+- **Broker正常下线**
+
+  Broker正常下线会给NameServer发送一个 **`RequestCode.UNREGISTER_BROKER`** 。然后调用最终调用 **`RouteInfoManager#unregisterBroker`** 方法来注销
+
+- **Broker异常下线，NameServer通过定时任务扫描**
+
+  定时任务在NameServer启动的时候创建
+
+  ```java
+  this.scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
+      @Override
+      public void run() {
+          NamesrvController.this.routeInfoManager.scanNotActiveBroker();
+      }
+  }, 5, 10, TimeUnit.SECONDS);
+  ```
+
+  每10秒执行一次。调用 **`RouteInfoManager#scanNotActiveBroker`**
+
+  ```java
+  public void scanNotActiveBroker() {
+      Iterator<Entry<String, BrokerLiveInfo>> it = this.brokerLiveTable.entrySet().iterator();
+      while (it.hasNext()) {
+          Entry<String, BrokerLiveInfo> next = it.next();
+          long last = next.getValue().getLastUpdateTimestamp();
+          //private final static long BROKER_CHANNEL_EXPIRED_TIME = 1000 * 60 * 2;
+          if ((last + BROKER_CHANNEL_EXPIRED_TIME) < System.currentTimeMillis()) {
+              RemotingUtil.closeChannel(next.getValue().getChannel());
+              it.remove();
+              log.warn("The broker channel expired, {} {}ms", next.getKey(), BROKER_CHANNEL_EXPIRED_TIME);
+              this.onChannelDestroy(next.getKey(), next.getValue().getChannel());
+          }
+      }
+  }
+  ```
+
+  通过上面的代码可以发现120秒没有更新NameServer中当Broker的状态。后将连接关闭，同时需要清除这些已关闭连接的 broker 的路由信息。这部分则是在`onChannelDestroy`方法中
