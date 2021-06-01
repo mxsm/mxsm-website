@@ -5,7 +5,7 @@ weight: 202106012230
 ---
 > 以下源码基于Rocket MQ 4.7.0
 
-### Broker与NameServer的交互
+### 1. Broker与NameServer的交互
 
 Broker启动，跟所有的NameServer保持长连接，定时发送心跳包。心跳包中包含当前Broker信息(IP+端口等)以及存储所有Topic信息。注册成功后，NameServer集群中就有Topic跟Broker的映射关系。
 
@@ -17,7 +17,7 @@ Broker启动，跟所有的NameServer保持长连接，定时发送心跳包。�
 > - 异步(async)
 > - 单向(oneway)
 
-### 客户端的创建
+### 2. 客户端的创建
 
 Broker与NameServer进行数据交互主要是通过一个叫做 **`BrokerOuterAPI`** 的类来进行的。那么这个类的实例对象在哪里没创建又在哪里被引用来处理和NameServer的数据交互。
 
@@ -96,7 +96,7 @@ this.scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
     }
 ```
 
-### Broker端数据的处理
+### 3. Broker端数据的处理
 
 Broker和NameServer的数据处理通过上面可以知道主要是通过 **`BrokerOuterAPI.registerBrokerAll`** 处理。首先通过获取配置在Broker配置文件中的namesrvAddr。
 

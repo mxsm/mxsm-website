@@ -6,11 +6,11 @@ weight: 202106012229
 
 > 以下源码基于Rocket MQ 4.7.0
 
-### Broker
+### 1. Broker
 
 消息中转角色，负责存储消息、转发消息。Broker在RocketMQ系统中负责接收从生产者发送来的消息并存储、同时为消费者的拉取请求作准备。代理服务器也存储消息相关的元数据，包括消费者组、消费进度偏移和主题和队列消息等。
 
-### Broker作用
+### 2. Broker作用
 
 ![](https://github.com/mxsm/document/blob/master/image/MQ/RocketMQ/Broker%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8%E5%9B%BE.png?raw=true)
 
@@ -23,7 +23,7 @@ weight: 202106012229
 
 这四个功能由五个模块来实现。
 
-### Broker启动流程分析
+### 3. Broker启动流程分析
 
 总体的启动流程和NameServer的启动流程差不多但是比NameServer的启动流程复杂：
 
@@ -39,7 +39,7 @@ weight: 202106012229
    - 初始化BrokerController通过调用方法
 2. **BrokerController启动**
 
-### BrokerController创建
+### 4. BrokerController创建
 
 **`BrokerStartUp.createBrokerController`** 调用方法创建
 
@@ -63,7 +63,7 @@ weight: 202106012229
 
 初始化BrokerController。然后返回controller。
 
-### BrokerController启动
+### 5. BrokerController启动
 
 ```java
     public static BrokerController start(BrokerController controller) {
@@ -93,7 +93,7 @@ weight: 202106012229
 
 启动比较简单，调用start方法。
 
-### Broker配置
+### 6. Broker配置
 
 | Property Name          |           Default value           |                                                      Details |
 | :--------------------- | :-------------------------------: | -----------------------------------------------------------: |
