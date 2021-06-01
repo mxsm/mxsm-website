@@ -1,6 +1,7 @@
 ---
 title: RocketMQ源码解析-Broker消息存储CommitLog
 date: 2020-03-21
+weight: 202106012234
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

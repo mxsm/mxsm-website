@@ -1,6 +1,7 @@
 ---
 title: RocketMQ源码解析-Broker故障恢复
 date: 2020-04-02
+weight: 202106012238
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

@@ -1,6 +1,7 @@
 ---
 title: RocketMQ源码解析-Broker启动
 date: 2020-03-15
+weight: 202106012229
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

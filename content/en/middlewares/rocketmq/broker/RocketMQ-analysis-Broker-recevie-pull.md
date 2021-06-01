@@ -1,6 +1,7 @@
 ---
 title: RocketMQ源码解析-Broker接收拉取消息
 date: 2020-03-28
+weight: 202106012236
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

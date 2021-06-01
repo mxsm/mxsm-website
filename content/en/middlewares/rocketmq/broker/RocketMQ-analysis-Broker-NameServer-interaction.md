@@ -1,7 +1,7 @@
 ---
 title: RocketMQ源码解析-Broker与NameServer交互
 date: 2020-03-15
-
+weight: 202106012230
 ---
 > 以下源码基于Rocket MQ 4.7.0
 

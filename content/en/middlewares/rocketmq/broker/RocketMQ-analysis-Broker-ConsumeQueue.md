@@ -1,6 +1,7 @@
 ---
 title: RocketMQ源码解析-Broker消息存储ConsumeQueue
 date: 2020-03-22
+weight: 202106012235
 ---
 
 > 以下源码基于Rocket MQ 4.7.0
