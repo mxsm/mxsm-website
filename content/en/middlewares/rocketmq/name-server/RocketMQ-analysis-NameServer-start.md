@@ -278,7 +278,7 @@ private void registerProcessor() {
 | REGISTER_BROKER                    | 注册一个Broker，数据都是持久化的，如果存在则覆盖配置 |
 | UNREGISTER_BROKER                  | 卸载一个Broker，数据都是持久化的                     |
 | GET_ROUTEINTO_BY_TOPIC             | 根据Topic获取Broker Name、topic配置信息              |
-| GET_BROKER_CLUSTER_INFO            | 获取注册到Name Server的所有Broker集群信息            |
+| GET_BROKER_CLUSTER_INFO            | 获取注册到Name Server的所有Broker集群信息-客户端获取 |
 | WIPE_WRITE_PERM_OF_BROKER          | 去掉BrokerName的写权限                               |
 | GET_ALL_TOPIC_LIST_FROM_NAMESERVER | 从Name Server获取完整Topic列表                       |
 | DELETE_TOPIC_IN_NAMESRV            | 从Namesrv删除Topic配置                               |
