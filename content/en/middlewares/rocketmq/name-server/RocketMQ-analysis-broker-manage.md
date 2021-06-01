@@ -11,6 +11,8 @@ weight: 202105122240
 - Broker管理
 - 路由管理
 
+NameServer可以部署多个，相互之间独立，其他角色同时向多个NameServer上报状态信息，从而达到热备份的目的。NameServer本身是无状态的，也就是说NameServer中的Broker、Topic等信息都不会持久化，都是由各个角色定时上报并存储到内存中的（NameServer支持参数的持久化，一般用不到）。
+
 下面就来结合源码以及项目运行添加打印日志来具体分析一下NameServer是如何对Broker进行管理的。
 
 ### 1. Broker元数据
@@ -43,7 +45,7 @@ public class BrokerData implements Comparable<BrokerData> {
 打印BrokerData元数据信息:{"brokerAddrs":{0:"169.254.144.194:10911"},"brokerName":"mxsm-1","cluster":"MxsmClusterName"}
 ```
 
-### 2 Broker存活状态管理
+### 2. Broker存活状态管理
 
 Broker的存活状态管理分为两种：
 
@@ -84,3 +86,23 @@ Broker的存活状态管理分为两种：
   ```
 
   通过上面的代码可以发现120秒没有更新NameServer中当Broker的状态。后将连接关闭，同时需要清除这些已关闭连接的 broker 的路由信息。这部分则是在`onChannelDestroy`方法中
+
+### 3. Topic的信息
+
+在 **`RouteInfoManager`** 类中有一个变量 **`topicQueueTable`** 这个变量用来保存Topic和Broker之间的读写队列数和权限。
+
+```java
+private final HashMap<String/* topic */, List<QueueData>> topicQueueTable;
+public class QueueData implements Comparable<QueueData> {
+    //broker名称
+    private String brokerName;
+    //读的队列数
+    private int readQueueNums;
+    //写的队列数
+    private int writeQueueNums;
+    //读写权限
+    private int perm;
+    private int topicSynFlag;
+}
+```
+
