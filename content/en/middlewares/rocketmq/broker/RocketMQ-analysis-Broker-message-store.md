@@ -146,6 +146,17 @@ public class ConsumeQueue {
     private volatile long minLogicOffset = 0;
     private ConsumeQueueExt consumeQueueExt = null;
 }
+
+public class MessageStoreConfig {
+    // ConsumeQueue file size,default is 30W -- 默认条数30w调记录
+    private int mappedFileSizeConsumeQueue = 300000 * ConsumeQueue.CQ_STORE_UNIT_SIZE;
+    
+    //获取ConsumeQueue的大小：5.72M左右5.73M不到
+    public int getMappedFileSizeConsumeQueue() {
+        int factor = (int) Math.ceil(this.mappedFileSizeConsumeQueue / (ConsumeQueue.CQ_STORE_UNIT_SIZE * 1.0));
+        return (int) (factor * ConsumeQueue.CQ_STORE_UNIT_SIZE);
+    }
+}
 ```
 
 从代码中可以看到 **`CQ_STORE_UNIT_SIZE`** 是一个固定值20，如下图所示。为了实现定长存储，ConsumeQueue 存储了消息 Tag 的 Hash Code，在进行 Broker 端消息过滤时，通过比较 Consumer 订阅 Tag 的 HashCode 和存储条目中的 Tag Hash Code 是否一致来决定是否消费消息。
