@@ -6,7 +6,7 @@ weight: 202106012235
 
 > 以下源码基于Rocket MQ 4.7.0
 
-### 1 ConsumeQueue格式
+### 1. ConsumeQueue格式
 
 ![](https://github.com/mxsm/document/blob/master/image/MQ/RocketMQ/ConsumeQueue.png?raw=true)
 
@@ -18,7 +18,7 @@ weight: 202106012235
 
 这里我们只分析ConsumeQueue文件的生成过程，其他的会在后续的其他文章中分析
 
-### 2 ConsumeQueue持久化过程
+### 2. ConsumeQueue持久化过程
 
 ConsumeQueue持久化也是RocketMQ三大持久化之一，所以通过源码分析找到，ConsumeQueue持久化是用过一个 **`ReputMessageService`** 来提供持久化服务，这个类是 **`ReputMessageService`** 类中的一个内部类:
 
@@ -297,7 +297,7 @@ private boolean putMessagePositionInfo(final long offset, final int size, final 
 
 后续的数据其实和CommitLog的数据差不多，都是通过MappedFile进行数据落地。
 
-### 3 总结
+### 3. 总结
 
 总结一下ConsumeQueue生成的过程：
 

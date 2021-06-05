@@ -4,17 +4,60 @@ date: 2020-03-21
 weight: 202106012234
 ---
 
-> 以下源码基于Rocket MQ 4.7.0
+> 以下源码基于Rocket MQ 4.8.0
 
-### 1 CommitLog格式
+### 1. CommitLog格式
 
 ![](https://github.com/mxsm/document/blob/master/image/MQ/RocketMQ/CommitLog%E8%AE%B0%E5%BD%95%E6%A0%BC%E5%BC%8F.png?raw=true)
 
-### 2 CommitLog持久化过程
+### 2. 验证环境的准备
 
-这里我们通过分析源码来看一下从生产者把数据提交到Broker然后如何写入到磁盘上的CommitLog文件中的。
+下载RocketMQ代码，然后选择对应的版本(4.8.0版本)，导入开发工具设置对应的启动参数如下图
 
-首先Broker模块中BrokerStartu类作为主启动类：
+![](https://github.com/mxsm/picture/blob/main/rocketmq/broker%E5%90%AF%E5%8A%A8debug%E6%95%B0%E6%8D%AE.png?raw=true)
+
+> 这里的NameServer部署在自己本地的虚拟机
+
+然后就是本地 **`ROCKETMQ_HOME`** 地址：
+
+![](https://github.com/mxsm/picture/blob/main/rocketmq/RocketMQhome.png?raw=true)
+
+这里配置就用从官网下载的启动文件夹里面的对应的就可以。最后就是用来验证的RocketMQ消息生产者的代码(同样代码来自官网)：
+
+```java
+public class MQProducer {
+	//代码来源地址： https://rocketmq.apache.org/docs/simple-example/
+    public static void main(String[] args) throws Exception {
+        /* Instantiate with a producer group name. */
+        DefaultMQProducer producer = new
+            DefaultMQProducer("please_rename_unique_group_name");
+        // Specify name server addresses.
+        producer.setNamesrvAddr("192.168.31.49:9876");
+        //Launch the instance.
+        producer.start();
+        for (int i = 0; i < 1; i++) {
+            //Create a message instance, specifying topic, tag and message body.
+            Message msg = new Message("TopicTest" /* Topic */,
+                "TagB" /* Tag */,
+                ("Hello RocketMQ " +
+                    System.nanoTime()).getBytes(RemotingHelper.DEFAULT_CHARSET) /* Message body */
+            );
+            //Call send message to deliver message to one of brokers.
+            SendResult sendResult = producer.send(msg);
+            System.out.printf("%s%n", sendResult);
+        }
+        //Shut down once the producer instance is not longer in use.
+        producer.shutdown();
+    }
+
+}
+```
+
+### 3. CommitLog持久化过程
+
+这里我们通过分析源码同时通过例子结合Debug来验证分析中的猜想看一下从生产者把数据提交到Broker然后如何写入到磁盘上的CommitLog文件中的。
+
+首先Broker模块中BrokerStartup类作为主启动类：
 
 ```java
 public static void main(String[] args) {
@@ -70,7 +113,7 @@ public void registerProcessor() {
  }
 ```
 
- 所以通过上面的分析处理消息主要是通过 **`SendMessageProcessor`** 来进行处理。
+ 所以通过上面的分析处理消息主要是通过 **`SendMessageProcessor`** 来进行处理。下面来验证一下是不是会通过
 
 接下来看一下 **`SendMessageProcessor`** 的源码：
 
@@ -141,6 +184,8 @@ public CompletableFuture<RemotingCommand> asyncProcessRequest(ChannelHandlerCont
 
 所以上面主要有两类处理一个是单个消息 **`asyncSendMessage`** f方法和 **`asyncSendBatchMessage`** 处理批量发送的数据。这里只分析单个数据的存储(多个数据原理差不多)。
 
+![](https://github.com/mxsm/picture/blob/main/rocketmq/broker-commitlog.gif?raw=true)
+
 首先是对数据进行处理和一些前期的校验如下代码：
 
 ```java
@@ -208,6 +253,10 @@ return handlePutMessageResultFuture(putMessageResult, response, request, msgInne
 
 - 事务消息(以后分析处理)
 - 普通消息
+
+![](https://github.com/mxsm/picture/blob/main/rocketmq/broker-commitlog-1.gif?raw=true)
+
+> 这里产生的是普通消息
 
 存储通过调用 **`MessageStore.asyncPutMessage`** 方法，而 **`MessageStore`** 的实现为 **DefaultMessageStore** 。 看一下 **`DefaultMessageStore.asyncPutMessage`** 实现：
 
@@ -631,7 +680,9 @@ public AppendMessageResult doAppend(final long fileFromOffset, final ByteBuffer 
 
 这个方法讲解CommitLog的整个数据组装。
 
-### 3 CommitLog持久化过程中的重要类
+![](https://github.com/mxsm/picture/blob/main/rocketmq/broker-commitlog-2.gif?raw=true)
+
+### 4. CommitLog持久化过程中的重要类
 
 ![](https://github.com/mxsm/document/blob/master/image/MQ/RocketMQ/RocketMQLevel.png?raw=true)
 
