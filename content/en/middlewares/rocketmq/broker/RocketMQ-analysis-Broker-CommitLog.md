@@ -688,15 +688,106 @@ public AppendMessageResult doAppend(final long fileFromOffset, final ByteBuffer 
 
 以上的图片说明了RocketMQ的不同分层的。
 
-#### 3.1 CommitLog
+#### 4.1 CommitLog
 
 对CommitLog日志的抽象和处理类
 
-#### 3.2 MappedFileQueue
+#### 4.2 MappedFileQueue
 
 映射的文件队列，用来处理文件映射的队列数据。比如CommitLog日志文件
 
-#### 3.3 MappedFile
+#### 4.3 MappedFile
 
 大文件的磁盘操作
 
+### 5. CommitLog数据读取验证
+
+发送消息的代码：
+
+```java
+public class MQProducer {
+
+    public static void main(String[] args) throws Exception {
+        /* Instantiate with a producer group name. */
+        DefaultMQProducer producer = new
+            DefaultMQProducer("please_rename_unique_group_name");
+        // Specify name server addresses.
+        producer.setNamesrvAddr("192.168.31.49:9876");
+        //Launch the instance.
+        producer.start();
+        for (int i = 0; i < 1; i++) {
+            //Create a message instance, specifying topic, tag and message body.
+            String s = "Hello RocketMQ " +
+                System.nanoTime();
+            Message msg = new Message("TopicTest" /* Topic */,
+                "TagB" /* Tag */,
+                s.getBytes(RemotingHelper.DEFAULT_CHARSET) /* Message body */
+            );
+            //Call send message to deliver message to one of brokers.
+            SendResult sendResult = producer.send(msg);
+            System.out.printf("%s%n", sendResult);
+            System.out.println(s);
+        }
+        //Shut down once the producer instance is not longer in use.
+        producer.shutdown();
+    }
+}
+
+```
+
+发送到MQ的消息如下图：
+
+![](https://github.com/mxsm/picture/blob/main/rocketmq/%E6%B6%88%E6%81%AF%E5%AD%98%E5%82%A8%E6%89%93%E5%8D%B0%E5%AD%98%E5%82%A8%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE.png?raw=true)
+
+然后再Broker存储的时候增加日志打印如下图：
+
+![](https://github.com/mxsm/picture/blob/main/rocketmq/%E6%B6%88%E6%81%AF%E5%AD%98%E5%82%A8%E6%89%93%E5%8D%B0%E5%AD%98%E5%82%A8.png?raw=true)
+
+![](https://github.com/mxsm/picture/blob/main/rocketmq/broker%E6%89%93%E5%8D%B0%E5%AD%98%E5%82%A8%E7%9A%84%E9%95%BF%E5%BA%A6.png?raw=true)
+
+然后通过代码解析数据：
+
+```java
+public class MappedFile {
+
+    public static void main(String[] args) throws Exception{
+
+     
+        File file = new File("C:\\Users\\mxsm\\store\\commitlog\\00000000000000000000");
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+        FileChannel channel = randomAccessFile.getChannel();
+        MappedByteBuffer map = channel.map(MapMode.READ_WRITE, 0, file.length());
+        int totalSize = map.getInt();
+        // 1 TOTALSIZE
+        System.out.println("TOTALSIZE:"+totalSize);
+        byte[] bytes = new byte[totalSize];
+        map.get(bytes);
+        ByteBuffer wrap = ByteBuffer.wrap(bytes);
+        int msgLen = 4 //MAGICCODE
+            + 4 //BODYCRC
+            + 4 //QUEUEID
+            + 4 //FLAG
+            + 8 //QUEUEOFFSET
+            + 8 //PHYSICALOFFSET
+            + 4 //SYSFLAG
+            + 8 //BORNTIMESTAMP
+            + 8 //BORNHOST
+            + 8 //STORETIMESTAMP
+            + 8 //STOREHOSTADDRESS
+            + 4 //RECONSUMETIMES
+            + 8; //Prepared Transaction Offset
+        //获取Body的长度
+        byte[] bytes1 = new byte[4];
+        wrap.position(msgLen);
+        wrap.get(bytes1);
+        int anInt = ByteBuffer.wrap(bytes1).getInt();
+        byte[] bodyBytes = new byte[anInt];
+        wrap.get(bodyBytes,0,bodyBytes.length);
+        //打印Body
+        System.out.println(new String(bodyBytes));
+    }
+
+}
+```
+
+![](https://github.com/mxsm/picture/blob/main/rocketmq/commitlog%E8%A7%A3%E6%9E%90%E5%90%8E%E7%9A%84%E6%95%B0%E6%8D%AE.png?raw=true)
