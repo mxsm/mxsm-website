@@ -25,7 +25,7 @@ ConsumeQueue持久化也是RocketMQ三大持久化之一，所以通过源码分
 ```java
 class ReputMessageService extends ServiceThread {
 
-        private volatile long reputFromOffset = 0;
+     private volatile long reputFromOffset = 0;
 	//省略代码
 }
 ```
