@@ -39,7 +39,7 @@ weight: 202106012236
             return response;
         }
 
-        // 判断consumerGroup是否存在
+        // 判断consumerGroup是否存在-如果不存在判断是否允许自动创建，可以自动创建就直接创建消费者组(权限控制)
         SubscriptionGroupConfig subscriptionGroupConfig =
             this.brokerController.getSubscriptionGroupManager().findSubscriptionGroupConfig(requestHeader.getConsumerGroup());
         if (null == subscriptionGroupConfig) {
@@ -194,7 +194,7 @@ weight: 202106012236
             responseHeader.setMinOffset(getMessageResult.getMinOffset());
             responseHeader.setMaxOffset(getMessageResult.getMaxOffset());
 
-            //判断舒服建议从slave读取数据---默认为false
+            //判断是否建议从slave读取数据---默认为false
             if (getMessageResult.isSuggestPullingFromSlave()) {
                 responseHeader.setSuggestWhichBrokerId(subscriptionGroupConfig.getWhichBrokerWhenConsumeSlowly());
             } else {
