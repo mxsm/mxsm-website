@@ -11,7 +11,7 @@ RocketMQ正常退出或者异常退出的时候，如果重新启动那么怎么
 在broker第一次启动或者重新启动的时候会调用这样的一段代码：
 
 ```java
-//BrokerControllerinitialize 中的方法
+//BrokerController#initialize 中的方法
 public boolean initialize() throws CloneNotSupportedException {
      result = result && this.messageStore.load();
 }
