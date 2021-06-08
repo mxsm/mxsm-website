@@ -7,7 +7,7 @@ weight: 202106012238
 > 以下源码基于Rocket MQ 4.7.0
 
 RocketMQ正常退出或者异常退出的时候，如果重新启动那么怎么恢复数据。接下来通过代码来分析这个过程。
-### Broker故障恢复
+### 1.Broker故障恢复
 在broker第一次启动或者重新启动的时候会调用这样的一段代码：
 
 ```java
@@ -77,7 +77,7 @@ public boolean initialize() throws CloneNotSupportedException {
 ```
 > 在RocketMQ的4.7.0版本中CommitLog#recoverAbnormally方法显示为过期，这里暂时就不去分析这个情况。等后续看这里如何处理。
 
-#### CommitLog和ConsumeQueue的恢复
+### 2.CommitLog和ConsumeQueue的恢复
 
 下面来通过添加测试代码的方式说明一下 **`maxPhyOffsetOfConsumeQueue`** 到底是什么值。首先能在 **`recover`** 中添加如下代码然后打包源码：
 
@@ -191,7 +191,7 @@ public void recoverNormally(long maxPhyOffsetOfConsumeQueue) {
 
   设置flushedWhere和committedWhere为0并且删除ConsumeQueue文件
 
-#### TopicQueue的恢复
+### 3.TopicQueue的恢复
 
 ```java
 //topic queueId和offset的关系 
