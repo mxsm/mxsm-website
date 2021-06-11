@@ -1,5 +1,5 @@
 ---
-title: rocketmq-模块设计
+title: RocketMQ-模块设计
 date: 2021-05-10
 weight: 202102102302
 ---

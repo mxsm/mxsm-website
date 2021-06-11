@@ -1,13 +1,14 @@
 ---
 title: RocketMQ源码解析-RocketMQ消息ACK机制及消费进度管理
 date: 2020-04-21
+weight: 202106112130
 ---
 
 > 以下源码基于Rocket MQ 4.7.0
 
-### 消息的ACK机制
+### 1. 消息的ACK机制
 consumer的每个实例是靠AllocateMessageQueueStrategy队列分配来决定如何消费消息的。那么消费进度具体是如何管理的，又是如何保证消息成功消费的?（RocketMQ有保证消息肯定消费成功的特性,失败则重试）？由于以上工作所有的机制都实现在PushConsumer中，所以本文的原理均只适用于RocketMQ中的PushConsumer即Java客户端中的DefaultPushConsumer。 若使用了PullConsumer模式，类似的工作如何ack，如何保证消费等均需要使用方自己实现。
-### 消费进度管理
+### 2. 消费进度管理
 在创建消费者添加了一个消费回调监听器：
 
 ```java
@@ -207,7 +208,6 @@ public synchronized void shutdown() {
     }
 ```
 - MQClientInstance中的定时任务(会在创客户端的时候启动)
-  
 ```java
 //默认是每五秒触发一次
 this.scheduledExecutorService.scheduleAtFixedRate(new Runnable() {

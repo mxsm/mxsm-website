@@ -1,6 +1,7 @@
 ---
 title: RocketMQ源码解析-RocketMQ顺序消息的投递与消费
 date: 2020-04-19
+weight: 202106112137
 ---
 
 > 以下源码基于Rocket MQ 4.7.0

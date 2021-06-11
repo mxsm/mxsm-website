@@ -1,20 +1,21 @@
 ---
 title: RocketMQ源码解析-consumer消费策略
 date: 2020-03-27
+weight: 202106112127
 ---
 
 > 以下源码基于Rocket MQ 4.7.0
 
-### 消费者的两种消费方式
+### 1. 消费者的两种消费方式
 1. **Push消费--底层通过长轮询来实现(DefaultMQPushConsumer来实现的)**
 2. **Pull消费--(4.7.0中代码已经用Deprecated标记了DefaultMQPullConsumer的实现)**
 
-### 消费者消费模型
+### 2. 消费者消费模型
 
 ![](https://raw.githubusercontent.com/mxsm/document/master/image/MQ/RocketMQ/Cosume%E6%B6%88%E8%B4%B9%E6%9E%B6%E6%9E%84.png)
 
 
-### 消费者并发消费数据
+### 3. 消费者并发消费数据
 
 ```java
 public class Consumer {
@@ -347,7 +348,7 @@ public class RebalanceService extends ServiceThread {
         }
     }
 ```
-通过从消费列表 ** consumerTable中** 中获取保存的 **MQConsumerInner** 调用 **MQConsumerInner.doRebalance** 方法。那么 **consumerTable** 中保存的是什么？什么时候保存的。在 DefaultMQPushConsumerImpl.start方法中有这样一段代码：
+通过从消费列表 **consumerTable中** 中获取保存的  **MQConsumerInner**  调用 **MQConsumerInner.doRebalance** 方法。那么 **consumerTable** 中保存的是什么？什么时候保存的。在 DefaultMQPushConsumerImpl.start方法中有这样一段代码：
 
 ```java
  boolean registerOK = mQClientFactory.registerConsumer(this.defaultMQPushConsumer.getConsumerGroup(), this);
@@ -854,7 +855,7 @@ public PullResult pullMessage(
 
 默认获取消息是异步的方式获取数据。
 
-### 消费策略
+### 4. 消费策略
 
 RocketMQ定义了策略接口`AllocateMessageQueueStrategy`，对于给定的`消费者分组`,和`消息队列列表`、`消费者列表`，`当前消费者`应当被分配到哪些`queue队列`，定义如下：
 
