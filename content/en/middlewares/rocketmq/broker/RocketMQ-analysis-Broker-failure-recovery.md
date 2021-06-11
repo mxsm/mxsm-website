@@ -27,6 +27,7 @@ public boolean initialize() throws CloneNotSupportedException {
             boolean lastExitOK = !this.isTempFileExist();
 
             if (null != scheduleMessageService) {
+                //解析延迟的等级-可以自己配置
                 result = result && this.scheduleMessageService.load();
             }
 
