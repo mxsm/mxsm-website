@@ -1,11 +1,12 @@
 ---
 title: RocketMQ源码解析-producer发送消息的流程
 date: 2020-03-22
+weight: 202106112049
 ---
 
 > 以下源码基于Rocket MQ 4.7.0
 
-### 1 调用流程
+### 1. 调用流程
 
 RocketMQ提供的Producer实现为DefaultMQProducer。Producer在创建的时候必须指定Producer Group Name，在正式发送消息之前需要调用start方法初始化Producer
 
@@ -15,7 +16,7 @@ RocketMQ提供的Producer实现为DefaultMQProducer。Producer在创建的时候
 
 这种可靠性同步地发送方式使用的比较广泛，比如：重要的消息通知，短信通知。
 
-```
+```java
 public class SyncProducer {
 	public static void main(String[] args) throws Exception {
     	// 实例化消息生产者Producer
@@ -45,7 +46,7 @@ public class SyncProducer {
 
 异步消息通常用在对响应时间敏感的业务场景，即发送端不能容忍长时间地等待Broker的响应。
 
-```
+```java
 public class AsyncProducer {
 	public static void main(String[] args) throws Exception {
     	// 实例化消息生产者Producer
@@ -92,7 +93,7 @@ public class AsyncProducer {
 
 这种方式主要用在不特别关心发送结果的场景，例如日志发送。
 
-```
+```java
 public class OnewayProducer {
 	public static void main(String[] args) throws Exception{
     	// 实例化消息生产者Producer
@@ -123,7 +124,7 @@ public class OnewayProducer {
 > - Async 异步
 > - Oneway 单向发送
 
-### 2 消息发送流程源码解析
+### 2. 消息发送流程源码解析
 
 DefaultMQProducer.start启动生产者，下面来看一下start的源码解析：
 
@@ -205,7 +206,7 @@ MQClientInstance.start 主要做下面几件事：
 4. 负载均衡服务启动
 5. 推送消息服务启动
 
-### 消息的发送
+### 3. 消息的发送
 通过上面的发送代码看出来主要是调用send消息，最后是通过实现DefaultMQProducerImpl.sendDefaultImpl：
 
 ```java

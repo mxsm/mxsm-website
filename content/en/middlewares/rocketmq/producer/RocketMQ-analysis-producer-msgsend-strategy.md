@@ -1,17 +1,18 @@
 ---
 title: RocketMQ源码解析-生产者投递消息策略
 date: 2020-03-25
+weight: 202106112023
 ---
 
 > 以下源码基于Rocket MQ 4.7.0
 
-### 消息类型
+### 1. 消息类型
 
 ![RocketMQMessageType.png](https://github.com/mxsm/document/blob/master/image/MQ/RocketMQ/RocketMQMessageType.png?raw=true)
 
-### 基于Queue队列轮询算法投递
+### 2. 基于Queue队列轮询算法投递
 
-####  默认轮询算法
+####  2.1 默认轮询算法
 
 默认情况下，采用了最简单的轮询算法，这种算法有个很好的特性就是，保证每一个Queue队列的消息投递数量尽可能均匀。看一下代码的实现，
 
@@ -97,7 +98,7 @@ public class TopicPublishInfo {
     }
 }
 ```
-#### 默认投递方式的增强
+#### 2.2 默认投递方式的增强
 基于Queue队列轮询算法和消息投递延迟最小的策略投递，默认的投递方式比较简单，但是也暴露了一个问题，就是有些Queue队列可能由于自身数量积压等原因，可能在投递的过程比较长，对于这样的Queue队列会影响后续投递的效果。
  基于这种现象，RocketMQ在每发送一个MQ消息后，都会统计一下消息投递的时间延迟，根据这个时间延迟，可以知道往哪些Queue队列投递的速度快。 在这种场景下，会优先使用消息投递延迟最小的策略，如果没有生效，再使用Queue队列轮询的方式。
 
@@ -160,7 +161,7 @@ private SendResult sendDefaultImpl(
     //省略代码
 }
 ```
-### 顺序消息的投递
+### 3. 顺序消息的投递
 上面的两种消息的投递方式时序性没有要求的场景，这种投递的速度和效率比较高。而在有些场景下，需要保证同类型消息投递和消费的顺序性。通过一定的策略，将其放置在一个 queue队列中。看一下在生产者中如何发送顺序消息：
 
 ```java
@@ -257,3 +258,4 @@ public class SelectMessageQueueByRandom implements MessageQueueSelector {
 }
 ```
 
+> 通过 MessageQueueSelector 类的实现跨越选择消息发送的队列。对于同一个队列的消息是有序的。不同队列的消息进行消费可能是无序的。
