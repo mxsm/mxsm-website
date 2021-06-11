@@ -310,3 +310,43 @@ private boolean putMessagePositionInfo(final long offset, final int size, final 
 
 > 每次处理完成一轮后会睡1毫秒的时间。并不是消息生成端发送了消息消费端就能够里面消费数据，而是要经过处理后生成ConsumeQueue才能消费。
 
+上面说了能够消费的数据需要将CommitLog转化成为ConsumeQueue才能进行消费下面就来看一下，进行验证，将 **ReputMessageService** 的睡眠时间改为一分钟代码如下：
+
+```java
+@Override
+public void run() {
+    DefaultMessageStore.log.info(this.getServiceName() + " service started");
+
+    while (!this.isStopped()) {
+        try {
+            //Thread.sleep(1);
+            //将睡眠时间改为1分钟
+            TimeUnit.MINUTES.sleep(1);
+            this.doReput();
+        } catch (Exception e) {
+            DefaultMessageStore.log.warn(this.getServiceName() + " service has exception. ", e);
+        }
+    }
+
+    DefaultMessageStore.log.info(this.getServiceName() + " service end");
+}
+```
+
+启动修改后的MQ Broker。
+
+![](https://github.com/mxsm/picture/blob/main/rocketmq/ConsumeQueue%E7%9D%A1%E7%9C%A0%E6%97%B6%E9%97%B4%E4%BF%AE%E6%94%B9.gif?raw=true)
+
+然后启动消费者，同时用生产者发送消息：
+
+![](https://github.com/mxsm/picture/blob/main/rocketmq/ConsumeQueue%E7%9D%A1%E7%9C%A0%E6%97%B6%E9%97%B4%E4%BF%AE%E6%94%B9-1.gif?raw=true)
+
+看一下两个时间的间隔：
+
+1623405444983(发送时间)=2021-06-11 17:57:24
+
+1623405552338(消费时间)=2021-06-11 17:59:12
+
+通过两个时间发现不是立马进行消费。所以验证了前面的猜测。
+
+**每次处理完成一轮后会睡1毫秒的时间。并不是消息生成端发送了消息消费端就能够里面消费数据，而是要经过处理后生成ConsumeQueue才能消费。**
+
