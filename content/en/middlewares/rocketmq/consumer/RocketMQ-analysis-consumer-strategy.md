@@ -855,7 +855,7 @@ public PullResult pullMessage(
 
 默认获取消息是异步的方式获取数据。
 
-### 4. 消费策略
+### 4. 分配消息队列策略
 
 RocketMQ定义了策略接口`AllocateMessageQueueStrategy`，对于给定的`消费者分组`,和`消息队列列表`、`消费者列表`，`当前消费者`应当被分配到哪些`queue队列`，定义如下：
 
