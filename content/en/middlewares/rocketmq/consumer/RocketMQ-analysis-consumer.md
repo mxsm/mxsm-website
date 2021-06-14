@@ -78,6 +78,7 @@ public class Consumer {
 #### 3.1 基础配置和前期实例化
 
 ```java
+//DefaultMQPushConsumerImpl#start
 public synchronized void start() throws MQClientException {
     
     //检查一些必须要的配置
@@ -111,6 +112,7 @@ public synchronized void start() throws MQClientException {
 ### 3.2  消费类型和消息类型不同的设置
 
 ```java
+//DefaultMQPushConsumerImpl#start
 public synchronized void start() throws MQClientException {
     if (this.defaultMQPushConsumer.getOffsetStore() != null) {
         this.offsetStore = this.defaultMQPushConsumer.getOffsetStore();

@@ -1,5 +1,5 @@
 ---
-title: RocketMQ源码解析-consumer消费策略
+title: RocketMQ源码解析-消费者消费策略源码解析
 date: 2020-03-27
 weight: 202106112127
 ---
