@@ -65,7 +65,7 @@ switch (status) {
         break;
 }
 ```
-接着根据不同的消费模式来处理消费掉的信息和为消费的信息，对于为消费的信息重新提交延迟消费。
+接着根据不同的消费模式来处理消费掉的信息和为消费的信息，对于未消费的信息重新提交延迟消费。
 
 ```java
 switch (this.defaultMQPushConsumer.getMessageModel()) {

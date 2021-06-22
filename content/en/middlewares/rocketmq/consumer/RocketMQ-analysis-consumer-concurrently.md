@@ -96,7 +96,7 @@ public void start() throws MQClientException {
 }
 ```
 
-下面看一下拉取服务 **`PullMessageService#start`** 方法中做了一些什么事情。 **`PullMessageService`** 本质是一个线程的实现类实现了 **`Runnable`** ，所以调用start方法是调用了**`Thread#start`** 。最终执行的是 **`PullMessageService#run`** 方法。逻辑在这个里面：
+下面看一下拉取服务 **`PullMessageService#start`** 方法中做了一些什么事情。 **`PullMessageService`** 本质是一个线程的实现类实现了 **`Runnable`** ，所以调用start方法是调用了 **`Thread#start`** 。最终执行的是 **`PullMessageService#run`** 方法。逻辑在这个里面：
 
 ```java
 public class PullMessageService extends ServiceThread {
