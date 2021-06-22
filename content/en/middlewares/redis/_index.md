@@ -2,6 +2,6 @@
 type: docs
 title: "Redis"
 linkTitle: "Redis"
-weight: 20
+weight: 22
 description: Redis
 ---

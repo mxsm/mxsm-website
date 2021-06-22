@@ -1,7 +1,7 @@
 ---
 type: docs
-title: "etcd"
-linkTitle: "etcd"
-weight: 20
+title: "ETCD"
+linkTitle: "ETCD"
+weight: 24
 description: etcd
 ---

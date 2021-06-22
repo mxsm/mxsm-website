@@ -2,6 +2,6 @@
 type: docs
 title: "Kafka"
 linkTitle: "Kafka"
-weight: 20
+weight: 23
 description: kafka
 ---
