@@ -49,7 +49,7 @@ public class RedisAutoConfiguration {
 
 注解 | 位置 | 说明
 ---|---|---
-ConditionalOnClass | 方法上、类上 | 要求bean存在时，才会创建这个bean
+ConditionalOnBean | 方法上、类上 | 要求bean存在时，才会创建这个bean
 ConditionalOnMissingBean | 方法上、类上 | 要求bean不存在时，才会创建这个bean
 
 这两个注解也是一个对立的注解。通过判断bean是否存在来判断是否创建需要的bean.  
