@@ -16,3 +16,7 @@ idea 中 大于等于，不等于、小于等于等等这些符号发生了改�
 
 ![](https://github.com/mxsm/picture/blob/main/idea/IDEA%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95%E8%87%AA%E5%8A%A8%E6%98%BE%E7%A4%BA%E5%8F%82%E6%95%B0%E6%8F%90%E7%A4%BA.png?raw=true)
 
+### 3. 自动导入包的设置
+
+![](https://github.com/mxsm/picture/blob/main/idea/%E8%87%AA%E5%8A%A8%E5%AF%BC%E5%8C%85%E8%AE%BE%E7%BD%AE.png?raw=true)
+

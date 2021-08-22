@@ -36,7 +36,7 @@ weight: 202108221505
     https://download.docker.com/linux/centos/docker-ce.repo
 ```
 
-### 3.2 安装Docker
+#### 3.2 安装Docker
 
 ```shell
  sudo yum install docker-ce docker-ce-cli containerd.io
