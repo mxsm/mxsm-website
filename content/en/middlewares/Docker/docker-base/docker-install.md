@@ -47,3 +47,4 @@ weight: 202108221505
 参考文档:
 
 - https://docs.docker.com/engine/install/centos/
+- https://docs.docker.com/compose/install/
