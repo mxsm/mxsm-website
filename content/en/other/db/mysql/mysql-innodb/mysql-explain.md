@@ -4,7 +4,46 @@ date: 2021-08-27
 weight: 202108272202
 ---
 
+> 使用的表：
+>
+> ```sql
+> CREATE TABLE `city` (
+>   `ID` int NOT NULL AUTO_INCREMENT,
+>   `Name` char(35) NOT NULL DEFAULT '',
+>   `CountryCode` char(3) NOT NULL DEFAULT '',
+>   `District` char(20) NOT NULL DEFAULT '',
+>   `Population` int NOT NULL DEFAULT '0',
+>   PRIMARY KEY (`ID`),
+>   KEY `name_code` (`Name`,`CountryCode`)
+> ) ENGINE=InnoDB AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+> INSERT INTO `city` VALUES (1,'Kabul','AFG','Kabol',1780000);
+> INSERT INTO `city` VALUES (2,'Qandahar','AFG','Qandahar',237500);
+> INSERT INTO `city` VALUES (3,'Herat','AFG','Herat',186800);
+> INSERT INTO `city` VALUES (4,'Mazar-e-Sharif','AFG','Balkh',127800);
+> INSERT INTO `city` VALUES (5,'Amsterdam','NLD','Noord-Holland',731200);
+> INSERT INTO `city` VALUES (6,'Rotterdam','NLD','Zuid-Holland',593321);
+> INSERT INTO `city` VALUES (7,'Haag','NLD','Zuid-Holland',440900);
+> INSERT INTO `city` VALUES (8,'Utrecht','NLD','Utrecht',234323);
+> INSERT INTO `city` VALUES (9,'Eindhoven','NLD','Noord-Brabant',201843);
+> INSERT INTO `city` VALUES (10,'Tilburg','NLD','Noord-Brabant',193238);
+> INSERT INTO `city` VALUES (11,'Groningen','NLD','Groningen',172701);
+> INSERT INTO `city` VALUES (12,'Breda','NLD','Noord-Brabant',160398);
+> INSERT INTO `city` VALUES (13,'Apeldoorn','NLD','Gelderland',153491);
+> INSERT INTO `city` VALUES (14,'Nijmegen','NLD','Gelderland',152463);
+> INSERT INTO `city` VALUES (15,'Enschede','NLD','Overijssel',149544);
+> INSERT INTO `city` VALUES (16,'Haarlem','NLD','Noord-Holland',148772);
+> INSERT INTO `city` VALUES (17,'Almere','NLD','Flevoland',142465);
+> INSERT INTO `city` VALUES (18,'Arnhem','NLD','Gelderland',138020);
+> INSERT INTO `city` VALUES (19,'Zaanstad','NLD','Noord-Holland',135621);
+> INSERT INTO `city` VALUES (20,'´s-Hertogenbosch','NLD','Noord-Brabant',129170);
+> INSERT INTO `city` VALUES (21,'Amersfoort','NLD','Utrecht',126270);
+> INSERT INTO `city` VALUES (22,'Maastricht','NLD','Limburg',122087);
+> ```
+>
+> 可以去MySQL官网地址下载：https://downloads.mysql.com/docs/world-db.zip
+
 ### 1. explain的作用
+
 - 表的加载顺序
 - sql的查询类型
 - sql查询时候用到的索引
@@ -64,16 +103,79 @@ id表示查询中执行select子句或者操作表的顺序， **id的值越大�
 ### 7. type
 查询使用了何种类型,下面的列表描述了查询join类型，从最好到最差的类型：
 - system
+
 - const
+
+  表示查询时命中 `primary key` 主键或者 `unique` 唯一索引，或者被连接的部分是一个常量(`const`)值。这类扫描效率极高，返回数据量少，速度非常快。
+
+  ```mysql
+  mysql> explain SELECT id FROM city WHERE id = 10;
+  +----+-------------+-------+------------+-------+---------------+---------+---------+-------+------+----------+-------------+
+  | id | select_type | table | partitions | type  | possible_keys | key     | key_len | ref   | rows | filtered | Extra       |
+  +----+-------------+-------+------------+-------+---------------+---------+---------+-------+------+----------+-------------+
+  |  1 | SIMPLE      | city  | NULL       | const | PRIMARY       | PRIMARY | 4       | const |    1 |   100.00 | Using index |
+  +----+-------------+-------+------------+-------+---------------+---------+---------+-------+------+----------+-------------+
+  1 row in set (0.01 sec)
+  
+  
+  ```
+
 - eq_ref
+
+  查询时命中主键`primary key` 或者 `unique key`索引， `type` 就是 `eq_ref`
+
 - ref
+
+  ```mysql
+  mysql> explain SELECT `Name`, CountryCode FROM city WHERE  CountryCode = 'NLD' AND `Name`='Haag';
+  +----+-------------+-------+------------+------+---------------+-----------+---------+-------------+------+----------+--------------------------+
+  | id | select_type | table | partitions | type | possible_keys | key       | key_len | ref         | rows | filtered | Extra                    |
+  +----+-------------+-------+------------+------+---------------+-----------+---------+-------------+------+----------+--------------------------+
+  |  1 | SIMPLE      | city  | NULL       | ref  | name_code     | name_code | 152     | const,const |    1 |   100.00 | Using where; Using index |
+  +----+-------------+-------+------------+------+---------------+-----------+---------+-------------+------+----------+--------------------------+
+  1 row in set (0.02 sec)
+  ```
+
 - fulltext
+
 - ref_or_null
+
 - index_merge
+
 - unique_subquery
+
 - index_subquery
+
 - range
+
+  使用索引选择行，仅检索给定范围内的行。简单点说就是针对一个有索引的字段，给定范围检索数据。在`where`语句中使用 `bettween...and`、`<`、`>`、`<=`、`in` 等条件查询 `type` 都是 `range` 。
+
+  ```mysql
+  mysql> explain SELECT `Name`, CountryCode FROM city WHERE  id IN (1,2);
+  +----+-------------+-------+------------+-------+---------------+---------+---------+------+------+----------+-------------+
+  | id | select_type | table | partitions | type  | possible_keys | key     | key_len | ref  | rows | filtered | Extra       |
+  +----+-------------+-------+------------+-------+---------------+---------+---------+------+------+----------+-------------+
+  |  1 | SIMPLE      | city  | NULL       | range | PRIMARY       | PRIMARY | 4       | NULL |    2 |   100.00 | Using where |
+  +----+-------------+-------+------------+-------+---------------+---------+---------+------+------+----------+-------------+
+  1 row in set (0.05 sec)
+  ```
+
+  对只设置了索引的字段，做范围检索 `type` 才是 `range`
+
+  ```mysql
+  mysql> explain SELECT `Name`, CountryCode FROM city WHERE  District IN ('A','B');
+  +----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+-------------+
+  | id | select_type | table | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
+  +----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+-------------+
+  |  1 | SIMPLE      | city  | NULL       | ALL  | NULL          | NULL | NULL    | NULL | 4046 |    20.00 | Using where |
+  +----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+-------------+
+  1 row in set (0.07 sec)
+  ```
+
 - index
+
+  `index`：`Index` 与`ALL` 其实都是读全表，区别在于`index`是遍历索引树读取，而`ALL`是从硬盘中读取
+
 - ALL
 
 ### 8. possible_keys
