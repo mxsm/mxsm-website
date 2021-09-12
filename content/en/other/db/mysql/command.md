@@ -4,7 +4,7 @@ date: 2021-03-04
 weight: 1
 ---
 
-### 1. mysql常用命令
+### 1. mysql常用系统命令
 
 登录后三部曲命令：查看数据库，选择数据库，查看表
 
@@ -16,7 +16,7 @@ show tables; //显示数据库表
 
 
 
-### 查询变量
+#### 1.1查询变量
 
 ```mysql
 show variables;
@@ -50,5 +50,13 @@ mysql> show variables like '%dir%';
 | tmpdir                                  | /tmp                           |
 +-----------------------------------------+--------------------------------+
 18 rows in set (0.09 sec)
+```
+
+### 2. mysql表相关命令
+
+#### 2.1 查看表索引
+
+```mysql
+show index from table;
 ```
 
