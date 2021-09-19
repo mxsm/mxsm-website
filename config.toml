@@ -212,7 +212,7 @@ theme = "default"
 enable = true
 
 [params.print]
-disable_toc = false
+disable_toc = true
 
 [sitemap]
 #changefreq = "monthly"
