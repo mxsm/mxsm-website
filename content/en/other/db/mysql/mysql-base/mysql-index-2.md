@@ -6,9 +6,44 @@ weight: 202109121427
 
 > mysql 版本为8.0版本
 
+[TOC]
+
 在mysql的使用中，索引是一个少不了的话题，经常会听到很多关于索引的名称。比如全文索引，唯一索引等等。五花八门，下面我们就来对这些索引进行一一的说明。图如下：
 
 ![](https://github.com/mxsm/picture/blob/main/mysql/mysql%E7%B4%A2%E5%BC%95%E5%88%86%E7%B1%BB.png?raw=true)
+
+创建索引的语法([来源mysql官网](https://dev.mysql.com/doc/refman/8.0/en/create-index.html)):
+
+```sql
+CREATE [UNIQUE | FULLTEXT | SPATIAL] INDEX index_name
+    [index_type]
+    ON tbl_name (key_part,...)
+    [index_option]
+    [algorithm_option | lock_option] ...
+
+key_part: {col_name [(length)] | (expr)} [ASC | DESC]
+
+index_option: {
+    KEY_BLOCK_SIZE [=] value
+  | index_type
+  | WITH PARSER parser_name
+  | COMMENT 'string'
+  | {VISIBLE | INVISIBLE}
+  | ENGINE_ATTRIBUTE [=] 'string'
+  | SECONDARY_ENGINE_ATTRIBUTE [=] 'string'
+}
+
+index_type:
+    USING {BTREE | HASH}
+
+algorithm_option:
+    ALGORITHM [=] {DEFAULT | INPLACE | COPY}
+
+lock_option:
+    LOCK [=] {DEFAULT | NONE | SHARED | EXCLUSIVE}
+```
+
+> Note: create index 不能创建主键
 
 ### 1. 主键索引
 
@@ -110,7 +145,7 @@ CREATE SPATIAL INDEX part_of_name ON customer (name(10)); --创建空间索引
 
   *`对col1、col2、col3三列分别创建索引，MySQL只会选择辨识度高的一列作为索引`*  。假设有100w的数据，一个索引筛选出10%的数据，那么可以筛选出10w的数据；对于组合索引而言，可以筛选出100w*10%*10%*10%=1000条数据
 
-##### 对于查询及存在组合索引有存在单一索引数据库如何处理？
+#### 5.3 对于查询及存在组合索引有存在单一索引数据库如何处理？
 
 ```sql
 CREATE TABLE `Student` (
