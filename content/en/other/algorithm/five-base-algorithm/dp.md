@@ -61,13 +61,18 @@ weight: 202109201749
 
 [最小路径和-力扣64](https://leetcode-cn.com/problems/minimum-path-sum/)
 
+状态方程如下：
+$$
+dp(i,j) = min(dp[i-1][j],dp[i,j-1])+grid[i][j]
+$$
+左上角到右下角的路径说明只能从上往下走或者从左往右走，
+$$
+dp[i-1][j]表示从左往右走
+$$
 
-
-
-
-
-
-
+$$
+dp[i][j-1]表示从上往下走
+$$
 
 参考文献:
 
