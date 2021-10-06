@@ -1,4 +1,9 @@
-{{ with .TableOfContents }}
-{{ if ge (len .) 200 }}
-{{ end }}
+
+{{ if and (ge (len .) 200) (.Params.toc) }}
+<aside>
+    <header>
+        <h2>{{.Title}}</h2>
+    </header>
+    {{.TableOfContents}}
+</aside>
 {{ end }}
