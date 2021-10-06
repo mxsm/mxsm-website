@@ -19,7 +19,10 @@
           <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
             {{ partial "version-banner.html" . }}
             {{ if not .Site.Params.ui.breadcrumb_disable }}{{ partial "breadcrumb.html" . }}{{ end }}
-            {{ partial "toc-custom.html" . }}
+            <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+              {{ partial "toc-custom.html" . }}
+            </div>
+
             {{ block "main" . }}{{ end }}
           </main>
         </div>
