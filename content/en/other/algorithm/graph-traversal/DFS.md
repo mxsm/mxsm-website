@@ -4,8 +4,6 @@ date: 2021-10-06
 weight: 202110061032
 ---
 
-[TOC]
-
 ### 1. 深度优先搜索(DFS)是什么？
 
 深度优先搜索算法（英语：Depth-First-Search，DFS）是一种用于遍历或搜索树或图的算法。这个算法会尽可能深的搜索树的分支。当节点v的所在边都己被探寻过，搜索将回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止。这种算法不会根据图的结构等信息调整执行策略
@@ -23,7 +21,52 @@ weight: 202110061032
 
 #### 2.1 深度优先搜索-递归
 
+```java
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
 
+        dfs(root, result);
+
+        return result;
+    }
+
+    private void dfs(TreeNode node, List<Integer> result) {
+        if (node == null) {
+            return;
+        }
+        result.add(node.val);
+        if (node.left != null) {
+            dfs(node.left, result);
+        }
+        if (node.right != null) {
+            dfs(node.right, result);
+        }
+    }
+```
+
+#### 2.2 深度优先搜索-栈
+
+```
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if(null == root){
+            return result;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode pop = stack.pop();
+            result.add(pop.val);
+            if(pop.right != null){
+                stack.add(pop.right);
+            }
+            if(pop.left != null){
+                stack.add(pop.left);
+            }
+        }
+        return result;
+    }
+```
 
 参考文档:
 
