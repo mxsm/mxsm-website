@@ -1,4 +1,14 @@
+---
+title: "Dockfile"
+linkTitle: "Dockfile"
+date: 2021-11-21
+weight: 202111212107
+---
+
+
+
 ### 1. 什么是Dockerfile
+
 Docker 通过从一个Dockerfile包含所有命令的文本文件中读取指令来自动构建镜像，该 文件按顺序包含构建给定镜像所需的所有命令
 
 ```dockerfile
