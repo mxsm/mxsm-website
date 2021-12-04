@@ -200,3 +200,125 @@ ENV可以在Dockerfile中使用多次
 > ENV ONE TWO= THREE=world
 > 
 > ```
+
+#### 2.7 ADD
+
+```shell
+ADD [--chown=<user>:<group>] <src>... <dest>    1
+ADD [--chown=<user>:<group>] ["<src>",... "<dest>"]   2
+```
+
+对于包含空格的路径，使用第二种形式
+
+> Note: --chown特性只支持用于构建Linux容器的Dockerfiles，而不适用于Windows容器。由于用户和组所有权的概念不能在Linux和Windows之间转换，使用/etc/passwd和/etc/group将用户和组名转换为id，限制了该特性只能在基于Linux操作系统的容器中有效。
+
+#### 2.8 COPY
+
+```dockerfile
+COPY [--chown=<user>:<group>] <src>... <dest>
+COPY [--chown=<user>:<group>] ["<src>",... "<dest>"]
+```
+
+> Note:
+>
+> --chown特性只支持用于构建Linux容器的Dockerfiles，而不适用于Windows容器。由于用户和组所有权的概念不能在Linux和Windows之间转换，使用/etc/passwd和/etc/group将用户和组名转换为id，限制了该特性只能在基于Linux操作系统的容器中有效。
+
+#### 2.9 ENTRYPOINT
+
+两种格式：
+
+```shell
+ENTRYPOINT ["executable", "param1", "param2"]
+
+ENTRYPOINT command param1 param2
+```
+
+#### 2.10 VOLUME
+
+```dockerfile
+VOLUME ["/data"]
+```
+
+VOLUME指令使用指定的名称创建一个挂载点，并将其标记为保存来自本机主机或其他容器的外部挂载卷。可以是JSON数组，VOLUME ["/var/log/"]，也可以是带多个参数的纯字符串，如VOLUME /var/log或VOLUME /var/log/ var/db
+
+#### 2.11 USER
+
+```dockerfile
+USER <user>[:<group>]
+
+USER <UID>[:<GID>]
+```
+
+#### 2.12 WORKDIR
+
+```dockerfile
+WORKDIR /path/to/workdir
+```
+
+WORKDIR指令为Dockerfile中跟随它的任何RUN、CMD、ENTRYPOINT、COPY和ADD指令设置工作目录。如果WORKDIR不存在，它将被创建，即使它没有在任何后续Dockerfile指令中使用。
+
+WORKDIR指令可以在Dockerfile中多次使用。如果提供了一个相对路径，它将相对于前一个WORKDIR指令的路径。例如:
+
+```dockerfile
+WORKDIR /a
+WORKDIR b
+WORKDIR c
+RUN pwd
+```
+
+pwd显示的值是： **`/a/b/c`** 
+
+#### 2.13 ARG
+
+```dockerfile
+ARG <name>[=<default value>]
+```
+
+ARG定义了一个变量，配合**`docker build --build-arg <varname>=<varvalue>`** 
+
+#### 2.14 ONBUILD
+
+```dockerfile
+ONBUILD <INSTRUCTION>
+```
+
+#### 2.15 STOPSIGNAL
+
+```dockerfile
+STOPSIGNAL signal
+```
+
+#### 2.16 HEALTHCHECK
+
+格式：
+
+- `HEALTHCHECK [选项] CMD <命令>`：设置检查容器健康状况的命令
+- `HEALTHCHECK NONE`：如果基础镜像有健康检查指令，使用这行可以屏蔽掉其健康检查指令
+
+`HEALTHCHECK` 指令是告诉 Docker 应该如何进行判断容器的状态是否正常，这是 Docker 1.12 引入的新指令。
+
+在没有 `HEALTHCHECK` 指令前，Docker 引擎只可以通过容器内主进程是否退出来判断容器是否状态异常。很多情况下这没问题，但是如果程序进入死锁状态，或者死循环状态，应用进程并不退出，但是该容器已经无法提供服务了。在 1.12 以前，Docker 不会检测到容器的这种状态，从而不会重新调度，导致可能会有部分容器已经无法提供服务了却还在接受用户请求。
+
+而自 1.12 之后，Docker 提供了 `HEALTHCHECK` 指令，通过该指令指定一行命令，用这行命令来判断容器主进程的服务状态是否还正常，从而比较真实的反应容器实际状态。
+
+当在一个镜像指定了 `HEALTHCHECK` 指令后，用其启动容器，初始状态会为 `starting`，在 `HEALTHCHECK` 指令检查成功后变为 `healthy`，如果连续一定次数失败，则会变为 `unhealthy`。
+
+`HEALTHCHECK` 支持下列选项：
+
+- `--interval=<间隔>`：两次健康检查的间隔，默认为 30 秒；
+- `--timeout=<时长>`：健康检查命令运行超时时间，如果超过这个时间，本次健康检查就被视为失败，默认 30 秒；
+- `--retries=<次数>`：当连续失败指定次数后，则将容器状态视为 `unhealthy`，默认 3 次。
+
+和 `CMD`, `ENTRYPOINT` 一样，`HEALTHCHECK` 只可以出现一次，如果写了多个，只有最后一个生效。
+
+在 `HEALTHCHECK [选项] CMD` 后面的命令，格式和 `ENTRYPOINT` 一样，分为 `shell` 格式，和 `exec` 格式。命令的返回值决定了该次健康检查的成功与否：`0`：成功；`1`：失败；`2`：保留，不要使用这个值。
+
+#### 2.17 SHELL
+
+```dockerfile
+SHELL ["executable", "parameters"]
+```
+
+参考文档：
+
+- https://docs.docker.com/engine/reference/builder/
