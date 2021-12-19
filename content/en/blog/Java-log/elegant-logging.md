@@ -112,11 +112,25 @@ public class UserInterceptor implements AsyncHandlerInterceptor {
 为了解决上面的问题，一般采用AOP的方式记录操作日志和业务逻辑的解耦。下面来看一下：
 
 ```java
-    @GetMapping("")
-    @Log(content = "记录日志")
-    public String log(){
-        return System.currentTimeMillis()+"";
+@Service
+public class UserServiceImpl {
+
+    @Log(template = "新增用户-名称为:${#user.name}  用户地址：${#user.address}, " 
+        + "年龄:${#user.age}, 用户的信息：${@userServiceImpl.getUserInfo(#user)}")
+    public boolean addUser(User user){
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        for(int i = 0; i < 30000; ++i){
+            sb.append(random.nextInt());
+        }
+        return true;
     }
+
+    public String getUserInfo(User use){
+        return use.toString();
+    }
+
+}
 ```
 
 这里记录日志实现的是一个静态，通过AOP的方式来实现的。那么如何实现动态模板，就会涉及到让变量通过占位符的方式解析模板，从而达到通过注解记录操作日志的目的。模板解析的方式有很多种。Java使用者用的最多的框架就是Spring， 这里实现我们也使用SpEL（Spring Expression Language，Spring表达式语言）来实现。
@@ -154,15 +168,17 @@ public class UserInterceptor implements AsyncHandlerInterceptor {
   - 公共字段处理逻辑
   - 自定义函数的处理逻辑
 - 日志持久化逻辑
-  - 默认持久化
+  - 默认持久化(现在是Java日志持久化到本地文件)
   - 持久化的方式（文件还是数据库），同步还是异步模式
 - 项目如何进行集成(Spring start开发)
 
-> 项目github地址：
 
 
+![](https://github.com/mxsm/picture/blob/main/java/log/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E7%8E%B0.png?raw=true)
 
+主要使用了Spring的AOP和Spel来实现动态日志记录功能。直接可以使用Spel表达式来。
 
+> 项目github地址：https://github.com/mxsm/mxsm-log4j
 
 参考资料:
 
