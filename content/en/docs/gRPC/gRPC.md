@@ -9,7 +9,7 @@ weight: 202112311714
 
 gRPC在最近的几年出现的频率越来越高，越来越多的项目都引入了gRPC,例如：Dubbo3.0, Nacos, RocketMQ5.0。那么gRPC到底是什么我们从下面的几个方面来进行分析
 
-![image-20211231174515945](https://raw.githubusercontent.com/mxsm/picture/main/gRPC/image-20211231174515945.png)
+![image-20220101214137128](https://raw.githubusercontent.com/mxsm/picture/main/gRPC/image-20220101214137128.png)
 
 ### 1. gRPC是什么？
 
@@ -20,7 +20,7 @@ gRPC是一个现代的开源高性能远程过程调用(RPC)框架，可以在�
 那么gRPC是什么呢？
 
 - 一个高性能RPC框架，一个跨语言平台的RPC框架。
-- 使用Protobuf Buffers作为二进制序列化
+- 使用[Protocol Buffers](https://developers.google.com/protocol-buffers)作为二进制序列化
 - 使用HTTP/2进行数据传输
 
 ![图片来源gRPC官网](https://raw.githubusercontent.com/mxsm/picture/main/gRPC/image-20211231173654659.png)
@@ -35,7 +35,7 @@ gRPC客户机和服务器可以在各种环境中彼此运行和通信。服务�
 
 由Google定义的一个与语言和平台无关具有可拓展的用于序列化结构化的数据(例如：XML、JSON)的协议。但更小、更快、更简单。您只需定义数据的结构化方式，然后就可以使用特殊生成的源代码轻松地向各种数据流写入和读取结构化数据，并可以被各种语言使用。
 
-> Akka的节点之间的数据传输可以自定义基于Protobuf Buffers序列化的处理。
+> Akka的节点之间的数据传输可以自定义基于[Protocol Buffers](https://developers.google.com/protocol-buffers)序列化的处理。
 
 #### 2.2  gRPC使用Protocol Buffers序列化结构化数据
 
@@ -138,5 +138,5 @@ gRPC连接管理的有效性取决于它识别失败连接的能力。失效连�
 ### 5. 总结
 
 - gRPC是一个高可用的 **`跨平台`** 的RPC框架
-- gRPC数据序列化是通过Protobuf Buffers,数据传输基于HTTP/2
+- gRPC数据序列化是通过[Protocol Buffers](https://developers.google.com/protocol-buffers),数据传输基于HTTP/2
 - HTTP/2的语义提供给gRPC的长连接和实时的通讯，以及其他的HTTP/2的特性
