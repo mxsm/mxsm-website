@@ -194,3 +194,6 @@ Protobuf测试结果：
 
 对于两者的优缺点能不能尝试把JSON的有点和Protobuf的有点结合起来，取一个折中的办法。取JSON的对开发者的友好和Protobuf的序列化占用空间小的特点。
 
+
+
+> 上面用到的代码地址：https://github.com/mxsm/spring-sample/tree/master/spring-boot-protobuf
