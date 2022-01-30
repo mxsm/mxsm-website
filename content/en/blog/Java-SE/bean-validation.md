@@ -27,7 +27,7 @@ public boolean addUser(StudentJson json){
 
 Bean Validation的知识结构图如下：
 
-![beanvalidation知识点](E:\download\beanvalidation知识点.png)
+![beanvalidation知识点](https://raw.githubusercontent.com/mxsm/picture/main/java/jvm/beanvalidation%E7%9F%A5%E8%AF%86%E7%82%B9.png)
 
 如何自定义一个约束，根据上面的**Bean Validation** 的知识结构图来一步步实现。下面已定义一个 手机号码约束
 
@@ -51,7 +51,7 @@ public @interface MobileNum {
 }
 ```
 
-![image-20220130171927372](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20220130171927372.png)
+![image-20220130171927372](https://raw.githubusercontent.com/mxsm/picture/main/java/jvm/image-20220130171927372.png)
 
 **标号1：** **@Constraint** 注解设置自定义验证器，**`MobileNumValidator`** 需要自己实现 **ConstraintValidator** 接口
 
@@ -137,11 +137,11 @@ public class ValidationMain {
 > com.github.mxsm.MobileNum.message=手机号码不正确
 > ```
 
-![image-20220130205426240](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20220130205426240.png)
+![image-20220130205426240](https://raw.githubusercontent.com/mxsm/picture/main/java/jvm/image-20220130205426240.png)
 
 运行查看结果：
 
-![beanvalidation测试运行](C:\Users\mxsm\Desktop\pic\beanvalidation测试运行.gif)
+![beanvalidation测试运行](https://raw.githubusercontent.com/mxsm/picture/main/java/jvm/beanvalidation%E6%B5%8B%E8%AF%95%E8%BF%90%E8%A1%8C.gif)
 
 从运行结果可以看出来成功打印了在ValidationMessages.properties配置的手机号码不正确提示
 
