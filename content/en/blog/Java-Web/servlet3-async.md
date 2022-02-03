@@ -1,11 +1,17 @@
 ---
-title: Servlet3异步请求
+title: Servlet异步请求如何开启
 date: 2021-03-16
 weight: 2
 ---
 
+「这是我参与2022首次更文挑战的第17天，活动详情查看：[2022首次更文挑战](https://juejin.cn/post/7052884569032392740)」
+
 ### 1. 背景
+
 在研究长轮询的实现过程，有使用到Servlet3的异步请求。下面就来学习一下Servlet3的异步请求
+
+> 现在Servlet的版本已经到了5
+
 ### 2. Servlet同步请求
 以Tomcat服务器为例：
 - Http请求到达Tomcat

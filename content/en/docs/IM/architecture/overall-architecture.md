@@ -21,7 +21,7 @@ IM系统在互联网初期即存在，其基础技术架构在这十几年的发
 
 ### 2. 技术架构
 
-![IM技术架构图](E:\download\IM技术架构图.png)
+![IM技术架构图](https://raw.githubusercontent.com/mxsm/picture/main/IM/IM%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E5%9B%BE.png)
 
 IM架构主要分为六个部分，如上图所示：
 
