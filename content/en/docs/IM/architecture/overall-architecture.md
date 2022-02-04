@@ -25,10 +25,7 @@ IM系统在互联网初期即存在，其基础技术架构在这十几年的发
 
 IM架构主要分为六个部分，如上图所示：
 
-- **Register: ** 注册中心，注册中心与注册中心之间没有联系，已单例模式构建集群。这样的好处就是实现简单，通过多个单例达到高可用。主要有两个功能：
-  1. 提供MagpieBridge和MessageHandlerService的服务注册发现，通过长连接心跳维持MagpieBridge和MessageHandlerService的服务保存在注册中心，如果一个特定时间内没有收到服务的心跳，注册中心判断该服务不可用将服务从注册中心踢出。
-  2. Client连接MagpieBridge的时候会从注册中心选取对应的MagpieBridge地址进行接入。同时为metric提供统计数据支持。
-
+- **Register: ** 注册中心，注册中心与注册中心之间没有联系，已单例模式构建集群。这样的好处就是实现简单，通过多个单例达到高可用。
 - **Client:** 主要负责消息的收发，从注册中心(Register)获取合适的 **MagpieBridge** 地址进行链接，根据配置的策略进行获取。客户端支持限流
 - **MagpieBridge：** 负责客户端的接入，服务启动会往注册中心注册**`MagpieBridge`** 的元数据。同时定时向注册中心发送**`MagpieBridge`** 接入的客户端数据信息。
 - **MessageHandlerService：** 负责处理客户端发送过来的消息，转发消息给对应的接收人，同时将消息持久化到数据库。提供数据持久化服务 以及历史数据查询和消息处理服务
@@ -36,3 +33,11 @@ IM架构主要分为六个部分，如上图所示：
 - **Metric：** 系统的服务监控指标获取
 
 ### 3. 注册中心(Register)
+
+注册中心主要有两个功能：
+
+1. 提供MagpieBridge和MessageHandlerService的服务注册发现
+2. Client连接MagpieBridge的时候会从注册中心选取对应的MagpieBridge地址进行接入。同时为metric提供统计数据支持。
+
+注册中心的集群由单个注册中心组成。当一个注册中心出现问题，客户端
+

@@ -196,5 +196,3 @@ Caused by: java.lang.ClassCastException: com.github.mxsm.algorithm.A cannot be c
 这里报 java.lang.ClassCastException: com.github.mxsm.algorithm.A cannot be cast to com.github.mxsm.algorithm.A 这是为什么？
 
 原因就在于A的加载是不同的类加载器加载，由于有类加载器命名空间的存在。所以其实加载的是两个不同的类。所以在进行强行转换的时候回出现 A 不能转换 A的情况。
-
-### 
