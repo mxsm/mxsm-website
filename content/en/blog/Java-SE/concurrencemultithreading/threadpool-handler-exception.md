@@ -5,8 +5,6 @@ date: 2022-02-01
 weight: 202202012147
 ---
 
-「这是我参与2022首次更文挑战的第16天，活动详情查看：[2022首次更文挑战](https://juejin.cn/post/7052884569032392740)」
-
 大家在开发的过程中是否发现，我们使用线程池的时候很少去处理运行过程中出现的错误，不处理错误这样没关系吗？不处理会不会导致线程池结束？如果需要处理错误我们应该如何进行处理呢？那么今天从以下几个方面来看一下
 
 ![线程池异常](https://raw.githubusercontent.com/mxsm/picture/main/java/concurrencemultithreading/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%BC%82%E5%B8%B8.png)
