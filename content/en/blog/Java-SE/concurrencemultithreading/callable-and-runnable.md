@@ -177,7 +177,3 @@ Callable作为了FutureTask的一个属性值。之前说过，要想被Thread�
 - **Runnable和Callable两者没有继承关系，Callable通过FutureTask包装成Runnable。**
 - **线程池执行任务的时候，如果关系返回值就用Callable，不关心返回值用Runnable。**
 - **Runnable如果也需要返回值，线程池内部是通过RunnableAdapter适配器来适配成Callable**
-
-
-
-> 我是蚂蚁背大象，文章对你有帮助可以点赞关注我，文章有不正确的地方请您斧正留言评论~谢谢！
