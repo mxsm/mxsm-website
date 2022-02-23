@@ -1,5 +1,8 @@
 ---
-Windows WSL让你告别VMware
+title: "Windows WSL让你告别VMware"
+linkTitle: "Windows WSL让你告别VMware"
+date: 2022-01-20
+weight: 202202200920
 ---
 
 ### 1. 引言
