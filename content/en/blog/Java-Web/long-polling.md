@@ -1,5 +1,4 @@
 ---
-
 title: "Servlet异步应用长轮询实现"
 linkTitle: "Servlet异步应用长轮询实现"
 date: 2022-02-10
@@ -22,7 +21,7 @@ weight: 202202102325
 
 可以理解为CPU的一种提供服务的策略。在实际的应用中可以看一下现在淘宝、微信等网站扫码登录，会发现有定时去请求一个接口地址来判断当前的二维码是不是有效，这就是轮询的一种实现(也叫短轮询)：
 
-![淘宝二维码轮询](C:\Users\mxsm\Desktop\pic\淘宝二维码轮询.gif)
+![淘宝二维码轮询](https://raw.githubusercontent.com/mxsm/picture/main/others/serialize/%E6%B7%98%E5%AE%9D%E4%BA%8C%E7%BB%B4%E7%A0%81%E8%BD%AE%E8%AF%A2.gif)
 
 #### 1.2 长轮询
 
@@ -149,11 +148,11 @@ public class LongPollingController {
 
 **测试1：正常的轮询一个时间片**
 
-![长轮询测试1](C:\Users\mxsm\Desktop\pic\长轮询测试1.gif)
+![长轮询测试1](https://raw.githubusercontent.com/mxsm/picture/main/others/serialize/%E9%95%BF%E8%BD%AE%E8%AF%A2%E6%B5%8B%E8%AF%951.gif)
 
 **测试2：长轮询时间片过程中更新数据**
 
-![长轮询测试2](C:\Users\mxsm\Desktop\pic\长轮询测试2.gif)
+![长轮询测试2](https://raw.githubusercontent.com/mxsm/picture/main/others/serialize/%E9%95%BF%E8%BD%AE%E8%AF%A2%E6%B5%8B%E8%AF%952.gif)
 
 长轮询后端就就实现完成了
 
