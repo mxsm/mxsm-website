@@ -9,17 +9,17 @@ weight: 202203172230
 
 Netty将网络中的bytes数据转换成对应的消息数据，这个在Netty中叫做解码过程。在基于流的传输(如TCP/IP)中，接收到的数据存储在套接字接收缓冲区中。不幸的是，基于流的传输的缓冲区不是包队列，而是字节队列。这意味着，即使您将两个消息作为两个独立的包发送，操作系统也不会将它们视为两个消息，而只是将它们视为一串字节。因此，不能保证您所读的内容与远程同行所写的内容完全一致。而Netty中的累加器就是为了解决这个问题。我们将从一下几个方面结合来分析
 
-![Netty累加器](E:\download\Netty累加器.png)
+![Netty累加器](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/Netty%E7%B4%AF%E5%8A%A0%E5%99%A8.png)
 
 ### 2.什么是粘包、半包
 
 **粘包：比如发送方应该发送ABC、DEF,接收方期望接收到的是ABC、DEF。但是由于粘包可能接收到的是ABCDEF**
 
-![粘包示意图](E:\download\粘包示意图.png)
+![粘包示意图](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/%E7%B2%98%E5%8C%85%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 
 **半包：比如发送方应该发送ABCDEF,接收方期望接收到的是ABCDEF。但是由于存在半包的情况可能接收到的是ABC、DEF**
 
-![半包示意图](E:\download\半包示意图.png)
+![半包示意图](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/%E5%8D%8A%E5%8C%85%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 
 ### 3.如何导致粘包、半包
 
@@ -29,7 +29,7 @@ Netty将网络中的bytes数据转换成对应的消息数据，这个在Netty�
 2. TCP发送缓冲区把数据发送到达B服务器TCP接收缓冲区。
 3. 应用B从TCP接收缓冲区读取流数据。
 
-![TCP半包、粘包产生的原因](E:\download\TCP半包、粘包产生的原因.png)
+![TCP半包、粘包产生的原因](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/TCP%E5%8D%8A%E5%8C%85%E3%80%81%E7%B2%98%E5%8C%85%E4%BA%A7%E7%94%9F%E7%9A%84%E5%8E%9F%E5%9B%A0.png)
 
 **粘包的原因:**
 
