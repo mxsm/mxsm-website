@@ -5,6 +5,8 @@ date: 2022-03-13
 weight: 202203131018
 ---
 
+Offer 驾到，掘友接招！我正在参与2022春招打卡活动，点击查看[活动详情](https://juejin.cn/post/7069661622012215309/)
+
 > Netty版本：Netty版本：[netty-4.1.75.Final](https://github.com/netty/netty/releases/tag/netty-4.1.75.Final)
 
 ### 1. 前言
@@ -12,6 +14,8 @@ weight: 202203131018
 在之前的文章《[Netty组件-ChannelHandler(图文并茂)](https://juejin.cn/post/7074394630678134791/) 》中了解了ChannelHandler同时对其两个继承接口ChannelInboundHandler和ChannelOutboundHandler都有了一定的了解，从如下几个方面来对ChannelHandler通过源码进一步解析：
 
 ![ChannelHandler解析点](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/ChannelHandler%E8%A7%A3%E6%9E%90%E7%82%B9.png)
+
+> Tips: 上图后面两个内容会在后续的文章更新
 
 ### 2. ChannelHandler方法执行顺序
 
@@ -173,3 +177,81 @@ WorkerGroup中的SocketChannel触发如何触发？服务端接收到连接请�
 然后调用`AbstractChannel#read`方法，这个方法中调用了`ChannelPipeline#read` 方法触发ChannelOutboundHandler#read。
 
 **总结：ChannelOutboundHandler#read的触发都是在ChannelInboundHandler#channelActive，通过DefaultChannelPipeline.HeadContext#readIfIsAutoRead方法实现。**
+
+#### 2.6 ChannelInboundHandler#channelRead
+
+ServerSocketChannel还是SocketChannel都是通过NioEventLoop#processSelectedKey方法中一下代码触发unsafe.read()：
+
+![image-20220319090947767](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/image-20220319090947767.png)
+
+这里根据ServerSocketChannel还是SocketChannel执行不同的Unsafe实现。
+
+ServerSocketChannel也就是BossGroup执行的是`AbstractNioMessageChannel.NioMessageUnsafe#read` 方法：
+
+![image-20220319091352613](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/image-20220319091352613.png)
+
+标号1触发ChannelInboundHandler#channelRead，标号2触发ChannelInboundHandler#channelReadComplete。
+
+SocketChannel也就是workGroup执行的是AbstractNioByteChannel.NioByteUnsafe#read方法：
+
+![image-20220319093237906](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/image-20220319093237906.png)
+
+上图的标号1,2分别触发ChannelInboundHandler#channelRead和ChannelInboundHandler#channelReadComplete。
+
+在workGroup中还有这样两个：
+
+```shell
+TimeServerOutHandler--write
+TimeServerOutHandler--flush
+```
+
+那只是为什么? 这个是因为在TimeServerInHandler中调用了如下方法：
+
+![image-20220319093647383](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/image-20220319093647383.png)
+
+下面就下来分析
+
+#### 2.7 ChannelOutboundHandler#write和ChannelOutboundHandler#flush
+
+通过上面知道要想触发ChannelOutboundHandler#write和ChannelOutboundHandler#flush需要调用ChannelHandlerContext#writeAndFlush,通过代码研究发现最终调用的是AbstractChannelHandlerContext#write：
+
+![image-20220319095241942](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/image-20220319095241942.png)
+
+标号1查找到ChannelOutboundHandler，然后执行2，执行ChannelOutboundHandler#write或者ChannelOutboundHandler#write和ChannelOutboundHandler#flush。
+
+#### 2.8 ChannelOutboundHandler#channelInactive和ChannelOutboundHandler#channelUnregistered
+
+当客户端关闭服务端调用到如下的代码AbstractNioByteChannel#read方法：
+
+![image-20220319160330612](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/image-20220319160330612.png)
+
+最终会调用标号2的位置，然后调用AbstractNioByteChannel.NioByteUnsafe#closeOnRead方法：
+
+![image-20220319160515607](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/image-20220319160515607.png)
+
+跟进代码发现最终调用了AbstractChannel.AbstractUnsafe#deregister方法。在这个方法中有调用如下代码：
+
+![image-20220319161139680](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/image-20220319161139680.png)
+
+这里就触发了ChannelOutboundHandler#channelInactive和ChannelOutboundHandler#channelUnregistered。
+
+#### 2.8 ChannelHandler#handlerRemoved
+
+上图标号2调用了 `pipeline.fireChannelUnregistered();` 方法，最终是调用了`DefaultChannelPipeline.HeadContext#channelUnregistered` 方法：
+
+![image-20220319162739667](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhandler/image-20220319162739667.png)
+
+上图标号1的位置就是触发ChannelHandler#handlerRemoved。将当前Channel的ChannelHandler移除从EventLoop上面。
+
+#### 2.9 ChannelOutboundHandler#connect和ChannelOutboundHandler#close
+
+这两个都发生在客户端，整体的触发机制和上面说的大体相同，大家可以自己去进行分析。
+
+### 3. 总结
+
+Netty的ChannelHandler的整体触发流程如上面所述。其中没有涉及到错误捕捉的触发。
+
+- ChannelPipeline的双向链表中的HeadContext和TailContext都是ChannelHandler，同时继承了AbstractChannelHandlerContext，也可以说是ChannelHandlerContext。
+- ChannelHander添加到队列中，会被包装成ChannelHandlerContext
+
+> Tips: 我是蚂蚁背大象，文章对你有帮助点赞关注我，文章有不正确的地方请您斧正留言评论~谢谢
