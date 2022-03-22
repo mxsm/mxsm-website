@@ -5,8 +5,6 @@ date: 2022-03-13
 weight: 202203131018
 ---
 
-Offer 驾到，掘友接招！我正在参与2022春招打卡活动，点击查看[活动详情](https://juejin.cn/post/7069661622012215309/)
-
 > Netty版本：Netty版本：[netty-4.1.75.Final](https://github.com/netty/netty/releases/tag/netty-4.1.75.Final)
 
 ### 1. 前言

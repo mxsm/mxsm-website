@@ -5,8 +5,6 @@ date: 2022-03-18
 weight: 202203182301
 ---
 
-Offer 驾到，掘友接招！我正在参与2022春招打卡活动，点击查看[活动详情](https://juejin.cn/post/7069661622012215309/)
-
 Netty的组件中还有两个重要的组件：`ChannelHandlerContext` 和 `ChannelPipeline` ，这两个组件经常搭配一起使用，下面结合源码来讲讲这两个组件如何在Netty中发挥作用的。
 
 ### 1. ChannelHandlerContext

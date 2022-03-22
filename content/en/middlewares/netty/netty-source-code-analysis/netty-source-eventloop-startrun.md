@@ -5,8 +5,6 @@ date: 2022-03-21
 weight: 202203211547
 ---
 
-Offer 驾到，掘友接招！我正在参与2022春招打卡活动，点击查看[活动详情](https://juejin.cn/post/7069661622012215309/)。
-
 ### 1.引言
 
 Netty中EventLoopGroup其实就相当于线程池，而EventLoop就相当于线程池中的线程。既然说是线程但是我们在开发的过程中没有看到类似于线程的启动start或者run方法的调用。那么Netty的EventLoop什么时候启动运行的呢？下面来通过源码分析一下这个问题。在分析这个问题之前需要明确一个事情：Netty的执行器可以使用用户自定义的或者用Netty默认实现的。下面讲的是使用Netty默认的执行器 **`ThreadPerTaskExecutor`**。
