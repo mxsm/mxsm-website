@@ -229,3 +229,7 @@ public class Application {
 ```
 
 这样也可以启动SpringBoot
+
+### 3. 总结
+
+Spring Boot其实整体就是将Spring框架做了封装，将需要我们手动去写的配置以及相关的

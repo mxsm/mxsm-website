@@ -10,7 +10,7 @@ weight: 202106112049
 
 RocketMQ提供的Producer实现为DefaultMQProducer。Producer在创建的时候必须指定Producer Group Name，在正式发送消息之前需要调用start方法初始化Producer
 
-![](https://github.com/mxsm/document/blob/master/image/MQ/RocketMQ/MQ%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81%E7%9A%84%E9%80%BB%E8%BE%91.png?raw=true)
+![MQ消息发送的逻辑](https://raw.githubusercontent.com/mxsm/picture/main/other/git/MQ%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81%E7%9A%84%E9%80%BB%E8%BE%91.png)
 
 #### 1、Producer端发送同步消息
 
@@ -264,3 +264,7 @@ public MessageQueue selectOneMessageQueue(final TopicPublishInfo tpInfo, final S
         return tpInfo.selectOneMessageQueue(lastBrokerName);
     }
 ```
+
+
+
+> 我是蚂蚁背大象，文章对你有帮助点赞关注我，文章有不正确的地方请您斧正留言评论~谢谢
