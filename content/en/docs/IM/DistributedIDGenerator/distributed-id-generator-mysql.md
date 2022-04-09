@@ -5,8 +5,6 @@ date: 2022-04-05
 weight: 202204051649
 ---
 
-一起养成写作习惯！这是我参与「掘金日新计划 · 4 月更文挑战」的第6天，[点击查看活动详情](https://juejin.cn/post/7080800226365145118)。
-
 ![常用分布式ID生成器](https://raw.githubusercontent.com/mxsm/picture/main/architecture/Distributed%20ID-Generation%E5%B8%B8%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8FID%E7%94%9F%E6%88%90%E5%99%A8.png)
 
 ### 1. MySQL字段自增
