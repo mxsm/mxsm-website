@@ -73,7 +73,7 @@ VALUES
 
 > Tips: 数据修改了CHARSET，utf8变成了utf8mb4
 
-![image-20220411214259191](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20220411214259191.png)
+![image-20220411214259191](https://raw.githubusercontent.com/mxsm/picture/main/architecture/image-20220411214259191.png)
 
 **修改配置：**
 
@@ -100,7 +100,7 @@ java -jar output/tinyid-server-0.1.0-SNAPSHOT.jar
 
 启动后：
 
-![image-20220411215142859](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20220411215142859.png)
+![image-20220411215142859](https://raw.githubusercontent.com/mxsm/picture/main/architecture/image-20220411215142859.png)
 
 #### 2.2 REST API
 
@@ -123,7 +123,7 @@ curl 'http://localhost:9999/tinyid/id/nextIdSimple?bizType=test_odd&batchSize=10
 response: 3,5,7,9,11,13,15,17,19,21
 ```
 
-![image-20220411215839324](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20220411215839324.png)
+![image-20220411215839324](https://raw.githubusercontent.com/mxsm/picture/main/architecture/image-20220411215839324.png)
 
 tinyid提供了单个ID生产以及批量的生成。
 
@@ -133,7 +133,7 @@ tinyid提供了单个ID生产以及批量的生成。
 
 我们可以使用tinyid项目的java-client的测试类：
 
-![image-20220411220851976](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20220411220851976.png)
+![image-20220411220851976](https://raw.githubusercontent.com/mxsm/picture/main/architecture/image-20220411220851976.png)
 
 修改 **tinyid_client.properties** ：
 
