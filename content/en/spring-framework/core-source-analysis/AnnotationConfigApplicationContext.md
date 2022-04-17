@@ -342,4 +342,4 @@ public static Set<BeanDefinitionHolder> registerAnnotationConfigProcessors(
 ### 3 总结加载过程
 通过上面的源码对Spring的AnnotationConfigApplicationContext源码分析来总结一下对于注解的这个加载过程
 
-1. **创建AnnotationConfigApplicationContext的对象，设置需要加载的basePackages**
+1.  **创建AnnotationConfigApplicationContext的对象，设置需要加载的basePackages**
