@@ -3,11 +3,13 @@ title: broker busy问题
 date: 2020-04-05
 ---
 
+一起养成写作习惯！这是我参与「掘金日新计划 · 4 月更文挑战」的第20天，[点击查看活动详情](https://juejin.cn/post/7080800226365145118)。
 
+> Rocket MQ版本 4.8.0
 
-### 问题描述
+### 1. 问题描述
 
-在生产者不停的往Broker发送消息报broker busy
+在生产者不停的往Broker发送消息报broker busy，这个是在研究RocketMQ源码本地启动服务进行测试的时候出现的。
 
 ```shell
 org.apache.rocketmq.client.exception.MQBrokerException: CODE: 2  DESC: [TIMEOUT_CLEAN_QUEUE]broker busy, start flow control for a while, period in queue: 240ms, size of queue: 9
@@ -30,7 +32,9 @@ For more information, please visit the url, http://rocketmq.apache.org/docs/faq/
 	at java.lang.Thread.run(Thread.java:748)
 ```
 
-### 源码分析问题
+那么我们就从源码分析问题，看看如何解决。
+
+### 2. 源码分析问题
 
 通过搜索错误信息可以定位到错误是从 **`BrokerFastFailure`** 类抛出来的。
 
@@ -66,9 +70,7 @@ For more information, please visit the url, http://rocketmq.apache.org/docs/faq/
     }
 ```
 
-那么这个 **`BrokerFastFailure#cleanExpiredRequestInQueue`**  主要用于清理阻塞队列中的过期的 
-
-**`RequestTask`** 。这个方法在 **`BrokerFastFailure#cleanExpiredRequest`** 中被调用：
+那么这个 **`BrokerFastFailure#cleanExpiredRequestInQueue`**  主要用于清理阻塞队列中的过期的 **`RequestTask`** 。这个方法在**`BrokerFastFailure#cleanExpiredRequest`** 中被调用：
 
 ```java
     private void cleanExpiredRequest() {
@@ -105,7 +107,23 @@ For more information, please visit the url, http://rocketmq.apache.org/docs/faq/
     }
 ```
 
-**由于是之前在不停的往MQ发送消息消息，所以判断是由于清理过期的发送处理请求导致的。** 那么如何解决问题，通过代码可以看一出来通过增加等待时间来解决这个问题。
+**由于是之前在不停的往MQ发送消息消息，所以判断是由于清理过期的发送处理请求导致的。** 
 
-> waitTimeMillsInSendQueue=200 （默认值）--修改这个值
+### 3. 如何解决问题
 
+那么如何解决问题，通过代码：
+
+```java
+cleanExpiredRequestInQueue(this.brokerController.getSendThreadPoolQueue(),
+            this.brokerController.getBrokerConfig().getWaitTimeMillsInSendQueue());
+```
+
+可以看一出来通过增加等待时间来解决这个问题。只需要在配置Broker的配置文件中修改如下值即可：
+
+```properties
+waitTimeMillsInSendQueue=200 （默认值）--修改这个值
+```
+
+
+
+> 我是蚂蚁背大象，文章对你有帮助点赞关注我，文章有不正确的地方请您斧正留言评论~谢谢！

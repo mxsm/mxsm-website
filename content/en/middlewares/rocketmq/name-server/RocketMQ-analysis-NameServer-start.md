@@ -6,7 +6,7 @@ weight: 202105122202
 
 > 以下源码基于Rocket MQ 4.7.0
 
-### NameServer
+### 1. NameServer
 
 NameServer是一个非常简单的Topic路由注册中心，其角色类似Dubbo中的zookeeper，支持Broker的动态注册与发现。主要包括两个功能：
 
@@ -19,13 +19,13 @@ NameServer通常也是集群的方式部署，各实例间相互不进行信息�
 
 > NameServer各个实例之间互不通讯
 
-### 源码分析
+### 2. 源码分析
 
-#### Remoting通信类结构
+#### 2.1 Remoting通信类结构
 
 ![](https://github.com/mxsm/document/blob/master/image/MQ/RocketMQ/RemotingService.png?raw=true)
 
-#### NameServer 启动
+#### 2.2 NameServer 启动
 
 **org.apache.rocketmq.namesrv.NamesrvStartup** 是NameServer的启动类
 
@@ -92,7 +92,7 @@ final NamesrvController controller = new NamesrvController(namesrvConfig, nettyS
 controller.getConfiguration().registerConfig(properties);
 ```
 
-#### NamesrvController初始化
+#### 2.3 NamesrvController初始化
 
 ![](https://github.com/mxsm/document/blob/master/image/MQ/RocketMQ/NamesrvControllerStart.png?raw=true)
 
@@ -103,7 +103,7 @@ controller.getConfiguration().registerConfig(properties);
 
 > 在上图的代码中可以看到还注册了Hook，如果使用kill -9 的方式杀死进程就不会执行Hook中的代码
 
-#### NamesrvController.initialize
+#### 2.4 NamesrvController.initialize
 
 ```java
     public boolean initialize() {
@@ -181,7 +181,7 @@ controller.getConfiguration().registerConfig(properties);
 
 7. SSL的启用
 
-#### NamesrvController.registerProcessor
+#### 2.5 NamesrvController.registerProcessor
 
 ```java
 //注册接收请求的类
@@ -199,7 +199,7 @@ private void registerProcessor() {
 
 默认注入的请求类 **`DefaultRequestProcessor`** 。
 
-#### DefaultRequestProcessor
+#### 2.6 DefaultRequestProcessor
 
 通过 **`DefaultRequestProcessor.processRequest`** 方法来处理客户端的请求。
 
@@ -298,7 +298,7 @@ private void registerProcessor() {
 > 1. 路由信息
 > 2. NameServer的配置
 
-#### RouteInfoManager
+#### 2.7 RouteInfoManager
 
 ```java
 public class RouteInfoManager {
@@ -372,7 +372,7 @@ NamesrvController.initialize() 中有一个schedule定时任务，每个10秒钟
 
 key 存储的是 brokerAddr 信息，value 存储的是 Filter Server 信息。Filter Server 是消息的过滤服务器，一个 Broker 可以对应多个 Filter Server。
 
-### NamesrvController.start
+#### 2.8 NamesrvController.start
 
 ```java
     public void start() throws Exception {
@@ -385,8 +385,9 @@ key 存储的是 brokerAddr 信息，value 存储的是 Filter Server 信息。F
     }
 ```
 
-### 总结
+### 3. 总结
 
 通过分析启动流程图如下：
 
 ![](https://github.com/mxsm/document/blob/master/image/MQ/RocketMQ/NameServerStartProcess.png?raw=true)
+
