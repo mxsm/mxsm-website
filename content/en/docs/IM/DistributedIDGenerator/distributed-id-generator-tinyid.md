@@ -1,6 +1,6 @@
 ---
 title: "分布式ID生成器-Tinyid"
-linkTitle: "分布式ID生成器-Tinyid“
+linkTitle: "分布式ID生成器-Tinyid"
 date: 2022-04-11
 weight: 202204112034
 ---

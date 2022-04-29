@@ -1,6 +1,6 @@
 ---
 title: "分布式ID生成器-雪花算法"
-linkTitle: "分布式ID生成器-雪花算法“
+linkTitle: "分布式ID生成器-雪花算法"
 date: 2022-04-09
 weight: 202204092058
 ---

@@ -1,6 +1,6 @@
 ---
 title: "分布式ID生成器-Redis"
-linkTitle: "分布式ID生成器-Redis“
+linkTitle: "分布式ID生成器-Redis"
 date: 2022-04-07
 weight: 202204072232
 ---

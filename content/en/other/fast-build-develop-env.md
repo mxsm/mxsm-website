@@ -1,5 +1,5 @@
 ---
-title: “如何快速搭建Java项目开发环境”
+title: “如何快速搭建Java项目开发环境"
 linkTitle: "如何快速搭建Java项目开发环境"
 date: 2022-04-14
 weight: 202204142108
