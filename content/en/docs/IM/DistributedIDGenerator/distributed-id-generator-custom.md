@@ -57,11 +57,11 @@ commit;
 
 为了提高生成的并发以及效率，可以一次性加载多个号段到内存中，当内存中的的号段消耗了，剩余的号段低于设置的阈值，然后去数据库获取消耗的数量的号段填充到缓存中：
 
-![https://www.liuchengtu.com/lct/#X9f51cc114a7edcae9f46b07cb799e2e2](E:\download\分段模式缓存生成.png)
+![https://www.liuchengtu.com/lct/#X9f51cc114a7edcae9f46b07cb799e2e2](https://raw.githubusercontent.com/mxsm/picture/main/docs/im/DistributedIDGenerator/%E5%88%86%E6%AE%B5%E6%A8%A1%E5%BC%8F%E7%BC%93%E5%AD%98%E7%94%9F%E6%88%90.png)
 
 对于mxsm_allocation表的数量过大，可以采用分库分表，通过预测公司的biz_code数量来判断分库分表。力度最小就是以用户作为单位进行分库分表如果以公司有20亿用户来计算(这个已经算是很大了)，单表2000w数据，那么就需要部署100台数据库服务。大部分公司以单表2000w数据，部署3-5台基本上能够全部满足。
 
-![分布式ID生成器-分段模式](E:\download\分布式ID生成器-分段模式.png)
+![分布式ID生成器-分段模式](https://raw.githubusercontent.com/mxsm/picture/main/docs/im/DistributedIDGenerator/%E5%88%86%E5%B8%83%E5%BC%8FID%E7%94%9F%E6%88%90%E5%99%A8-%E5%88%86%E6%AE%B5%E6%A8%A1%E5%BC%8F.png)
 
 **分段式分布式ID生成器的优点：**
 
@@ -79,7 +79,7 @@ commit;
 
 雪花算法的位图结构如下：
 
-![雪花算法ID的结构](E:\download\雪花算法ID的结构.png)
+![雪花算法ID的结构](https://raw.githubusercontent.com/mxsm/picture/main/docs/im/DistributedIDGenerator/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95ID%E7%9A%84%E7%BB%93%E6%9E%84.png)
 
 雪花算法是趋势递增的ID生成方案。由于snowflake方案的bit位设计，即是“1+41+10+12”的方式组装ID号，时间戳使用的是毫秒，且其他的位数都固定。这里提供了调整时间戳、机器ID、序列号的位数。以及时间戳单位是秒还是毫秒的解决方案(方案参考[uid-generator](https://github.com/baidu/uid-generator)设计)。同时对于机器ID,每次服务启动将IP和port存入数据库，以主键ID作为机器号。如果是用标准的雪花算法最多能部署1024台机器。
 
