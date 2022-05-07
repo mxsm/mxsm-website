@@ -294,7 +294,7 @@ public class Test {
 
 运行打印结果：
 
-![timewheel-test](C:\Users\mxsm\Desktop\pic\timewheel-test.gif)
+![timewheel-test](https://raw.githubusercontent.com/mxsm/picture/main/docs/im/DistributedIDGenerator/timewheel-test.gif)
 
 说明：从日志的打印可以发现，在延迟三秒的情况下你会发现打印了 **`bucketIndex=xxx`** 四次。为什么会这样打印四次呢？因为当时间轮的tick在当前的时间间隔内，这个时间是不算的，从下个开始的。所以打印了四次。
 

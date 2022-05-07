@@ -11,7 +11,7 @@ weight: 202204292155
 
 最简单的方案：定义一个链表，将要执行的任务添加到链表中。然后用线程去遍历链表，找出需要执行的任务进行执行。通过反复遍历任务链表就能实现定时任务的执行功能。
 
-![定时任务简单实现](E:\download\定时任务简单实现.png)
+![定时任务简单实现](https://raw.githubusercontent.com/mxsm/picture/main/docs/im/DistributedIDGenerator/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0.png)
 
 但是上述方案有一个很重要的缺陷：如果我的任务有上百万个甚至更多的情况下，可能光遍历整个链表找出需要执行的任务就要花费一定量的时间。如果此时刚好有一个任务添加到链表的Tail,但是任务扫描的指针此时刚好在第一个Head任务节点。此时添加的任务执行时间就在添加后的20ms后，这个时候线程扫描到最后一个需要执行的任务的耗时可能超过了20ms,那么这种情况下就会出现任务的延迟执行。
 
@@ -33,7 +33,7 @@ weight: 202204292155
 
 在论文[《Hashed and Hierarchical Timing Wheels》](http://www.cs.columbia.edu/~nahum/w6998/papers/sosp87-timing-wheels.pdf)  中每一个时间间隔叫做 **`bucket`** 。 bucket的作用用于存放当前时间间隔内存在的需要执行的任务。例如现在有四个任务A、B、C、D分别要在一秒的三个不同的时间段执行，A、B在两个不同的时间段执行，C、D在同一个时间段执行。那么在时间轮上的示意图如下：
 
-![简单时间轮示意图](E:\download\简单时间轮示意图.png)
+![简单时间轮示意图](https://raw.githubusercontent.com/mxsm/picture/main/docs/im/DistributedIDGenerator/%E7%AE%80%E5%8D%95%E6%97%B6%E9%97%B4%E8%BD%AE%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 
 当时间轮的指针从1Bucket的开始时间到结束时间段的过程中，会去遍历Bucket的链表中的任务，将需要执行的任务从链表中拿出来执行。已上图的例子每一秒时间轮的指针走一圈。
 
@@ -51,7 +51,7 @@ weight: 202204292155
 
 如下图所示：
 
-![分层时间轮执行示意图](E:\download\分层时间轮执行示意图.png)
+![分层时间轮执行示意图](https://raw.githubusercontent.com/mxsm/picture/main/docs/im/DistributedIDGenerator/%E5%88%86%E5%B1%82%E6%97%B6%E9%97%B4%E8%BD%AE%E6%89%A7%E8%A1%8C%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 
 秒时间轮完成一圈触发分时间轮刻度往下一个，分时间轮完成一周触发时时间轮往下一个刻度。分层时间轮之间的刻度关系可以自己定义。不需要和时间刻度表上一样的。具体取决于业务的需要。例如：Linux的Corntab只支持分钟，而Java的Quartz可以支持到秒。
 
