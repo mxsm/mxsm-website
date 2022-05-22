@@ -13,7 +13,7 @@ weight: 202205141648
 
 MQ的消息生成到消费主要经历三个阶段：MQ消息生产、RocketMQ Broker存储消息、消费者消息对应的消息。如下图：
 
-![RocketMQ消息流经的几个关键节点](E:\download\RocketMQ消息流经的几个关键节点.png)
+![RocketMQ消息流经的几个关键节点](https://raw.githubusercontent.com/mxsm/picture/main/docs/theory/RocketMQ%E6%B6%88%E6%81%AF%E6%B5%81%E7%BB%8F%E7%9A%84%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E8%8A%82%E7%82%B9.png)
 
 从上图可以知道消息丢失主要会发生在下面几个地方：
 
@@ -37,7 +37,7 @@ RocketMQ消息生产方式有三种：同步发送消息、异步发送消息、
 
 根据上面三种发送方式的特点， **`one-way`** 的消息发送模式本身就是不对消息的不丢失无法保证。所有如果你的系统对消息丢失零容忍不能使用 **`one-way`** 的方式发送。**`同步发送消息和异步发送消息`** 都可以判断消息的发送状态判断消息是否已经发送到Broker。这里是选择同步发送还是异步发送消息看业务的需要，同步发送比较关心发送后返回的结果对时间的要求不是那么敏感。异步发送对消息返回时间敏感。
 
-![RocketMQ发送消息不丢失流程](E:\download\RocketMQ发送消息不丢失流程.png)
+![RocketMQ发送消息不丢失流程](https://raw.githubusercontent.com/mxsm/picture/main/docs/theory/RocketMQ%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1%E6%B5%81%E7%A8%8B.png)
 
 SendResult定义说明(**[来自RocketMQ官方](https://github.com/apache/rocketmq/blob/develop/docs/cn/best_practice.md)**)
 
