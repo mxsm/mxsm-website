@@ -1,8 +1,11 @@
 ---
- title: 常用的JDK工具命令
+title: "JVM常用的命令-JDK8"
+linkTitle: "JVM常用的命令-JDK8"
 date: 2019-08-02
+weight: 201908021429
+
 ---
-### JDK常用的工具--JDK8
+### 1. JDK常用的工具--JDK8
 
 | 工具名称  | 用途                        |
 | --------- | --------------------------- |
@@ -17,7 +20,7 @@ date: 2019-08-02
 | jdb       | java进程调试工具            |
 | jstatd    | 远程JVM监控统计信息         |
 
-### jps命令
+### 2. jps命令
 
 下面是我在自己Linux服务器上运行的(服务器上面跑了一个Tomcat)
 
@@ -27,7 +30,7 @@ date: 2019-08-02
 25116 Jps
 ```
 
-### jstack命令
+### 3. jstack命令
 
 ```bash
 [root@iZwz9jcjzd6wfh44nnnsv4Z ~]# jstack --help
@@ -96,7 +99,7 @@ Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.131-b11 mixed mode):
 jstack 可以用来定位死锁、死循环、线程阻塞等问题
 ```
 
-### jstat命令
+### 4. jstat命令
 
 ```bash
 [root@iZwz9jcjzd6wfh44nnnsv4Z ~]# jstat -help
@@ -146,7 +149,7 @@ Definitions:
 9216.0 9216.0 1248.1  0.0   121856.0 79308.8   40960.0    15612.7   18560.0 18067.8 2176.0 1998.5      8    0.089   0      0.000    0.089
 ```
 
-### jmap命令
+### 5. jmap命令
 
 ```bash
 [root@iZwz9jcjzd6wfh44nnnsv4Z ~]# jmap
@@ -232,3 +235,14 @@ PS Old Generation
 12505 interned Strings occupying 1754736 bytes.
 ```
 
+### 6 总结
+
+上面是一些常用的命令用来查看JVM在运行过程中的一些状态和查询问题。除了使用Java自带的命令还可以借助一些工具，例如：
+
+- [阿里Arthas](https://arthas.aliyun.com/doc/) 
+- [visualvm](https://visualvm.github.io/)
+- [JProfiler](https://www.ej-technologies.com/products/jprofiler/overview.html) 
+
+以上工具都能提供更好的分析，命令可以在简单问题排查提供便利不需要进行下载其他的工具。
+
+> 我是蚂蚁背大象，文章对你有帮助点赞关注我，文章有不正确的地方请您斧正留言评论~谢谢！

@@ -5,8 +5,6 @@ date: 2022-02-01
 weight: 202202011126
 ---
 
-「这是我参与2022首次更文挑战的第15天，活动详情查看：[2022首次更文挑战](https://juejin.cn/post/7052884569032392740)」
-
 ### 1. 前言
 
 在之前的文章《[Spring BeanPostProcessor执行顺序问题](https://blog.ljbmxsm.com/spring-framework/core-source-analysis/spring-beanpostprocessor-order/)》介绍过 **`BeanPostProcessor`** ，  使用Spring框架的人可能会注意到这样一个类 **`BeanFactoryPostProcessor`** 和 **`BeanPostProcessor`**  名称很接近。下面来看一下**`BeanFactoryPostProcessor`** 的作用。
