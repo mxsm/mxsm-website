@@ -3,18 +3,18 @@ title: HashMap源码解析
 likeTitle: HashMap源码解析
 date: 2018-11-10
 ---
-### 哈希算法
+### 1. 哈希算法
 hash是具有唯一性且不可逆的，唯一性指的是相同的输入产生的hash code永远是一样的，而不可逆也比较容易理解，数据摘要算法并不是压缩算法，它只是生成了一个该数据的摘要，没有将数据进行压缩。压缩算法一般都是使用一种更节省空间的编码规则将数据重新编码，解压缩只需要按着编码规则解码就是了，试想一下，一个几百MB甚至几GB的数据生成的hash code都只是一个拥有固定长度的序列，如果再能逆向解压缩，那么其他压缩算法该情何以堪？
 
 我们上述讨论的仅仅是在密码学中的hash算法，而在散列表中所需要的散列函数是要能够将key寻址到buckets中的一个位置，散列函数的实现影响到整个散列表的性能。
 
 一个完美的散列函数要能够做到均匀地将key分布到buckets中，每一个key分配到一个bucket，但这是不可能的。虽然hash算法具有唯一性，但同时它还具有重复性，**唯一性保证了相同输入的输出是一致的，却没有保证不同输入的输出是不一致的**，也就是说，**完全有可能两个不同的key被分配到了同一个bucket（因为它们的hash code可能是相同的），这叫做碰撞冲突**。总之，理想很丰满，现实很骨感，散列函数只能尽可能地减少冲突，没有办法完全消除冲突。
 
-### HashMap的哈希冲突
+### 2. HashMap的哈希冲突
 HashMap中调用hashCode()方法来计算hashCode。
 由于在Java中两个不同的对象可能有一样的hashCode,所以不同的键可能有一样hashCode，从而导致冲突的产生。
 
-#### HashMap解决冲突方式
+#### 2.1 HashMap解决冲突方式
 - HashMap在处理冲突时使用链表存储相同索引(桶)的元素
 - 从Java 8开始，HashMap，ConcurrentHashMap和LinkedHashMap在处理频繁冲突时将使用平衡树来代替链表，当同一hash桶中的元素数量超过特定的值便会由链表切换到平衡树，这会将get()方法的性能从O(n)提高到O(logn)
 - 当从链表切换到平衡树时，HashMap迭代的顺序将会改变。不过这并不会造成什么问题，因为HashMap并没有对迭代的顺序提供任何保证
@@ -25,11 +25,11 @@ HashMap中调用hashCode()方法来计算hashCode。
 
 在Java 8 之前， 如果发生碰撞往往是将该value直接链接到该位置的其他所有value的末尾，即相互碰撞的所有value形成一个链表。因此，在最坏情况下，HashMap的查找时间复杂度将退化到O（n）.但是在Java 8 中，该碰撞后的处理进行了改进。当一个位置所在的冲突过多时，存储的value将形成一个排序二叉树，排序依据为key的hashcode。则在最坏情况下，HashMap的查找时间复杂度将从O（1）退化到O（logn）。
 
-#### 由链表改进为红黑树的好处
+#### 2.2 由链表改进为红黑树的好处
 1. 最坏的情况的时间开销由O（n）降到了O（logn）
 2. 改善哈希碰撞攻击
 
-#### 哈希碰撞攻击原理
+#### 2.3 哈希碰撞攻击原理
 哈希表的原理是用数组来保存键值对，键值对存放的位置（下标）由键的哈希值决定，键的哈希值可以在参数时间内计算出来，这样哈希表插入、查找和删除的时间复杂度为O(1)，但是这是理想的情况下，真实的情况是，键的哈希值存在冲突碰撞，也就是不同的键的哈希值可能相等，一个好的哈希函数应该是尽可能的减少碰撞。解决冲突碰撞的方法有分为两种：开放地址法和 链接法，这里不具体展开。哈希表一般都采用链接法来解决冲突碰撞，也就是用一个链表来将分配到同一个桶（键的哈希值一样）的键值对保存起来。
 
 所谓的哈希碰撞攻击就是，针对哈希函数的特性，精心构造数据，使所有数据的哈希值相同，当这些数据保存到哈希表中，哈希表就会退化为单链表，哈希表的各种操作的时间复杂度提升一个数量级，因此会消耗大量CPU资源，导致系统无法快速响应请求，从而达到拒绝服务攻击（Dos）的目的。
@@ -37,7 +37,7 @@ HashMap中调用hashCode()方法来计算hashCode。
 
 
 
-### jdk1.8和JDK 1.8 以前 HashMap对比
+### 3. jdk1.8和JDK 1.8 以前 HashMap对比
 HashMap之前实现
 
 ```
@@ -49,7 +49,7 @@ HashMap之前实现
 针对这种情况，JDK 1.8 中引入了 红黑树（查找时间复杂度为 O(logn)）来优化这个问题
 常见的算法时间复杂度由小到大依次为：  Ο(1)＜Ο(log2n)＜Ο(n)＜Ο(nlog2n)＜Ο(n2)＜Ο(n3)＜…＜Ο(2n)＜Ο(n!)
 
-### JDK8 HashMap
+### 4. JDK8 HashMap
 HashMap数据结构示意图见(哈希表+单链表+红黑树)：![HashMap内部结构图示](https://github.com/mxsm/document/blob/master/image/JSE/hashmapdatastruct.png?raw=true)
 
 HashMap几个重要的变量：
@@ -849,11 +849,9 @@ final void removeTreeNode(HashMap<K,V> map, Node<K,V>[] tab,boolean movable) {
 >     }
 > ```
 
-### 相关参考链接
+参考文档：
 
-```
-https://www.cnblogs.com/CarpenterLee/p/5503882.html
-https://blog.csdn.net/wushiwude/article/details/75331926
-http://www.importnew.com/29724.html
-https://www.jianshu.com/p/5b157d4be1ad
-```
+- https://www.cnblogs.com/CarpenterLee/p/5503882.html
+- https://blog.csdn.net/wushiwude/article/details/75331926
+- http://www.importnew.com/29724.html
+- https://www.jianshu.com/p/5b157d4be1ad
