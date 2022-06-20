@@ -4,7 +4,7 @@ linkTitle: "Thread的常用方法"
 weight: 3
 date: 2019-02-22
 ---
-### Thread.sleep—static方法
+### 1. Thread.sleep—static方法
 
 让当前线程睡眠(**睡眠达到后，无法保证立刻被JVM调度**)，所以他不会让其他的线程也处于休眠，线程休眠不会失去拥有的对象锁。作用：保持对象锁，让出CPU,调用目的是不让当前线程独霸CPU的资源。留一定的机会给其他的线程。休眠的实际时间的精度和准确性受系统的调度器和计数器的影响。
 
@@ -31,7 +31,7 @@ public static native void sleep(long millis) throws InterruptedException;
 
 纳秒级别的sleep没有实现。只是在数据判断后进行了微秒级别上进行了调整。
 
-### Thread.currentThread —static方法
+### 2. Thread.currentThread —static方法
 
 返回一个当前代码执行线程的引用对象
 
@@ -72,7 +72,7 @@ run 2 Thread-0
 
 执行Test的构造函数是main线程，执行run方法的是A线程。 this表示的是Test线程。
 
-### Thread.isAlive — 实例方法
+### 3. Thread.isAlive — 实例方法
 
 isAlive();是测试线程的run();方法是否还在进行，还在进行返回true，运行完返回false，还没有开始运行返回false
 
@@ -134,7 +134,7 @@ true
 9
 false
 
-### Thread.interrupt — 实例方法
+### 4. Thread.interrupt — 实例方法
 
 作用：调用 **`Thread`对象** 的 **`interrupt`** 函数并不是立中断线程，而只是将**线程中的终端状态设置为true**,当线程运行其中有调用阻塞的函数时(Thread.sleep,Object.wait,Thread.join等)，阻塞函数调用后会不断的轮询检测中断状态的标注是否为true,这停止阻塞并且抛出 **`InterruptedException`** 异常，同时还会重置中断状态标志位 **false** 。有循环则继续阻塞直到正常结束。
 
@@ -181,7 +181,7 @@ class Test implements Runnable{
 }
 ```
 
-### Thread.setDaemon — 实例方法
+### 5. Thread.setDaemon — 实例方法
 
 Java中的线程分为两类：
 
@@ -279,7 +279,7 @@ Java中的线程分为两类：
 
   
 
-### Thread.join — 类方法
+### 6. Thread.join — 类方法
 
 线程合并
 
@@ -360,7 +360,7 @@ class MyRunnable implements Runnable{
 }
 ```
 
-### Thread.yield — 静态方法
+### 7. Thread.yield — 静态方法
 
 正如官方文档说明的那样， **`yield()`** 提供了一个通知 **`scheduler`** 的机制， **当前线程愿意放弃当前对处理器的使用，但希望能尽快将其调度回来** 。“调度程序”可以自由地坚持或忽略这些信息，实际上，根据操作系统的不同，调度程序有不同的行为。
 
@@ -400,26 +400,25 @@ Thread-1
 Thread-0
 ```
 
-#### yield() VS wait()
+#### 7.1 yield() VS wait()
 
 - **`yield()`** 可以在上下文中调用，而 **`wait()`** 只能在同步块或方法中显式获取的锁上调用。
 - 与 **`yield()`** 不同， **`wait()`** 可以指定在再次调度线程之前等待的最小时间周期。
 - **`wait()`** ，还可以通过在任何时候通过调用相关锁对象上的 **`notify()`** 或 **`notifyAll()`** 来唤醒线程
 
-#### yield() VS sleep()
+#### 7.2 yield() VS sleep()
 
 - **`yield()`** 只能试探地尝试挂起当前线程的执行，而不能保证它何时被调度回来，而 **`sleep()`** 可以强制调度程序将当前线程的执行挂起参数设置的一段时间。
 
-#### yield() VS join()
+#### 7.3 yield() VS join()
 
 - 当前线程可以调用其他任何线程的 **`join()`** 来让当前线程等待直到其他调用的线程中止
 - **`join()`** 一个时间作为参数，该参数指示当前线程在恢复之前应该等待的最大时间
 
 正如官方文档所建议的，很少需要使用 **`yield()`** ，因此应该避免使用，除非根据其行为非常清楚地了解目标。尽管如此， **`yield()`** 的一些用途包括设计并发控制结构、改进计算密集型程序中的系统响应能力等。
 
-
-
-### 结束线程
+### 8. 结束线程
 
 - 使用 **`interrupt`** 方法
 - 使用return停止线程
+
