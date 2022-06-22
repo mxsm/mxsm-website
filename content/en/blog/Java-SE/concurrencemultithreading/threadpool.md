@@ -1,5 +1,5 @@
 ---
-title: 线程池
+title: 线程池源码解析
 date: 2018-11-12
 ---
 ### 1. 线程池的继承关系
@@ -959,3 +959,5 @@ private Runnable getTask() {
   ```
 
 - 自定义策略，只要实现RejectedExecutionHandler接口
+
+> 我是蚂蚁背大象，文章对你有帮助点赞关注我，文章有不正确的地方请您斧正留言评论~谢谢
