@@ -15,7 +15,7 @@ Netty的内存对齐类SizeClasses，它为Netty内存池中的内存块提供�
 
 这里讲的是基于 **`jemalloc4`** 实现的内存分配。
 
-![Netty内存规格2 (1)](E:\download\Netty内存规格2 (1).png) 
+![Netty内存规格2](https://github.com/mxsm/picture/blob/main/netty/Netty%E5%86%85%E5%AD%98%E8%A7%84%E6%A0%BC2.png?raw=true)
 
 **`jemalloc4`** 取消了 **`Tiny`** 内存的规格。只保留了 **`small`** 、 **`normal`** 、 **`huge`** 三种规格。下面要分析的 **`SizeClasses`** 就是记录了 small和normal规格值的一张表。以及一些其他的有用的信息
 
@@ -38,7 +38,7 @@ Netty的内存对齐类SizeClasses，它为Netty内存池中的内存块提供�
 
 看一下在Debug模式下 **`SizeClasses`** 相关的属性值
 
-![sizeClassesdebug相关值](E:\download\sizeClassesdebug相关值.png)
+![sizeClassesdebug相关值](https://raw.githubusercontent.com/mxsm/picture/main/netty/sizeClassesdebug%E7%9B%B8%E5%85%B3%E5%80%BC.png)
 
 #### 2.2 sizeClasses格式
 
@@ -46,7 +46,7 @@ Netty的内存对齐类SizeClasses，它为Netty内存池中的内存块提供�
 
 > 源码的介绍中也给了一些说明，但是如果需要一个完整的要怎么办呢？ 同样我们可以写写一个简单的Netty项目，然后启动把debug的断点打在类里面如下图方式获取：
 >
-> ![nettySizeClasses](C:\Users\mxsm\Desktop\pic\nettySizeClasses.gif)
+> ![nettySizeClasses](https://raw.githubusercontent.com/mxsm/picture/main/netty/nettySizeClasses.gif)
 
 表格的数据如下：
 
@@ -131,11 +131,11 @@ Netty的内存对齐类SizeClasses，它为Netty内存池中的内存块提供�
 
 > 表格最后面的size如何获取呢？简单的方式还是用debug的方式获取：
 >
-> ![image-20220108163159653](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20220108163159653.png)
+> ![image-20220108163159653](https://raw.githubusercontent.com/mxsm/picture/main/netty/image-20220108163159653.png)
 >
 > 使用IDEA的 **`Add Inline Watch`** 增加如下的打印
 >
-> ![image-20220108163134197](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20220108163134197.png)
+> ![image-20220108163134197](https://raw.githubusercontent.com/mxsm/picture/main/netty/image-20220108163134197.png)
 
 表格说明：
 
@@ -144,7 +144,7 @@ Netty的内存对齐类SizeClasses，它为Netty内存池中的内存块提供�
 
 #### 2.3 源码分析
 
-![image-20220108170650412](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20220108170650412.png)
+![image-20220108170650412](https://raw.githubusercontent.com/mxsm/picture/main/netty/image-20220108170650412.png)
 
 **`SizeClasses#sizeClasses`** 方法负责 计算 **`sizeClasses`** 表格。**`SizeClasses`** 主要负责根据请求的分配的内存大小规范到最接近 **`sizeClasses`** 表格中的最接近的大小。
 
