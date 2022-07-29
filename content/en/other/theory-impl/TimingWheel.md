@@ -27,7 +27,7 @@ weight: 202204292155
 
 1秒我们可以分成8个时间间隔，那么每个时间间隔就是125ms,如下图所示：
 
-![简单的时间轮定义说明](E:\download\简单的时间轮定义说明.png)
+![简单的时间轮定义说明](https://raw.githubusercontent.com/mxsm/picture/main/others/theory/%E7%AE%80%E5%8D%95%E7%9A%84%E6%97%B6%E9%97%B4%E8%BD%AE%E5%AE%9A%E4%B9%89%E8%AF%B4%E6%98%8E.png)
 
 #### 2.1 简单的时间轮
 
