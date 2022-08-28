@@ -68,17 +68,17 @@ await().until( userRepositorySize(), equalTo(1) );
 
 在RocketMQ的test cases 中有一些使用了 Thread.sleep，接下来我们看看如何使用awaitility进行优化，减少测试用例的执行时间。以ControllerManagerTest测试用例为例子来解决，在代码中可以看到有这样的代码：
 
-![image-20220824233729934](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20220824233729934.png)
+![image-20220824233729934](https://raw.githubusercontent.com/mxsm/picture/main/java/test/image-20220824233729934.png)
 
 上图框出来的代码主要的作用是什么呢？等待Broker的Master过期，但是过期的时间我们根据设置的心跳的过期时间来预估时间。所以这里填写的是6秒当然你也可以填写10秒或者更长。
 
 **解决之前的执行时间**：
 
-![QQ截图20220824231856](C:\Users\mxsm\Desktop\pic\QQ截图20220824231856.jpg)
+![QQ截图20220824231856](https://raw.githubusercontent.com/mxsm/picture/main/java/test/QQ%E6%88%AA%E5%9B%BE20220824231856.jpg)
 
 **使用awaitility对代码进行改造重构**：
 
-![image-20220824234043745](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20220824234043745.png)
+![image-20220824234043745](https://raw.githubusercontent.com/mxsm/picture/main/java/test/image-20220824234043745.png)
 
 重构后的代码，如上图的红线框出来部分。当然我这里还对其他的进行处理。
 
@@ -86,7 +86,7 @@ await().until( userRepositorySize(), equalTo(1) );
 
 **使用awaitility重构后的执行时间**：
 
-![QQ截图20220824231713](C:\Users\mxsm\Desktop\pic\QQ截图20220824231713.jpg)
+![QQ截图20220824231713](https://raw.githubusercontent.com/mxsm/picture/main/java/test/QQ%E6%88%AA%E5%9B%BE20220824231713.jpg)
 
 时间有明显的下降。相比之前的下降了5秒左右。
 
