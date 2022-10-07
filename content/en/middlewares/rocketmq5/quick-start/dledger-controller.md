@@ -11,7 +11,7 @@ RocketMQ5.0已经发布，在RocketMQ5.0新增了一个新的高可用模式 **D
 
 首先我们需要知道**DLedger Controller** 是为了解决什么问题，先来看一下之前版本的DLedger模式架构图：
 
-![raft-modle](E:\download\raft-modle.png)
+![raft-modle](https://raw.githubusercontent.com/mxsm/picture/main/rocketmq5/quickstart/raft-modle.png)
 
 在 DLedger 模式下，利用 Raft Commitlog 代替了原来的 Commitlog 了，使得 Commmitlog 具备了选举的能力，当 Master Broker 故障后，通过内部协商，从其他的 Slave Broker 中选出新的 Master，完成主备切换，同时 Raft 的算法也保证了 Commitlog 的一致性。但是存在一些缺点：
 
@@ -39,7 +39,7 @@ DLedger Controller的部署有两种模式：
 
 `DLedger Controller` 以插件的模式内嵌到NameServer进行部署。部署的示意图如下：
 
-![Controller as plugin](E:\download\Controller as plugin.png)
+![Controller as plugin](https://raw.githubusercontent.com/mxsm/picture/main/rocketmq5/quickstart/Controller%20as%20plugin.png)
 
 嵌入 NameServer 部署时只需要在 NameServer 的配置文件中设置 **`enableControllerInNamesrv=true`**，并填上 **`DLedger Controller`** 的配置即可。
 
@@ -73,7 +73,7 @@ notifyBrokerRoleChanged = true
 
 独立部署示意图如下：
 
-![Controller deploy indepdent](E:\download\Controller deploy indepdent.png)
+![Controller deploy indepdent](https://raw.githubusercontent.com/mxsm/picture/main/rocketmq5/quickstart/Controller%20deploy%20indepdent.png)
 
 独立部署的配置和内嵌配置的区别就是无需配置 **`enableControllerInNamesrv=true`** 。 具体配置可以参照内嵌部署的配置。启动可以使用如下命令：
 
