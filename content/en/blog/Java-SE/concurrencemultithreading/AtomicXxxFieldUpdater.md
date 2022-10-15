@@ -5,8 +5,6 @@ date: 2022-09-03
 weight: 202209031441. 
 ---
 
-我报名参加金石计划1期挑战——瓜分10万奖池，这是我的第1篇文章，[点击查看活动详情](https://s.juejin.cn/ds/jooSN7t)
-
 ### 1. 背景
 
 在很多项目中例如 `Netty、druid、DLedger` 中都能看到 `AtomicXXXFieldUpdater` 的身影,例如在Netty的 `HashedWheelTimer` 类中就有 `AtomicIntegerFieldUpdater` 代码的存在。又比如在druid中的[PR-165](https://github.com/alibaba/druid/pull/165/files)。大量的试用了`AtomicXXXFieldUpdater` 这一类相似的类。AtomicXXXFieldUpdater表示的是一系列类：
