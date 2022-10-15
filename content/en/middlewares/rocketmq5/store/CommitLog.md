@@ -5,8 +5,6 @@ date: 2022-09-10
 weight: 202209101745
 ---
 
-我报名参加金石计划1期挑战——瓜分10万奖池，这是我的第3篇文章，[点击查看活动详情](https://s.juejin.cn/ds/jooSN7t)
-
 RocketMQ4.x设RocketMQ5.0在CommitLog的设计上面基本上没有太多调整，还是沿用了之前的设计。下面来对CommitLog的设计思想和源码进行分析。
 
 ### 1. CommitLog示意图
