@@ -2,20 +2,20 @@ const path = require('path');
 const prismic = require('@prismicio/client');
 const fetch = require('node-fetch');
 
-const BASE_URL = '/docs';
+const BASE_URL = '';
 
 module.exports = {
-  title: 'Ionic Documentation',
+  title: 'mxsm(蚂蚁背大象)',
   tagline:
     'Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards',
   url: 'https://ionicframework.com',
   baseUrl: `${BASE_URL}/`,
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ja'],
+    locales: ['cn', 'en'],
     localeConfigs: {
       en: { label: 'English' },
-      ja: { label: '日本語' },
+      cn: { label: '中文' },
     },
   },
   onBrokenLinks: 'warn',
@@ -211,7 +211,7 @@ module.exports = {
           icon: {
             alt: 'github logo',
             src: `/logos/github.svg`,
-            href: 'https://github.com/ionic-team/ionic-framework',
+            href: 'https://github.com/mxsm',
             target: '_blank',
           },
         },
@@ -258,7 +258,6 @@ module.exports = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        routeBasePath: '/',
         sidebarPath: require.resolve('./sidebars.js'),
         editUrl: ({ versionDocsDirPath, docPath, locale }) => {
           if (locale != 'en') {
