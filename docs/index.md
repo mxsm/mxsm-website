@@ -29,26 +29,30 @@ Get started building by [installing Ionic](intro/cli.md) or following our [First
 <intro-end />
 
 <DocsCards>
-  <DocsCard header="Installation Guide" href="/intro/cli" icon="/icons/guide-installation-icon.svg" hoverIcon="/icons/guide-installation-icon-hover.svg">
-    <p>Step-by-step guides to setting up your system and installing the framework.</p>
+  <DocsCard header="RocketMQ快速开始" href="/intro/cli" icon="/icons/guide-installation-icon.svg" hoverIcon="/icons/guide-installation-icon-hover.svg">
+
+ <p>Step-by-step guides to setting up your system and installing the framework.</p>
+
   </DocsCard>
 
 <DocsCard
-  header="UI Components"
+  header="RocketMQ组件"
   href="/components"
   icon="/icons/guide-components-icon.svg"
-  hoverIcon="/icons/guide-components-icon-hover.svg"
->
-  <p>Dive into Ionic beautifully designed UI component library.</p>
+  hoverIcon="/icons/guide-components-icon-hover.svg">
+
+<p>Dive into Ionic beautifully designed UI component library.</p>
+
 </DocsCard>
 
 <DocsCard
   header="Native Functionality"
   href="/native"
   icon="/icons/guide-native-icon.svg"
-  hoverIcon="/icons/guide-native-icon-hover.svg"
->
-  <p>Integrate native device plugins, like Bluetooth, Maps, HealthKit, and more.</p>
+  hoverIcon="/icons/guide-native-icon-hover.svg">
+
+<p>Integrate native device plugins, like Bluetooth, Maps, HealthKit, and more.</p>
+
 </DocsCard>
 
   <DocsCard header="Theming" href="/theming/basics" icon="/icons/guide-theming-icon.svg" hoverIcon="/icons/guide-theming-icon-hover.svg">
