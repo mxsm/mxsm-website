@@ -6,8 +6,7 @@ const BASE_URL = '';
 
 module.exports = {
   title: 'mxsm(蚂蚁背大象)',
-  tagline:
-    'Ionic is the app platform for web developers. Build amazing mobile, web, and desktop apps all with one shared code base and open web standards',
+  tagline: 'Day Day Up!',
   url: 'https://ionicframework.com',
   baseUrl: `${BASE_URL}/`,
   i18n: {
@@ -20,9 +19,9 @@ module.exports = {
   },
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/meta/favicon-96x96.png',
-  organizationName: 'ionic-team',
-  projectName: 'ionic-docs',
+  favicon: 'img/meta/favicon.ico',
+  organizationName: 'mxsm',
+  projectName: 'mxsm-website',
   themeConfig: {
     metadata: [
       { name: 'og:image', content: 'https://ionicframework.com/docs/img/meta/open-graph.png' },
@@ -72,16 +71,75 @@ module.exports = {
       },
       items: [
         {
-          type: 'doc',
-          docId: 'index',
-          label: 'Guide',
+          label: 'RocketMQ',
           position: 'left',
+          items: [
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'RocketMQ 5.0',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'RocketMQ 4.X',
+            },
+            {
+              href: 'https://github.com/apache/rocketmq',
+              label: 'RocketMQ GitHub',
+              target: '_blank',
+              rel: null,
+            },
+            {
+              href: 'https://rocketmq.apache.org/',
+              label: 'RocketMQ official website',
+              target: '_blank',
+              rel: null,
+            },
+          ]
         },
         {
-          type: 'doc',
-          docId: 'components',
-          label: 'Components',
+          label: 'Spring',
           position: 'left',
+          items: [
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'Spring Framework',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'Spring Boot',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'Spring Cloud',
+            },
+            {
+              href: 'https://spring.io/',
+              label: 'Spring official website',
+              target: '_blank',
+              rel: null,
+            },
+          ]
+        },
+        {
+          label: 'Java',
+          position: 'left',
+          items: [
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'Java SE',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'Java Web',
+            }
+          ]
         },
         {
           type: 'doc',
