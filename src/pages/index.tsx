@@ -26,6 +26,7 @@ import twitter from "@site/static/img/icon/twitter.png";
 import telegram from "@site/static/img/icon/telegram.png";
 import wechat from "@site/static/img/icon/wexin_mini_program.png";
 import zhihu from "@site/static/img/icon/zhihu.png";
+import juejin from "@site/static/img/icon/juejin.png";
 import PageProgressBar from "@site/src/components/PageProgressBar";
 import Notification from "@site/src/components/Notification";
 
@@ -79,7 +80,7 @@ export default function Home(): JSX.Element {
 function HomepageHeader({ isMobileDevice }: HomepageHeaderProps): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   const BRUCE = "mxsm(蚂蚁背大象)";
-  const TO_WIKI_BUTTON_TEXT = "Go to blog";
+  const TO_WIKI_BUTTON_TEXT = "Go to website";
   const COPY_SUCCESS = "已复制到剪切板";
   const [show, setShow] = useState<boolean>(false);
 
@@ -142,7 +143,7 @@ function HomepageHeader({ isMobileDevice }: HomepageHeaderProps): JSX.Element {
             isCopyBtn
             copySuccess={copySuccess}
           />
-          {/*  <ContactMeBtn title={contactMeData.zhihu} src={zhihu} link="/" />*/}
+          <ContactMeBtn title={contactMeData.juejin} src={juejin} link={contactMeData.juejinLink} />
         </div>
         {!isMobileDevice && (
           <>

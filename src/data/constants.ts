@@ -60,7 +60,9 @@ const GMAIL = "GMail";
 const TWITTER = "Twitter";
 const WECHAT = "微信";
 const ZHIHU = "知乎";
+const JUEJIN = "掘金";
 const GITHUB_LINK = "https://github.com/mxsm/";
+const JUEJIN_LINK = "https://juejin.cn/user/1151943918492855";
 const TELEGRAM_LINK = "https://t.me/recallwei/";
 const GMAIL_ADDRESS = "ljbmxsm@gmail.com";
 const WECHAT_ACCOUNT = "375808041";
@@ -181,7 +183,9 @@ const contactMeData: ContactMeData = {
   twitter: TWITTER,
   wechat: WECHAT,
   zhihu: ZHIHU,
+  juejin: JUEJIN,
   githubLink: GITHUB_LINK,
+  juejinLink: JUEJIN_LINK,
   telegramLink: TELEGRAM_LINK,
   gmailAddress: GMAIL_ADDRESS,
   wechatAccount: WECHAT_ACCOUNT,
