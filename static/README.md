@@ -1,2 +1,3 @@
-# blog.ljbmxsm.com
-[蚂蚁背大象的网站](https://blog.ljbmxsm.com)技术博客
+# Static folder 
+
+This folder houses static assets: https://docusaurus.io/docs/static-assets
