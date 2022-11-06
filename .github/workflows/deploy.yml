@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy mxsm website to GitHub
 
 on:
   pull_request:
@@ -43,4 +43,3 @@ jobs:
           npm run clear
           npm run build
           npm run deploy
-
