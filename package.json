@@ -1,12 +1,12 @@
 {
-  "name": "ionic-docs",
-  "version": "0.0.0",
+  "name": "mxsm-website",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "prebuild": "npm run generate-markdown; scripts/i18n.sh; if [ -n \"$CROWDIN_PERSONAL_TOKEN\" ]; then npm run crowdin:sync; fi",
     "build": "npm run build:${VERCEL_ENV:-preview}",
     "build:preview": "docusaurus build --locale en",
-    "build:production": "docusaurus build",
+    "build:production": "docusaurus build --no-minify",
     "clear": "docusaurus clear",
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download",
     "deploy": "docusaurus deploy",
@@ -49,6 +49,7 @@
     "@prismicio/react": "^2.2.0",
     "@stackblitz/sdk": "^1.6.0",
     "@tippyjs/react": "^4.2.6",
+	"caniuse-lite": "^1.0.30001430",
     "clsx": "^1.1.1",
     "concurrently": "^6.2.0",
     "crowdin": "^3.5.0",

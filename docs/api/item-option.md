@@ -1,6 +1,9 @@
 ---
 title: "ion-item-option"
+hide_table_of_contents: true
 ---
+import TOCInline from '@theme/TOCInline';
+
 import Props from '@site/static/auto-generated/item-option/props.md';
 import Events from '@site/static/auto-generated/item-option/events.md';
 import Methods from '@site/static/auto-generated/item-option/methods.md';
@@ -17,10 +20,19 @@ import EncapsulationPill from '@components/page/api/EncapsulationPill';
 
 <EncapsulationPill type="shadow" />
 
+<h2 className="table-of-contents__title">Contents</h2>
 
-The item option component is an button for a sliding item. It must be placed inside of [item options](./item-options). The `ionSwipe` event and the `expandable` property can be combined to create a full swipe action for the item.
+<TOCInline
+  toc={toc}
+  maxHeadingLevel={2}
+/>
 
-See the [item sliding](./item-sliding) documentation for more information.
+
+
+The option button for an `ion-item-sliding`. Must be placed inside of an `<ion-item-options>`.
+You can combine the `ionSwipe` event and the `expandable` directive to create a full swipe
+action for the item.
+
 
 
 ## Properties
