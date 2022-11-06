@@ -49,7 +49,7 @@
     "@prismicio/react": "^2.2.0",
     "@stackblitz/sdk": "^1.6.0",
     "@tippyjs/react": "^4.2.6",
-	"caniuse-lite": "^1.0.30001430",
+    "caniuse-lite": "^1.0.30001430",
     "clsx": "^1.1.1",
     "concurrently": "^6.2.0",
     "crowdin": "^3.5.0",
@@ -62,7 +62,8 @@
     "remark-html": "^13.0.1",
     "remark-parse": "^8.0.3",
     "sass": "^1.44.0",
-    "semver": "^7.3.5"
+    "semver": "^7.3.5",
+    "svgo": "^3.0.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "0.0.0-4192",
