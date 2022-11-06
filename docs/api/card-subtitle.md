@@ -1,6 +1,9 @@
 ---
 title: "ion-card-subtitle"
+hide_table_of_contents: true
 ---
+import TOCInline from '@theme/TOCInline';
+
 import Props from '@site/static/auto-generated/card-subtitle/props.md';
 import Events from '@site/static/auto-generated/card-subtitle/events.md';
 import Methods from '@site/static/auto-generated/card-subtitle/methods.md';
@@ -12,10 +15,17 @@ import EncapsulationPill from '@components/page/api/EncapsulationPill';
 
 <EncapsulationPill type="shadow" />
 
+<h2 className="table-of-contents__title">Contents</h2>
 
-Card subtitle is a child component of card that should be placed inside of a [card header](./card-header).
+<TOCInline
+  toc={toc}
+  maxHeadingLevel={2}
+/>
 
-See the [Card](./card) documentation for more information.
+
+
+`ion-card-subtitle` is a child component of `ion-card`
+
 
 
 ## Properties

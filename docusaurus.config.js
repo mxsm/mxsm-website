@@ -7,7 +7,7 @@ const BASE_URL = '';
 module.exports = {
   title: 'mxsm(蚂蚁背大象)',
   tagline: 'Day Day Up!',
-  url: 'https://ionicframework.com',
+  url: 'https://blog.ljbmxsm.com',
   baseUrl: `${BASE_URL}/`,
   i18n: {
     defaultLocale: 'en',
@@ -21,7 +21,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/meta/favicon.ico',
   organizationName: 'mxsm',
-  projectName: 'mxsm-website',
+  projectName: 'mxsm.github.io',
   themeConfig: {
     metadata: [
       { name: 'og:image', content: 'https://ionicframework.com/docs/img/meta/open-graph.png' },
