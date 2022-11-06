@@ -333,7 +333,7 @@ module.exports = {
           if ((match = docPath.match(/native\/(.*)\.md/)) != null) {
             return `https://github.com/ionic-team/ionic-native/edit/master/src/@awesome-cordova-plugins/plugins/${match[1]}/index.ts`;
           }
-          return `https://github.com/ionic-team/ionic-docs/edit/main/${versionDocsDirPath}/${docPath}`;
+          return `https://github.com/mxsm/mxsm-website/edit/main/${versionDocsDirPath}/${docPath}`;
         },
         exclude: ['README.md'],
         lastVersion: 'current',
