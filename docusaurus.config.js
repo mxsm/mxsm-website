@@ -23,6 +23,15 @@ module.exports = {
   organizationName: 'mxsm',
   projectName: 'mxsm.github.io',
   themeConfig: {
+
+    announcementBar: {
+      id: 'support_us',
+      content:
+        '我们正打算翻新文档，请填写<a target="_blank" rel="noopener noreferrer" href="#">这个调查</a>',
+      backgroundColor: '#fafbfc',
+      textColor: '#091E42',
+      isCloseable: true,
+    },
     metadata: [
       { name: 'og:image', content: 'https://ionicframework.com/docs/img/meta/open-graph.png' },
       { name: 'twitter:image', content: 'https://ionicframework.com/docs/img/meta/open-graph.png' },
@@ -140,18 +149,6 @@ module.exports = {
               label: 'Java Web',
             }
           ]
-        },
-        {
-          type: 'doc',
-          docId: 'cli',
-          label: 'CLI',
-          position: 'left',
-        },
-        {
-          type: 'doc',
-          docId: 'native',
-          label: 'Native',
-          position: 'left',
         },
         {
           type: 'cta',
@@ -284,6 +281,14 @@ module.exports = {
           },
         },
       ],
+    },
+    footer: {
+      logo: {
+        href: 'https://blog.ljbmxsm.com',
+        width: 160,
+        height: 51,
+      },
+      copyright: `版权所有 © ${new Date().getFullYear()} mxsm(蚂蚁背大象). 使用 Docusaurus 构建.`,
     },
     tagManager: {
       trackingID: 'GTM-TKMGCBC',
