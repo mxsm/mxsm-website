@@ -142,10 +142,98 @@ module.exports = {
           ]
         },
         {
-          type: 'cta',
+          label: 'Middleware',
           position: 'left',
-          text: 'Ionic v6.0.0 Upgrade Guide',
-          href: `/intro/upgrading-to-ionic-6`,
+          items: [
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'Netty',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'Redis',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'Kafka',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'Etcd',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'Docker',
+            }
+          ]
+        },
+        {
+          label: 'Database',
+          position: 'left',
+          items: [
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'SQL',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'MySQL',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'PostgreSQL',
+            }
+          ]
+        },
+        {
+          label: 'Theory',
+          position: 'left',
+          items: [
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'SQL',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'MySQL',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'PostgreSQL',
+            }
+          ]
+        },
+        {
+          label: 'Others',
+          position: 'left',
+          items: [
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'SQL',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'MySQL',
+            },
+            {
+              type: 'doc',
+              docId: 'index',
+              label: 'PostgreSQL',
+            }
+          ]
         },
 /*        {
           type: 'docsVersionDropdown',
@@ -162,36 +250,36 @@ module.exports = {
           position: 'right',
         },
         {
-          label: 'Community',
+          label: 'Github Project',
           position: 'right',
           items: [
             {
-              href: 'https://ionicframework.com/community',
-              label: 'Community Hub',
+              href: 'https://github.com/mxsm/IM',
+              label: 'IM',
               target: '_blank',
               rel: null,
             },
             {
-              href: 'https://forum.ionicframework.com/',
-              label: 'Forum',
+              href: 'https://github.com/mxsm/rain',
+              label: 'Rain',
               target: '_blank',
               rel: null,
             },
             {
-              href: 'https://www.meetup.com/topics/ionic-framework/',
-              label: 'Meetups',
+              href: 'https://github.com/mxsm/mxsm-website',
+              label: 'mxsm-website',
               target: '_blank',
               rel: null,
             },
             {
-              href: 'https://blog.ionicframework.com/',
-              label: 'Blog',
+              href: 'https://github.com/mxsm/benchmark',
+              label: 'benchmark',
               target: '_blank',
               rel: null,
             },
             {
-              href: 'https://twitter.com/ionicframework',
-              label: 'Twitter',
+              href: 'https://github.com/mxsm/spring-sample',
+              label: 'spring-sample',
               target: '_blank',
               rel: null,
             },
@@ -203,20 +291,8 @@ module.exports = {
           position: 'right',
           items: [
             {
-              href: 'https://ionicframework.com/support',
+              href: 'https://github.com/mxsm/',
               label: 'Help Center',
-              target: '_blank',
-              rel: null,
-            },
-            {
-              href: 'https://ionic.zendesk.com/',
-              label: 'Customer Support',
-              target: '_blank',
-              rel: null,
-            },
-            {
-              href: 'https://ionicframework.com/advisory',
-              label: 'Enterprise Advisory',
               target: '_blank',
               rel: null,
             },
@@ -314,7 +390,7 @@ module.exports = {
       {
         sidebarPath: require.resolve('./sidebars.js'),
         editUrl: ({ versionDocsDirPath, docPath, locale }) => {
-          if (locale != 'en') {
+/*          if (locale != 'en') {
             return 'https://crowdin.com/project/ionic-docs';
           }
           if ((match = docPath.match(/api\/(.*)\.md/)) != null) {
@@ -328,8 +404,8 @@ module.exports = {
           }
           if ((match = docPath.match(/native\/(.*)\.md/)) != null) {
             return `https://github.com/ionic-team/ionic-native/edit/master/src/@awesome-cordova-plugins/plugins/${match[1]}/index.ts`;
-          }
-          return `https://github.com/mxsm/mxsm-website/edit/main/${versionDocsDirPath}/${docPath}`;
+          }*/
+          return `https://github.com/mxsm/mxsm-website/edit/develop/${versionDocsDirPath}/${docPath}`;
         },
         exclude: ['README.md'],
         lastVersion: 'current',
