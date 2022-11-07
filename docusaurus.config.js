@@ -59,7 +59,7 @@ module.exports = {
       defaultMode: 'light',
     },
     navbar: {
-      hideOnScroll: true,
+      hideOnScroll: false,
       logo: {
         alt: 'Site Logo',
         src: `/logos/ionic-text-docs-dark.svg`,
@@ -73,10 +73,10 @@ module.exports = {
         {
           label: 'RocketMQ',
           position: 'left',
+          type: 'dropdown',
           items: [
             {
-              type: 'doc',
-              docId: 'index',
+              to: '/docs/rocketmq/rocketmq5',
               label: 'RocketMQ 5.0',
             },
             {
