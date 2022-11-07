@@ -23,15 +23,6 @@ module.exports = {
   organizationName: 'mxsm',
   projectName: 'mxsm.github.io',
   themeConfig: {
-
-    announcementBar: {
-      id: 'support_us',
-      content:
-        '我们正打算翻新文档，请填写<a target="_blank" rel="noopener noreferrer" href="#">这个调查</a>',
-      backgroundColor: '#fafbfc',
-      textColor: '#091E42',
-      isCloseable: true,
-    },
     metadata: [
       { name: 'og:image', content: 'https://ionicframework.com/docs/img/meta/open-graph.png' },
       { name: 'twitter:image', content: 'https://ionicframework.com/docs/img/meta/open-graph.png' },
@@ -156,7 +147,7 @@ module.exports = {
           text: 'Ionic v6.0.0 Upgrade Guide',
           href: `/intro/upgrading-to-ionic-6`,
         },
-        {
+/*        {
           type: 'docsVersionDropdown',
           position: 'right',
           dropdownItemsAfter: [
@@ -165,7 +156,7 @@ module.exports = {
           ],
           // dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
           dropdownActiveClassDisabled: true,
-        },
+        },*/
         {
           type: 'search',
           position: 'right',
