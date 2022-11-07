@@ -209,7 +209,7 @@ function ArrowDownBtn(): JSX.Element {
   );
 }
 
-function PortfolioArea({ isMobileDevice }: HomepageHeaderProps): JSX.Element {
+/*function PortfolioArea({ isMobileDevice }: HomepageHeaderProps): JSX.Element {
   const PORTFOLIO = "Portfolio";
   return (
     <div className={styles.portfolioArea}>
@@ -267,4 +267,4 @@ function PortfolioArea({ isMobileDevice }: HomepageHeaderProps): JSX.Element {
       </div>
     </div>
   );
-}
+}*/
