@@ -1,8 +1,10 @@
 ---
 title: "RocketMQ5.0源码分析-AutoSwitchHAClient"
-linkTitle: "RocketMQ5.0源码分析-AutoSwitchHAClient"
-date: 2022-10-07
-weight: 202210071655
+hide_table_of_contents: false
+sidebar_position: 202210071655
+last_update:
+  date: 2022-10-07
+  author: mxsm
 ---
 
 在RocketMQ5.0的HA模式中，`AutoSwitchHAClient` 是一个重要的组件，主要作用Broker Slave中用来处理Broker Master发来的CommitLog数据。RocketMQ5.0对`AutoSwitchHAClient`进行了增强来适应RocketMQ5.0的DLedger Controller的模式。

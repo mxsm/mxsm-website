@@ -76,7 +76,7 @@ module.exports = {
           type: 'dropdown',
           items: [
             {
-              to: '/docs/rocketmq/rocketmq5',
+              to: '/docs/rocketmq5',
               label: 'RocketMQ 5.0',
             },
             {
