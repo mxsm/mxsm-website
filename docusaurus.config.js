@@ -216,9 +216,8 @@ module.exports = {
           position: 'left',
           items: [
             {
-              type: 'doc',
-              docId: 'index',
-              label: 'SQL',
+              to: '/docs/others/blog-building',
+              label: 'Blog building',
             },
             {
               type: 'doc',
