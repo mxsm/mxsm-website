@@ -358,8 +358,9 @@ module.exports = {
       trackingID: 'GTM-TKMGCBC',
     },
     prism: {
-      theme: { plain: {}, styles: [] },
+      //theme: { plain: {}, styles: [] },
       // https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/vendor/prism/includeLangs.js
+      theme: require('prism-react-renderer/themes/dracula'),
       additionalLanguages: ['shell-session', 'http'],
     },
     algolia: {
