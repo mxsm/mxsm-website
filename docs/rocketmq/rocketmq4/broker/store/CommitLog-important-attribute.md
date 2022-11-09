@@ -2,7 +2,7 @@
 title: "RocketMQ5.0源码解析-CommitLog设计与几个重要的属性关系图文解析"
 linkTitle: "RocketMQ5.0源码解析-CommitLog设计与几个重要的属性关系图文解析"
 date: 2022-10-15
-weight: 202210151603
+sidebar_position: 202210151603
 ---
 
 如果把RocketMQ看做应用系统CommitLog就相当于应用的系统中的存储层也就是数据库的功能。下面就来聊一聊CommitLog的设计以及CommitLog包含的组件中的一些重要属性字段wrotePosition、committedPosition、flushedPosition、fileFromOffset、flushedWhere、committedWhere之间的关系。

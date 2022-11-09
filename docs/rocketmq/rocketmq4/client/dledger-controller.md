@@ -120,10 +120,10 @@ Broker搭配Controller DLedger模式可以实现高可用以及主备自动切�
 - inSyncReplicas：需保持同步的副本组数量，默认为1，allAckInSyncStateSet=true 时该参数无效。
 - minInSyncReplicas：最小需保持同步的副本组数量，若 SyncStateSet 中副本个数小于 minInSyncReplicas 则 putMessage 直接返回 PutMessageStatus.IN_SYNC_REPLICAS_NOT_ENOUGH，默认为1。
 
-> Tips: 
->
-> - Controller DLedger模式下enableControllerMode必须为true,默认为false
-> - 实现消息不丢失allAckInSyncStateSet设置为true
+:::tip
+ - Controller DLedger模式下enableControllerMode必须为true,默认为false
+ - 实现消息不丢失allAckInSyncStateSet设置为true
+:::
 
 ### 5. 总结
 
