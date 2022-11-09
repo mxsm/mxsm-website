@@ -76,7 +76,7 @@ module.exports = {
           type: 'dropdown',
           items: [
             {
-              to: '/docs/rocketmq5',
+              to: '/docs/rocketmq/rocketmq5',
               label: 'RocketMQ 5.0',
             },
             {
@@ -103,18 +103,15 @@ module.exports = {
           position: 'left',
           items: [
             {
-              type: 'doc',
-              docId: 'index',
+              to: '/docs/spring/spring-framework',
               label: 'Spring Framework',
             },
             {
-              type: 'doc',
-              docId: 'index',
+              to: '/docs/spring/spring-boot',
               label: 'Spring Boot',
             },
             {
-              type: 'doc',
-              docId: 'index',
+              to: '/docs/spring/spring-cloud',
               label: 'Spring Cloud',
             },
             {

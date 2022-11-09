@@ -2,7 +2,7 @@
 title: RocketMQ5.0
 sidebar_label: Overview
 hide_table_of_contents: true
-slug: /rocketmq/rocketmq5
+slug: /spring/spring-framework
 ---
 
 import DocsCard from '@components/global/DocsCard';
