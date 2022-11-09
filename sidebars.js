@@ -760,4 +760,15 @@ module.exports = {
   springboot: [],
 
   springcloud: [],
+
+  others: [
+    {
+      type: 'category',
+      label: '博客搭建',
+      collapsed: true,
+      items: [
+        'others/blog-building/blog-building',
+      ],
+    },
+  ],
 };
