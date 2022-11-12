@@ -68,5 +68,147 @@ npm run start
 
 执行完成以上的命令后会自动打开web页面：
 
+![image-20221110215605457](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20221110215605457.png)
+
+完成启动后接下来就是对这个项目进行改造
+
+:::tip
+
+- nodejs版本最好用16，这个视情况而定
+
+- 主题可以去样例展示选择查看地址：https://docusaurus.io/zh-CN/showcase
 
 
+:::
+
+### 2.3 基于下载主题改造
+
+改造的主要有两个文件：
+
+- **docusaurus.config.js**
+
+  **docusaurus.config.js** 是主要的配置文件，具体的修改地方大家可以参照官方的文档：
+
+  - https://docusaurus.io/zh-CN/docs/configuration （docusaurus.config.js）
+
+  主要配置一些navbar以及一些关键性信息。
+
+- **sidebars.js**
+
+  这个文件主要用于配置左边的sidebar,具体的配文档参考官网：https://docusaurus.io/zh-CN/docs/sidebar
+
+根据自己的需求修改上述的两个文件，然后删除掉原先项目中docs下面的文件，将自己的markdown文件放入其中，根据个人的需要进行组织文件。
+
+看一下笔者改造后自己的网站效果：
+
+![image-20221110224848030](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20221110224848030.png)
+
+:::tip
+
+项目Github地址：https://github.com/mxsm/mxsm-website
+
+:::
+
+## 3. 触发 GitHub Actions 自动部署
+
+如何将自己的博客部署到GitHub上面， 笔者这里源代码仓库和部署代码仓库部署同源，
+
+- 源代码仓库：https://github.com/mxsm/mxsm-website
+- 部署代码仓库：https://github.com/mxsm/mxsm.github.io
+
+部署流程如下：
+
+1. 生成一个新 [SSH 密钥](https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)。 因为这个 SSH 密钥会用在 CI 中，所以不能输入任何密码。
+
+2. 默认情况下，你的公钥应该会被创建在 `~/.ssh/id_rsa.pub` 中。如果没有，那么在添加 [GitHub 部署密钥](https://developer.github.com/v3/guides/managing-deploy-keys/)时，要记得使用你在前一步中提供的名字。
+
+3. 用 `pbcopy < ~/.ssh/id_rsa.pub` 把密钥复制到剪贴板，然后在你的部署仓库中，把它粘贴入[部署密钥](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)。 如果命令行不适合，可以手动复制文件内容。 在保存部署密钥之前，要勾选 `Allow write access`。
+
+   ![setting-github-sec](C:\Users\mxsm\Desktop\pic\setting-github-sec.gif)
+
+4. 你需要把你的私钥设置成 [GitHub secret](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)，从而允许 Docusaurus 为你运行部署。
+
+5. 用 `pbcopy < ~/.ssh/id_rsa` 复制你的私钥，然后把它粘贴成一个 GitHub secret，名字叫 `ACTIONS_DEPLOY_KEY`。 如果命令行不适合，可以手动复制文件内容。 保存你的 secret。
+
+   ![setting-github-sec](C:\Users\mxsm\Desktop\pic\setting-github-sec1.gif)
+
+6. 在 `.github/workflows/` 中创建你的[文档工作流文件](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#creating-a-workflow-file)。 在这个例子里，就是 `deploy.yml`。
+
+   ```yaml
+   name: Deploy mxsm website to GitHub
+   
+   on:
+     pull_request:
+       branches: [main]
+     push:
+       branches: [mxsm-website-27]
+   
+   jobs:
+     test-deploy:
+       if: github.event_name != 'push'
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - uses: actions/setup-node@v3
+           with:
+             node-version: 18
+             cache: npm
+         - name: Install dependencies
+           run: npm ci --legacy-peer-deps
+         - name: Test build website
+           run: npm run build
+     deploy:
+       if: github.event_name == 'push'
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - uses: actions/setup-node@v3
+           with:
+             node-version: 18
+             cache: npm
+         - uses: webfactory/ssh-agent@v0.5.0
+           with:
+             ssh-private-key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+         - name: Deploy to GitHub Pages
+           env:
+             USE_SSH: true
+             DEPLOYMENT_BRANCH: gh-pages
+           run: |
+             git config --global user.email "ljbmxsm@gmail.com"
+             git config --global user.name "mxsm"
+             npm update --legacy-peer-deps
+             npm run clear
+             npm run build
+             npm run deploy
+   ```
+
+7. 现在，你应该大概有：一个源代码仓库，设置了 GitHub 工作流和作为 GitHub Secret 的 SSH 私钥，以及一个部署仓库，在 GitHub 部署密钥中设置了 SSH 公钥。
+
+到这里就已经配置好了，那么Actions上面时候触发呢，我上面配置的是当 **`mxsm-website-27`** 分支有Push的时候就可以触发Actions部署了。
+
+![image-20221110230906205](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20221110230906205.png)
+
+然后看一下部署代码仓库(gh-pages分支)：
+
+![image-20221110231029109](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20221110231029109.png)
+
+:::tip
+
+- 触发Actions的一种情况源代码仓库和部署代码仓库是**同一**仓库，可以参照[官网的配置地址](https://docusaurus.io/zh-CN/docs/deployment#triggering-deployment-with-github-actions)
+- SSH身份验证之前配置过，可以使用之前的。
+- 如何利用Github搭建Blog
+
+:::
+
+## 4. 开启博客之旅
+
+做好以上的准备工作后接下来的就是编写博客。用markdown文档编写blog，将文档放在对应的docs下面的文件夹里面。或者可以通过使用**`plugin-content-docs`** 插件拓展其他的自定义的目录。这样博客就搭建完成，基本上无需写前端代码只需要修改对应的配置即可。
+
+> 我是蚂蚁背大象，文章对你有帮助点赞关注我，文章有不正确的地方请您斧正留言评论~谢谢!
+
+参考资料：
+
+- https://docusaurus.io/zh-CN/
+- https://github.com/ionic-team/ionic-docs
+
+本文正在参加[「金石计划 . 瓜分6万现金大奖」](https://juejin.cn/post/7162096952883019783)
