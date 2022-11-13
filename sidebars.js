@@ -30,7 +30,7 @@ const sidebars = {
             label: 'Getting Started2',
             collapsed: true,
             items: [
-                
+                'intro'
             ],
         },
     ],
