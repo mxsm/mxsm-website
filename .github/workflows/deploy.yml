@@ -2,9 +2,9 @@ name: Deploy mxsm website to GitHub
 
 on:
   pull_request:
-    branches: [main]
+    branches: [develop]
   push:
-    branches: [mxsm-website-27]
+    branches: [develop]
 
 jobs:
   test-deploy:
@@ -21,7 +21,7 @@ jobs:
       - name: Test build website
         run: npm run build
   deploy:
-    if: github.event_name == 'push'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
