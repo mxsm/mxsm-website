@@ -103,8 +103,9 @@ const config = {
                 label: 'RocketMQ 5.0',
               },
               {
-                type: 'doc',
-                docId: 'intro',
+                type: 'docSidebar',
+                sidebarId: 'rocketmq4',
+                to: 'docs/rocketmq/rocketmq4',
                 label: 'RocketMQ 4.X',
               },
               {
