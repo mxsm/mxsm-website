@@ -14,7 +14,7 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
     // By default, Docusaurus generates a sidebar from the docs folder structure
-    tutorialSidebar: [
+/*    tutorialSidebar: [
         {
             type: 'category',
             label: 'Overview',
@@ -23,7 +23,7 @@ const sidebars = {
                 'intro',
             ],
         }
-    ],
+    ],*/
     rocketmq5: [
         {
             type: 'category',
