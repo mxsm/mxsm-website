@@ -24,16 +24,6 @@ const sidebars = {
             ],
         }
     ],*/
-    rocketmq: [
-        {
-            type: 'category',
-            label: 'Getting Started2',
-            collapsed: true,
-            items: [
-                'intro'
-            ],
-        },
-    ],
     rocketmq5: [
         {
             type: 'category',
