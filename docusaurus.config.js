@@ -341,7 +341,7 @@ const config = {
         disableInDev: false,
       },
     ],*/
-    [
+   /* [
       '@docusaurus/plugin-sitemap',
       {
         changefreq: 'weekly',
@@ -349,7 +349,7 @@ const config = {
         ignorePatterns: ['/tags/**'],
         filename: 'sitemap.xml',
       },
-    ],
+    ],*/
   ]
 };
 
