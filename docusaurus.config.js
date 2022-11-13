@@ -10,7 +10,7 @@ const config = {
   tagline: 'Love Open source,Recently has been focusing on RocketMQ and DLedger.',
   url: 'https://blog.ljbmxsm.com/',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 

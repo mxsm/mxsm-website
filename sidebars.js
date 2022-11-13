@@ -106,7 +106,7 @@ const sidebars = {
             label: 'Overview',
             collapsed: true,
             items: [
-                'rocketmq5',
+                'rocketmq4',
             ],
         },
         {
@@ -220,9 +220,9 @@ const sidebars = {
         }
     ],
 
-    springboot: [],
+/*    springboot: [],
 
-    springcloud: [],
+    springcloud: [],*/
 
     others: [
         {
