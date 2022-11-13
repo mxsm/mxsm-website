@@ -22,10 +22,10 @@ const config = {
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
-/*  i18n: {
+  i18n: {
     defaultLocale: 'en',
     locales: ['en'],
-  },*/
+  },
   presets: [
     [
       'classic',
@@ -97,6 +97,8 @@ const config = {
             type: 'dropdown',
             items: [
               {
+                type: 'docSidebar',
+                sidebarId: 'rocketmq5',
                 to: '/docs/rocketmq/rocketmq5',
                 label: 'RocketMQ 5.0',
               },
@@ -124,6 +126,8 @@ const config = {
             position: 'left',
             items: [
               {
+                type: 'docSidebar',
+                sidebarId: 'springframework',
                 to: '/docs/spring/spring-framework',
                 label: 'Spring Framework',
               },
