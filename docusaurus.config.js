@@ -331,25 +331,6 @@ const config = {
         anonymizeIP: true,
       },
     ],
-/*    [
-      '@docusaurus/plugin-ideal-image',
-      {
-        quality: 70,
-        max: 1030, // 最大缩放图片尺寸。
-        min: 640, // 最小缩放图片尺寸。 如果原始值比这还低，会使用原图尺寸。
-        steps: 2, // 在 min 和 max 之间最多生成的图片数量（包含两端点）
-        disableInDev: false,
-      },
-    ],*/
-   /* [
-      '@docusaurus/plugin-sitemap',
-      {
-        changefreq: 'weekly',
-        priority: 0.5,
-        ignorePatterns: ['/tags/**'],
-        filename: 'sitemap.xml',
-      },
-    ],*/
   ]
 };
 
