@@ -8,13 +8,14 @@ on:
 
 jobs:
   test-deploy:
-    if: github.event_name == 'push'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: npm
       - name: Install dependencies
         run: npm update --legacy-peer-deps
       - name: Test build website
@@ -22,7 +23,7 @@ jobs:
           npm run clear
           npm run build
   deploy:
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
