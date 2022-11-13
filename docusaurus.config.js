@@ -127,14 +127,14 @@ const config = {
                 to: '/docs/spring/spring-framework',
                 label: 'Spring Framework',
               },
-              {
+/*              {
                 to: '/docs/spring/spring-boot',
                 label: 'Spring Boot',
               },
               {
                 to: '/docs/spring/spring-cloud',
                 label: 'Spring Cloud',
-              },
+              },*/
               {
                 href: 'https://spring.io/',
                 label: 'Spring official website',
