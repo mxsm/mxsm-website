@@ -48,7 +48,7 @@ node -v
 npm -v
 ```
 
-![image-20221109233649314](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20221109233649314.png)
+![image-20221109233649314](https://raw.githubusercontent.com/mxsm/picture/main/others/blog/image-20221109233649314.png)
 
 这个就是我当前使用的版本。安装好了前置的环境接下来就是安装搭建博客
 
@@ -68,7 +68,7 @@ npm run start
 
 执行完成以上的命令后会自动打开web页面：
 
-![image-20221110215605457](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20221110215605457.png)
+![image-20221110215605457](https://raw.githubusercontent.com/mxsm/picture/main/others/blog/image-20221110215605457.png)
 
 完成启动后接下来就是对这个项目进行改造
 
@@ -101,7 +101,7 @@ npm run start
 
 看一下笔者改造后自己的网站效果：
 
-![image-20221110224848030](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20221110224848030.png)
+![image-20221110224848030](https://raw.githubusercontent.com/mxsm/picture/main/others/blog/image-20221110224848030.png)
 
 :::tip
 
@@ -124,13 +124,13 @@ npm run start
 
 3. 用 `pbcopy < ~/.ssh/id_rsa.pub` 把密钥复制到剪贴板，然后在你的部署仓库中，把它粘贴入[部署密钥](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)。 如果命令行不适合，可以手动复制文件内容。 在保存部署密钥之前，要勾选 `Allow write access`。
 
-   ![setting-github-sec](C:\Users\mxsm\Desktop\pic\setting-github-sec.gif)
+   ![setting-github-sec](https://raw.githubusercontent.com/mxsm/picture/main/others/blog/setting-github-sec.gif)
 
 4. 你需要把你的私钥设置成 [GitHub secret](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)，从而允许 Docusaurus 为你运行部署。
 
 5. 用 `pbcopy < ~/.ssh/id_rsa` 复制你的私钥，然后把它粘贴成一个 GitHub secret，名字叫 `ACTIONS_DEPLOY_KEY`。 如果命令行不适合，可以手动复制文件内容。 保存你的 secret。
 
-   ![setting-github-sec](C:\Users\mxsm\Desktop\pic\setting-github-sec1.gif)
+   ![setting-github-sec](https://raw.githubusercontent.com/mxsm/picture/main/others/blog/setting-github-sec1.gif)
 
 6. 在 `.github/workflows/` 中创建你的[文档工作流文件](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#creating-a-workflow-file)。 在这个例子里，就是 `deploy.yml`。
 
@@ -186,11 +186,11 @@ npm run start
 
 到这里就已经配置好了，那么Actions上面时候触发呢，我上面配置的是当 **`mxsm-website-27`** 分支有Push的时候就可以触发Actions部署了。
 
-![image-20221110230906205](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20221110230906205.png)
+![image-20221110230906205](https://raw.githubusercontent.com/mxsm/picture/main/others/blog/image-20221110230906205.png)
 
 然后看一下部署代码仓库(gh-pages分支)：
 
-![image-20221110231029109](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20221110231029109.png)
+![image-20221110231029109](https://raw.githubusercontent.com/mxsm/picture/main/others/blog/image-20221110231029109.png)
 
 :::tip
 
@@ -210,5 +210,3 @@ npm run start
 
 - https://docusaurus.io/zh-CN/
 - https://github.com/ionic-team/ionic-docs
-
-本文正在参加[「金石计划 . 瓜分6万现金大奖」](https://juejin.cn/post/7162096952883019783)
