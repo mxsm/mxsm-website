@@ -83,7 +83,7 @@ weight: 2
 
 默认是从配置文件加载。这个也是官网的配置。路由的定义最终用 **`RouteDefinition`** 类进行封装。项目启动所有的路由都被加载装配，并且存到了内存中：
 
-<a data-fancybox="gallery" href="https://github.com/mxsm/document/blob/master/image/Spring/SpringCloud/SpringCloudGateway/%E8%B7%AF%E7%94%B1%E5%8A%A0%E8%BD%BD%E5%88%B0%E5%86%85%E5%AD%98.png?raw=true"><img src="https://github.com/mxsm/document/blob/master/image/Spring/SpringCloud/SpringCloudGateway/%E8%B7%AF%E7%94%B1%E5%8A%A0%E8%BD%BD%E5%88%B0%E5%86%85%E5%AD%98.png?raw=true"></a>
+![](https://github.com/mxsm/document/blob/master/image/Spring/SpringCloud/SpringCloudGateway/%E8%B7%AF%E7%94%B1%E5%8A%A0%E8%BD%BD%E5%88%B0%E5%86%85%E5%AD%98.png?raw=true)
 
 添加的数据存储在内存中。在没有用户自定义的情况下会从文件配置中加载和内存中加载。在刚刚启动网关项目的内存总是没有任何路由的定义的。
 
