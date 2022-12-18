@@ -153,8 +153,9 @@ const config = {
             position: 'left',
             items: [
               {
-                type: 'doc',
-                docId: 'intro',
+                type: 'docSidebar',
+                sidebarId: 'javase',
+                to: '/docs/java/java-se',
                 label: 'Java SE',
               },
               {
