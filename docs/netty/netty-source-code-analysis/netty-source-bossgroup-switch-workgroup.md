@@ -39,7 +39,7 @@ ChannelFuture f = b.bind(port).sync()
 
 ![image-20220322105033192](https://raw.githubusercontent.com/mxsm/picture/main/netty/channelhanlder/image-20220322105033192.png)
 
-上图标号1是将接受的Channel包装成NioSocketChannel存入List<Object> readBuf列表中。标号2就是触发了NioServerSocketChannel所属ChannelPipeline的channelRead方法。
+上图标号1是将接受的Channel包装成NioSocketChannel存入List\<Object\> readBuf列表中。标号2就是触发了NioServerSocketChannel所属ChannelPipeline的channelRead方法。
 
 **重点：这个触发NioServerSocketChannel的所属ChannelPipeline的channelRead方法就是从BossGroup转到WorkGroup处理读写的关键。**下面分析为什么？
 
