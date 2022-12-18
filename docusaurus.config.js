@@ -170,8 +170,9 @@ const config = {
             position: 'left',
             items: [
               {
-                type: 'doc',
-                docId: 'intro',
+                type: 'docSidebar',
+                sidebarId: 'netty',
+                to: '/docs/netty',
                 label: 'Netty',
               },
               {

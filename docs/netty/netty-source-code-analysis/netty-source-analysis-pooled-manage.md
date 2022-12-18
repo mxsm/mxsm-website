@@ -454,7 +454,7 @@ public class PooledByteBufAllocator extends AbstractByteBufAllocator implements 
 
 ![PoolArena数据结构 (1)](https://raw.githubusercontent.com/mxsm/picture/main/netty/PoolArena%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20(1).png)
 
-包含了一个 **`smallSubpagePools（ PoolSubpage<T>[]）`** 和6个PoolChunkList<T> 。
+包含了一个 **`smallSubpagePools（ PoolSubpage<T>[]）`** 和6个PoolChunkList\<T\> 。
 
 - smallSubpagePools存放small Subpage类型的内存快
 - 6个PoolChunkList 存放使用率不同的Chunk,构成一个双向循环链表
