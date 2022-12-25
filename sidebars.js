@@ -20,7 +20,7 @@ const sidebars = {
             label: 'Overview',
             collapsed: true,
             items: [
-                'rocketmq5',
+                'rocketmq/rocketmq5/index',
             ],
         },
         {
@@ -96,7 +96,7 @@ const sidebars = {
             label: 'Overview',
             collapsed: true,
             items: [
-                'rocketmq4',
+                'rocketmq/rocketmq4/index',
             ],
         },
         {
@@ -162,7 +162,7 @@ const sidebars = {
             label: 'Overview',
             collapsed: true,
             items: [
-                'spring-framework',
+                'spring/spring-framework/index',
             ],
         },
         {
@@ -228,7 +228,7 @@ const sidebars = {
             label: 'Overview',
             collapsed: true,
             items: [
-                'spring-framework',
+                'spring/spring-boot/index',
             ],
         },
         {
@@ -282,7 +282,7 @@ const sidebars = {
             label: 'Overview',
             collapsed: true,
             items: [
-                'spring-framework',
+                'spring/spring-cloud/index',
             ],
         },
         {
