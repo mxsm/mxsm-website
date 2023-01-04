@@ -163,10 +163,17 @@ const config = {
                                 label: 'Java SE',
                             },
                             {
-                                type: 'doc',
-                                docId: 'intro',
+                                type: 'docSidebar',
+                                sidebarId: 'javaweb',
+                                to: '/docs/java/java-web',
                                 label: 'Java Web',
-                            }
+                            },
+                            {
+                                type: 'docSidebar',
+                                sidebarId: 'javatools',
+                                to: '/docs/java/java-tools',
+                                label: 'Java Tools',
+                            },
                         ]
                     },
                     {
