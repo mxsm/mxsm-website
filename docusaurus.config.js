@@ -187,23 +187,25 @@ const config = {
                                 label: 'Netty',
                             },
                             {
-                                type: 'doc',
-                                docId: 'intro',
+                                type: 'docSidebar',
+                                sidebarId: 'redis',
+                                to: '/docs/redis',
                                 label: 'Redis',
                             },
                             {
                                 type: 'doc',
                                 docId: 'intro',
-                                label: 'Kafka',
+                                label: 'Kafka-改造中',
                             },
                             {
                                 type: 'doc',
                                 docId: 'intro',
-                                label: 'Etcd',
+                                label: 'Etcd-改造中',
                             },
                             {
-                                type: 'doc',
-                                docId: 'intro',
+                                type: 'docSidebar',
+                                sidebarId: 'docker',
+                                to: '/docs/docker',
                                 label: 'Docker',
                             }
                         ]
@@ -215,17 +217,17 @@ const config = {
                             {
                                 type: 'doc',
                                 docId: 'intro',
-                                label: 'SQL',
+                                label: 'SQL-改造中',
                             },
                             {
                                 type: 'doc',
                                 docId: 'intro',
-                                label: 'MySQL',
+                                label: 'MySQL-改造中',
                             },
                             {
                                 type: 'doc',
                                 docId: 'intro',
-                                label: 'PostgreSQL',
+                                label: 'PostgreSQL-改造中',
                             }
                         ]
                     },

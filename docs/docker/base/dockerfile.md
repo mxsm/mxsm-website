@@ -5,8 +5,6 @@ date: 2021-11-21
 weight: 202111212107
 ---
 
-
-
 ### 1. 什么是Dockerfile
 
 Docker 通过从一个Dockerfile包含所有命令的文本文件中读取指令来自动构建镜像，该 文件按顺序包含构建给定镜像所需的所有命令
@@ -14,7 +12,7 @@ Docker 通过从一个Dockerfile包含所有命令的文本文件中读取指令
 ```dockerfile
 # syntax=docker/dockerfile:1
 FROM ubuntu:18.04
-COPY . /app
+COPY ../../.. /app
 RUN make /app
 CMD python /app/app.py
 ```
@@ -186,7 +184,7 @@ ENV MY_CAT=fluffy
 
 ENV可以在Dockerfile中使用多次
 
-当镜像运行容器时，使用ENV设置的环境变量将持续存在。您可以使用docker inspect查看值，并使用docker run --env <key>=<value>
+当镜像运行容器时，使用ENV设置的环境变量将持续存在。您可以使用docker inspect查看值，并使用docker run --env \<key\>=\<value\>
 
 > ENV指令还允许使用另一种语法
 >
