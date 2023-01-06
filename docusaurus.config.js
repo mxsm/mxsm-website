@@ -261,9 +261,10 @@ const config = {
                                 label: 'Blog building',
                             },
                             {
-                                type: 'doc',
-                                docId: 'intro',
-                                label: 'MySQL',
+                                type: 'docSidebar',
+                                sidebarId: 'developTools',
+                                to: '/docs/others/tools',
+                                label: 'Develop Tools',
                             },
                             {
                                 type: 'doc',

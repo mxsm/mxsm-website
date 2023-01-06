@@ -1,8 +1,11 @@
 ---
 title: "Git"
 linkTitle: "Git"
-weight: 20
 ---
+
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />
 
 Git常用的工具网站：
 
