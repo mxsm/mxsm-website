@@ -1,15 +1,10 @@
 ---
-title: "Git"
-linkTitle: "Git"
+title: "Git Command"
+linkTitle: "Git Command"
+date: 2023-01-05
+weight: 202301051651
 ---
 
 import DocCardList from '@theme/DocCardList';
 
 <DocCardList />
-
-Git常用的工具网站：
-
-- https://backlog.com/git-tutorial/cn/
-
-
-
