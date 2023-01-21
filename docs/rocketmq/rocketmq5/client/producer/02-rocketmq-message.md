@@ -2,6 +2,7 @@
 title: "Rocketmq消息结构"
 linkTitle: "Rocketmq消息结构"
 sidebar_position: 202301202119
+description: Message类的结构体说明详解
 ---
 
 ## 1. Message
