@@ -2,6 +2,7 @@
 title: "聊聊RocketMQ5消息发送"
 linkTitle: "聊聊RocketMQ5消息发送"
 sidebar_position: 202301202006
+description: RocketMQ消息的发送方式和RocketMQ消息发送消息类型
 ---
 
 ## 1. RocketMQ消息发送模式
