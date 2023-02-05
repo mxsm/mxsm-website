@@ -189,7 +189,7 @@ public void execute(final CommandLine commandLine, final Options options,
 
 发送一个请求编码为 **`RequestCode.UPDATE_AND_CREATE_TOPIC`** 的请求到指定的Broker。**AdminBrokerProcessor** 根据请求编码处理。
 
-```java jsx title="AdminBrokerProcessor#updateAndCreateTopic"
+```java jxs title="AdminBrokerProcessor#updateAndCreateTopic"
 private synchronized RemotingCommand updateAndCreateTopic(ChannelHandlerContext ctx,
     RemotingCommand request) throws RemotingCommandException {
     final RemotingCommand response = RemotingCommand.createResponseCommand(null);
@@ -270,7 +270,7 @@ private synchronized RemotingCommand updateAndCreateTopic(ChannelHandlerContext 
     }
 ```
 
-上述方法主要做了三件事：
+上述方法 **`TopicConfigManager#updateTopicConfig`** 主要做了三件事：
 
 - **属性处理：这里包括新增属性、删除属性**
 
@@ -311,4 +311,100 @@ private synchronized RemotingCommand updateAndCreateTopic(ChannelHandlerContext 
   	}
   }
   ```
+
+完成Broker处理后，调用 **`BrokerController#registerIncrementBrokerData`** 注册到NameServer。
+
+::: tip 说明
+
+Broker创建后的Topic是通过发送Broker注册请求`RequestCode.REGISTER_BROKER` ，同时将Topic的信息发送到NameServer。
+
+:::
+
+### 3.2 通过RocketMQ控制台创建Topic
+
+命令行创建和通过RocketMQ控制台创建Topic底层实现一致，而通过RocketMQ控制台创建Topic是通过界面填写Topic的数据。后续的流程和命令行创建是一样的。
+
+### 3.3 自动创建Topic
+
+自动创建Topic是我们在发送消息的时候无需预先创建Topic,那么到底是如何自动创建Topic的呢？
+
+在前文中提到过一个RocketMQ的内置Topic: **TBW102**
+
+#### 3.3.1 开启自动创建Topic开关
+
+如果想要能够自动创建Topic首先需要开启Broker的配置
+
+```properties
+autoCreateTopicEnable = true
+```
+
+MQ默认开启。
+
+:::tip
+
+官方建议生产环境自动创建Topic开关关闭
+
+:::
+
+#### 3.3.2 TBW102何时获取
+
+首先明确的一点就是消息发送的Topic一定需要存在，而 **TBW102** 是自动创建主题的关键。通过跟踪发送消息发现如下代码：
+
+```java jxs title="DefaultMQProducerImpl#tryToFindTopicPublishInfo"
+private TopicPublishInfo tryToFindTopicPublishInfo(final String topic) {
+    TopicPublishInfo topicPublishInfo = this.topicPublishInfoTable.get(topic);
+    if (null == topicPublishInfo || !topicPublishInfo.ok()) {
+        this.topicPublishInfoTable.putIfAbsent(topic, new TopicPublishInfo());
+        this.mQClientFactory.updateTopicRouteInfoFromNameServer(topic);
+        topicPublishInfo = this.topicPublishInfoTable.get(topic);
+    }
+	//省略部分代码
+}
+```
+
+从缓存中获取topic的数据，此时肯定是null。 此时就会创建一个默认的TopicPublishInfo实例对象存入缓存形成映射关系。然后去NameServer更新这个Topic的缓存。通过分析源码可以发现在没有实现创建Topic的情况下会去拉取 **`TBW102`** 这个RocketMQ内置的主题。
+
+```java jxs title="MQClientInstance#updateTopicRouteInfoFromNameServer"
+public boolean updateTopicRouteInfoFromNameServer(final String topic, boolean isDefault,
+    DefaultMQProducer defaultMQProducer) {
+	//下面省略了部分代码
+    if (this.lockNamesrv.tryLock(LOCK_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS)) {
+        try {
+            TopicRouteData topicRouteData;
+            if (isDefault && defaultMQProducer != null) {
+                //获取TBW102的数据信息
+                topicRouteData = this.mQClientAPIImpl.getDefaultTopicRouteInfoFromNameServer(defaultMQProducer.getCreateTopicKey(),
+                    clientConfig.getMqClientApiTimeout());
+                if (topicRouteData != null) {
+                    for (QueueData data : topicRouteData.getQueueDatas()) {
+                        int queueNums = Math.min(defaultMQProducer.getDefaultTopicQueueNums(), data.getReadQueueNums());
+                        data.setReadQueueNums(queueNums);
+                        data.setWriteQueueNums(queueNums);
+                    }
+                }
+            }
+
+        } catch (MQClientException e) {
+
+        } catch (RemotingException e) {
+
+        } finally {
+            this.lockNamesrv.unlock();
+        }
+    }
+    return false;
+}
+```
+
+获取到 **`TWB102`** 的数据后会将数据更新到我们创建的Topic的本地缓存映射关系中。
+
+#### 3.3.3 Broker在接收消息同时创建Topic
+
+在Broker接收到了Producer发送的MQ消息的时候，首先会对消息进行校验是调用 **AbstractSendMessageProcessor#msgCheck** 进行校验，主要校验的有以下几个：
+
+- Broker是否有写的权限
+- 校验是不是内置的Topic，主要缓存在TopicValidator.SYSTEM_TOPIC_SET
+- 不允许发送消息的一些Topic，主要保存在TopicValidator.NOT_ALLOWED_SEND_TOPIC_SET缓存中
+
+
 
