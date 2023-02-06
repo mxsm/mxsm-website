@@ -406,5 +406,47 @@ public boolean updateTopicRouteInfoFromNameServer(final String topic, boolean is
 - 校验是不是内置的Topic，主要缓存在TopicValidator.SYSTEM_TOPIC_SET
 - 不允许发送消息的一些Topic，主要保存在TopicValidator.NOT_ALLOWED_SEND_TOPIC_SET缓存中
 
+然后从Broker本地选择出来Topic对应的配置，如果发现不存在就会根据：
 
+```java jxs title="AbstractSendMessageProcessor#msgCheck"
+topicConfig = this.brokerController.getTopicConfigManager().createTopicInSendMessageMethod(
+    requestHeader.getTopic(),
+    requestHeader.getDefaultTopic(),
+    RemotingHelper.parseChannelRemoteAddr(ctx.channel()),
+    requestHeader.getDefaultTopicQueueNums(), topicSysFlag);
+
+if (null == topicConfig) {
+    if (requestHeader.getTopic().startsWith(MixAll.RETRY_GROUP_TOPIC_PREFIX)) {
+        topicConfig =
+            this.brokerController.getTopicConfigManager().createTopicInSendMessageBackMethod(
+                requestHeader.getTopic(), 1, PermName.PERM_WRITE | PermName.PERM_READ,
+                topicSysFlag);
+    }
+}
+
+if (null == topicConfig) {
+    response.setCode(ResponseCode.TOPIC_NOT_EXIST);
+    response.setRemark("topic[" + requestHeader.getTopic() + "] not exist, apply first please!"
+        + FAQUrl.suggestTodo(FAQUrl.APPLY_TOPIC_URL));
+    return response;
+}
+```
+
+就会根据默认的主题：**`TBW102`** 来创建主题-例如读写队列数，读写权限等等。 同时还回去判断Broker的自动创建主题的开关是否开启。接下来的流程就和命令行以及客户端创建是一个流程：持久化到本地-->topic信息注册到NameServer。
+
+## 4. 总结
+
+上面分析了Topic的创建的三种方式：
+
+1. 通过命令行创建Topic
+2. 通过RocketMQ控制台创建Topic
+3. 自动创建Topic
+
+其中第三种生产环境不建议开启。开发测试可以使用方便调试。
+
+与此同时了解了Topic首先是持久化到了Broker的本地，然后通过注册Broker的形式将Topic的信息携带的发送到NameServer由NameServer来进行缓存。生产者和消费者都是从NameServer拉取Topic的信息。
+
+Broker设置一些内置的主题以及一些主题的前缀。我们在创建Topic的时候需要遵守这些原则具体可以参考[RocketMQ官网](https://rocketmq.apache.org/docs/introduction/03limits)
+
+> 我是蚂蚁背大象，文章对你有帮助给[项目点个❤](https://github.com/mxsm/mxsm-website)关注我[GitHub:mxsm](https://github.com/mxsm)，文章有不正确的地方请您斧正创建[ISSUE提交PR](https://github.com/mxsm/mxsm-website/issues)~谢谢!
 
