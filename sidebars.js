@@ -34,7 +34,7 @@ const sidebars = {
                 },
             ],
         },
-/*        {
+        {
             type: 'category',
             label: 'NameServer',
             collapsed: false,
@@ -44,7 +44,7 @@ const sidebars = {
                     dirName: 'rocketmq/rocketmq5/02-nameserver', // Generate section automatically based on files
                 },
             ],
-        },*/
+        },
 /*        {
             type: 'category',
             label: 'Client',
