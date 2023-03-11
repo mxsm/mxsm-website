@@ -177,6 +177,18 @@ const config = {
                         ]
                     },
                     {
+                        label: 'Cloud Native',
+                        position: 'left',
+                        items: [
+                            {
+                                type: 'docSidebar',
+                                sidebarId: 'OpenTelemetry',
+                                to: '/docs/cloud-native/open-telemetry',
+                                label: 'OpenTelemetry',
+                            }
+                        ]
+                    },
+                    {
                         label: 'Middleware',
                         position: 'left',
                         items: [
