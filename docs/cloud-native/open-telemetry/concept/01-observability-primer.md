@@ -61,7 +61,7 @@ description: 可观察性入门知识
 
 许多可观测性后端将跟踪可视化为瀑布图，可能如下所示：
 
-![trace-list](E:\download\trace-list.png)
+![trace-list](https://raw.githubusercontent.com/mxsm/picture/main/cloud-native/open-telemetry/trace-list.png)
 
 :::note
 
