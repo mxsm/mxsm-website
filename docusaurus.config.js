@@ -182,7 +182,7 @@ const config = {
                         items: [
                             {
                                 type: 'docSidebar',
-                                sidebarId: 'OpenTelemetry',
+                                sidebarId: 'opentelemetry',
                                 to: '/docs/cloud-native/open-telemetry',
                                 label: 'OpenTelemetry',
                             }
