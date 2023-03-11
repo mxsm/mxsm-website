@@ -406,7 +406,7 @@ const sidebars = {
         },
     ],
 
-    opentelemetry: [
+    OpenTelemetry: [
         {
             type: 'category',
             label: 'Overview',
