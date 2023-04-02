@@ -123,6 +123,12 @@ const config = {
                         ]
                     },
                     {
+                        type: 'docSidebar',
+                        position: 'left',
+                        sidebarId: 'EventMesh',
+                        label: 'EventMesh',
+                    },
+                    {
                         label: 'Spring',
                         position: 'left',
                         items: [
