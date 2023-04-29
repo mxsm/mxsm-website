@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: 'mxsm(蚂蚁背大象)',
-    tagline: 'Love Open source,Recently has been focusing on RocketMQ and DLedger.',
+    tagline: 'Love Open source,Recently has been focusing on RocketMQ|DLedger|EventMesh.',
     url: 'https://blog.ljbmxsm.com/',
     baseUrl: '/',
     onBrokenLinks: 'warn',
