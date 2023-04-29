@@ -45,7 +45,7 @@ const sidebars = {
                 },
             ],
         },
-/*        {
+        {
             type: 'category',
             label: 'Client',
             collapsed: false,
@@ -55,7 +55,7 @@ const sidebars = {
                     dirName: 'rocketmq/rocketmq5/03-client', // Generate section automatically based on files
                 },
             ],
-        },*/
+        },
         {
             type: 'category',
             label: 'Broker',
