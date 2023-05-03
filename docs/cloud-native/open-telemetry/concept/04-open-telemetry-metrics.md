@@ -142,9 +142,9 @@ public class OpenTelemetryTest {
 
 首先本地运行Prometheus。配置好相关配置。运行上面的程序然后打开Prometheus的控制台网页
 
-![image-20230311224950073](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20230311224950073.png)
+![image-20230311224950073](https://raw.githubusercontent.com/mxsm/picture/main/eventmesh/core/quick-start/image-20230311224950073.png)
 
-![image-20230311225006443](C:\Users\mxsm\AppData\Roaming\Typora\typora-user-images\image-20230311225006443.png)
+![image-20230311225006443](https://raw.githubusercontent.com/mxsm/picture/main/eventmesh/core/quick-start/image-20230311225006443.png)
 
 更多语义转换的可以参照https://opentelemetry.io/docs/reference/specification/metrics/semantic_conventions/。
 
