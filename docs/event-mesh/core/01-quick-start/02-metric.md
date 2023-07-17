@@ -192,5 +192,3 @@ EventMesh完全遵循OpenTelemetry Metrics规范，提供Metrics的类型有：
 - 消息处理延迟和吞吐量
 - 连接数和连接状态
 - 错误计数和异常情况
-
-## 开发指引
