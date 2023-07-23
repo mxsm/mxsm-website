@@ -1,7 +1,7 @@
 ---
 title: "实战OpenTelemetry Trace：使用Java实现分布式跟踪"
 linkTitle: "实战OpenTelemetry Trace：使用Java实现分布式跟踪"
-weight: 202305140011
+weight: 202305140011 
 description: 实战OpenTelemetry Trace：使用Java实现分布式跟踪
 ---
 
