@@ -257,7 +257,7 @@ MDC.clear();
 
 ```java
 //创建Tracer实例
-Tracer tracer = OpenTelemetry.getTracerProvider().get("example");
+Tracer tracer = OpenTelemetry.getTracerProvider().get("example"); 
 
 //创建一个Span
 Span span = tracer.spanBuilder("my span").startSpan();
