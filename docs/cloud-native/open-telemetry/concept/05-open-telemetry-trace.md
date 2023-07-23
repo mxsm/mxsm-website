@@ -1,7 +1,7 @@
 ---
 title: "实战OpenTelemetry Trace：使用Java实现分布式跟踪"
 linkTitle: "实战OpenTelemetry Trace：使用Java实现分布式跟踪"
-weight: 202305140011
+weight: 202305140011 
 description: 实战OpenTelemetry Trace：使用Java实现分布式跟踪
 ---
 
@@ -251,13 +251,13 @@ MDC.clear();
 
 以上是在实战中常见的一些问题和解决方案，希望对大家有所帮助。在使用 OpenTelemetry Trace 的过程中，如果遇到问题，可以参考官方文档或者社区中的资料，或者提问社区中的成员。
 
-## 5.OpenTelemetry Trace在远程传递跟踪信息
+## 5.OpenTelemetry Trace在远程传递跟踪信息 
 
 以下是一个OpenTelemetry Trace在远程传递跟踪信息的Java代码示例：
 
 ```java
 //创建Tracer实例
-Tracer tracer = OpenTelemetry.getTracerProvider().get("example");
+Tracer tracer = OpenTelemetry.getTracerProvider().get("example"); 
 
 //创建一个Span
 Span span = tracer.spanBuilder("my span").startSpan();
