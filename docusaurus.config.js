@@ -183,6 +183,43 @@ const config = {
                         ]
                     },
                     {
+                        label: 'Rust',
+                        position: 'left',
+                        items: [
+                            {
+                                type: 'docSidebar',
+                                sidebarId: 'rustDoc',
+                                to: '/docs/rust/rust-doc',
+                                label: 'Rust官方文档(翻译)',
+                            },
+
+                        ]
+                    },
+                    {
+                        label: 'C++',
+                        position: 'left',
+                        items: [
+                            {
+                                type: 'docSidebar',
+                                sidebarId: 'javase',
+                                to: '/docs/java/java-se',
+                                label: 'Java SE',
+                            },
+                            {
+                                type: 'docSidebar',
+                                sidebarId: 'javaweb',
+                                to: '/docs/java/java-web',
+                                label: 'Java Web',
+                            },
+                            {
+                                type: 'docSidebar',
+                                sidebarId: 'javatools',
+                                to: '/docs/java/java-tools',
+                                label: 'Java Tools',
+                            },
+                        ]
+                    },
+                    {
                         label: 'Cloud Native',
                         position: 'left',
                         items: [
