@@ -192,7 +192,12 @@ const config = {
                                 to: '/docs/rust/rust-doc',
                                 label: 'Rust官方文档(翻译)',
                             },
-
+                            {
+                                type: 'docSidebar',
+                                sidebarId: 'rustLearn',
+                                to: '/docs/rust/rust-learn',
+                                label: 'Rust学习',
+                            },
                         ]
                     },
                     {
