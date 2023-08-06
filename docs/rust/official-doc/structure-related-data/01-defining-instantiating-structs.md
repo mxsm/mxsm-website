@@ -1,7 +1,7 @@
 ---
 title: "定义和实例化结构体"
 linkTitle: "定义和实例化结构体"
-sidebar_label: 5.1 定义和实例化结构体
+sidebar_label: 5.1. 定义和实例化结构体
 weight: 202308051736
 description: 定义和实例化结构体
 ---

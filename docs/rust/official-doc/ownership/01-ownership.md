@@ -1,5 +1,5 @@
 ---
-title: "4.1. 什么是所有权"
+title: "什么是所有权"
 linkTitle: "什么是所有权"
 sidebar_label: 4.1. 什么是所有权
 weight: 202308051736
