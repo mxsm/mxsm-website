@@ -6,7 +6,7 @@ weight: 202308051736
 description: 包(Package)和板条箱(Crate)
 ---
 
-## [包和板条箱](https://doc.rust-lang.org/book/ch07-01-packages-and-crates.html#packages-and-crates)
+## [包(Packages)和板条箱(Crates)](https://doc.rust-lang.org/book/ch07-01-packages-and-crates.html#packages-and-crates)
 
 模块系统的第一部分是包和板条箱。
 
