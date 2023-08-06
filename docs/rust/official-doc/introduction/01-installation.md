@@ -1,5 +1,6 @@
 ---
-title: "Rust安装"
+title: "安装"
+sidebar_label: 1.1. 安装
 linkTitle: "Rust安装"
 weight: 202308051736
 description: Rust安装
