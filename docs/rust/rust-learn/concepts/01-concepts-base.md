@@ -8,7 +8,7 @@ description: Rust基本数据类型
 
 ## 1. 基本数据类型
 
-![基本数据类型](C:\Users\ljbmx\Downloads\基本数据类型.png)
+![基本数据类型](https://raw.githubusercontent.com/mxsm/picture/main/rust/rust-learn/concepts%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png)
 
 在 Rust 中，有一些基本的数据类型，用于表示各种不同的值。以下是 Rust 中常见的基本数据类型：
 
@@ -142,7 +142,7 @@ fn main() {
 
 上面代码是定义不同的数据类型
 
-![image-20230812210319480](C:\Users\ljbmx\AppData\Roaming\Typora\typora-user-images\image-20230812210319480.png)
+![image-20230812210319480](https://raw.githubusercontent.com/mxsm/picture/main/rust/rust-learn/conceptsimage-20230812210319480.png)
 
 通过代码开发工具可以看到整型的默认值位 **i32** ,浮点型的默认值为 **`f64`**
 
