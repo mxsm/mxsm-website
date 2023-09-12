@@ -14,17 +14,21 @@ Rust 的所有权（Ownership）系统是其独特的**内存管理机制**，�
 
 `Ownership` 的三条规则：
 
-1. 每一个Value都有拥有者
-2. Value同一时间只能有一个拥有者
+1. 每一个Value都有一个变量，也就是所有者
+2. Value同一时间有且只有一个所有者
 3. 当所有者超出作用域或手动释放所有权时，值将被销毁并释放其占用的内存
 
 ## 2.变量与数据交互方式
 
 变量与数据交互方式有三种：
 
-- Move语义
+- **Move语义 变量赋值、函数传参时，如果数据类型未实现Copy trait，会发生所有权转移(Move)**
 - Clone语义
-- Copy语义
+- **Copy语义 变量赋值、函数传参时，如果数据类型实现了Copy trait, 就会使用Copy语义，对应的值会被按位拷贝(浅拷贝)，产生新的值，不会发生所有权转移**
+
+**Rust不允许自身或其任何部分实现了Drop trait的类型使用Copy trait**
+
+可以从文档https://doc.rust-lang.org/std/marker/trait.Copy.html#implementors查看哪些类型实现了Copy trait中
 
 ### 2.1 Move语义
 
