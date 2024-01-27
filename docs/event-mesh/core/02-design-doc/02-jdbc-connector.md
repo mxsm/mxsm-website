@@ -32,6 +32,6 @@ Connector主要分成两个部分Source和Sink。
 
 ### 3. 架构
 
-![Mysql Binlog Event Handler](E:\download\Mysql Binlog Event Handler.png)
+![Mysql Binlog Event Handler](https://raw.githubusercontent.com/mxsm/picture/main/rust/rust-learn/concepts/Mysql%20Binlog%20Event%20Handler.png)
 
 MySQL Connector通过模拟MySQL Slave从MySQL master获取binlog文件。解析binlog文件的Binlog Event然后将数据发送到EventMesh。Sink订阅相对于的Topic从EventMesh获取数据存储到对应的数据源。

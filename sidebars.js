@@ -797,7 +797,7 @@ const sidebars = {
                 },
             ],
         },
-        {
+/*        {
             type: 'category',
             label: '常用的开源工具',
             link: {type: 'doc', id: 'rust/rust-learn/sidebar/tools-index'},
@@ -808,7 +808,7 @@ const sidebars = {
                     dirName: 'rust/rust-learn/tools', // Generate section automatically based on files
                 },
             ],
-        },
+        },*/
         {
             type: 'category',
             label: '总结说明(Summary)',
