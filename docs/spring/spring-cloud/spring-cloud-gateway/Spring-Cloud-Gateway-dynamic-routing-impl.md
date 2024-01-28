@@ -101,5 +101,5 @@ actuator api中包含了gateway的动态添加接口和查询接口：
 
 本人比较懒用现成的就可以。结合上面的实现的存储位置就能实现动态的添加路由器了。
 
-> 注意: 用接口/gateway/routes/{id_route_to_create} （POST）添加完成路由后，你立马调用/actuator/gateway/routes/{id} (GET) 是获取不到刚添加的路由。原因在于路由都是从缓存中获取。添加后需要调用/actuator/gateway/refresh (POST) 清除缓存。这样就能重新加载缓存获取到新加的路由器信息了。
+> 注意: 用接口/gateway/routes/\{id_route_to_create\} （POST）添加完成路由后，你立马调用/actuator/gateway/routes/\{id\} (GET) 是获取不到刚添加的路由。原因在于路由都是从缓存中获取。添加后需要调用/actuator/gateway/refresh (POST) 清除缓存。这样就能重新加载缓存获取到新加的路由器信息了。
 

@@ -146,7 +146,7 @@ controller.getConfiguration().registerConfig(properties);
     }
 ```
 
-1. 从${user.home}/namesrv/kvConfig.json加载配置NameServer的配置
+1. 从$\{user.home\}/namesrv/kvConfig.json加载配置NameServer的配置
 
 2. 创建NettyServer来提供服务
 
