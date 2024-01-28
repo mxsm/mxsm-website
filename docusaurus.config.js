@@ -98,6 +98,12 @@ const config = {
                         items: [
                             {
                                 type: 'docSidebar',
+                                sidebarId: 'rocketmqrust',
+                                to: '/docs/rocketmq/rocketmq-rust',
+                                label: 'RocketMQ Rust',
+                            },
+                            {
+                                type: 'docSidebar',
                                 sidebarId: 'rocketmq5',
                                 to: '/docs/rocketmq/rocketmq5',
                                 label: 'RocketMQ 5.0',
