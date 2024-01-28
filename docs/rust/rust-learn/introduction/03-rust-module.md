@@ -208,5 +208,5 @@ mod my_module {
 
 请注意，路径的使用方式取决于所处的代码位置和要引入的项的位置。通过适当的路径，可以在不同的模块和 crate 之间访问和重用代码项。Rust 的路径系统有助于实现模块化和可维护的代码结构。
 
-> 我是蚂蚁背大象，文章对你有帮助给[项目点个❤](https://github.com/mxsm/mxsm-website)关注我[GitHub:mxsm](https://github.com/mxsm)，文章有不正确的地方请您斧正,创建[ISSUE提交PR](https://github.com/mxsm/mxsm-website/issues)\~谢谢! Emal:<mxsm@apache.com>
+> 我是蚂蚁背大象，文章对你有帮助给[项目点个❤](https://github.com/mxsm/mxsm-website)关注我[GitHub:mxsm](https://github.com/mxsm)，文章有不正确的地方请您斧正,创建[ISSUE提交PR](https://github.com/mxsm/mxsm-website/issues)\~谢谢! Emal:&lt;mxsm@apache.com>
 

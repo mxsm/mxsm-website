@@ -384,40 +384,42 @@ Node添加到阻塞队列后，就是 **`acquireQueued`** 方法 **循环拿锁�
     }
 ```
 
-> **在这里有个问题为什么要从节点的尾部往头部查找第一个非Cancelled的节点？原因如下**：
->
-> 之前的addWaiter方法
->
-> ```java
->     private Node addWaiter(Node mode) {
->         Node node = new Node(Thread.currentThread(), mode);
->         // Try the fast path of enq; backup to full enq on failure
->         Node pred = tail;
->         if (pred != null) {
->             node.prev = pred;
->             if (compareAndSetTail(pred, node)) {
->                 pred.next = node;
->                 return node;
->             }
->         }
->         enq(node);
->         return node;
->     }
-> ```
->
-> 我们从这里可以看到，节点入队并不是原子操作。也就是说：
->
->  node.prev = pred;
->  if (compareAndSetTail(pred, node)) {
->            pred.next = node;
->            return node;
->    }
->
-> 这两个步骤可以看做是Tail入队列的原子操作，但是此时pred.next = node;还没执行，如果这个时候执行了unparkSuccessor方法，就没办法从前往后找了，所以需要从后往前找。
->
-> 还有一个原因：还有一点原因，在产生CANCELLED状态节点的时候，先断开的是Next指针，Prev指针并未断开，因此也是必须要从后往前遍历才能够遍历完全部的Node。
->
-> 综上所述，如果是从前往后找，由于极端情况下入队的非原子操作和CANCELLED节点产生过程中断开Next指针的操作，可能会导致无法遍历所有的节点。所以，唤醒对应的线程后，对应的线程就会继续往下执行。
+**在这里有个问题为什么要从节点的尾部往头部查找第一个非Cancelled的节点？原因如下**：
+
+之前的addWaiter方法
+
+```java
+ private Node addWaiter(Node mode) {
+     Node node = new Node(Thread.currentThread(), mode);
+     // Try the fast path of enq; backup to full enq on failure
+     Node pred = tail;
+     if (pred != null) {
+         node.prev = pred;
+         if (compareAndSetTail(pred, node)) {
+             pred.next = node;
+             return node;
+         }
+     }
+     enq(node);
+     return node;
+ }
+```
+
+我们从这里可以看到，节点入队并不是原子操作。也就是说：
+
+```
+node.prev = pred;
+if (compareAndSetTail(pred, node)) {
+        pred.next = node;
+        return node;
+}
+```
+
+这两个步骤可以看做是Tail入队列的原子操作，但是此时pred.next = node;还没执行，如果这个时候执行了unparkSuccessor方法，就没办法从前往后找了，所以需要从后往前找。
+
+还有一个原因：还有一点原因，在产生CANCELLED状态节点的时候，先断开的是Next指针，Prev指针并未断开，因此也是必须要从后往前遍历才能够遍历完全部的Node。
+
+综上所述，如果是从前往后找，由于极端情况下入队的非原子操作和CANCELLED节点产生过程中断开Next指针的操作，可能会导致无法遍历所有的节点。所以，唤醒对应的线程后，对应的线程就会继续往下执行。
 
 
 

@@ -28,13 +28,13 @@ weight: 202106012233
 
 - **ConsumeQueue**
 
-  消息消费队列，引入的目的主要是提高消息消费的性能，由于RocketMQ是基于主题topic的订阅模式，消息消费是针对主题进行的，如果要遍历commitlog文件中根据topic检索消息是非常低效的。Consumer即可根据ConsumeQueue来查找待消费的消息。其中，ConsumeQueue（逻辑消费队列）作为消费消息的索引，保存了指定Topic下的队列消息在CommitLog中的起始物理偏移量offset，消息大小size和消息Tag的HashCode值。consumequeue文件可以看成是基于topic的commitlog索引文件，故consumequeue文件夹的组织方式如下：topic/queue/file三层组织结构，具体存储路径为：$HOME/store/consumequeue/{topic}/{queueId}/{fileName}。同样consumequeue文件采取定长设计，每一个条目共20个字节，分别为8字节的commitlog物理偏移量、4字节的消息长度、8字节tag hashcode，单个文件由30W个条目组成，可以像数组一样随机访问每一个条目，每个ConsumeQueue文件大小约5.72M；
+  消息消费队列，引入的目的主要是提高消息消费的性能，由于RocketMQ是基于主题topic的订阅模式，消息消费是针对主题进行的，如果要遍历commitlog文件中根据topic检索消息是非常低效的。Consumer即可根据ConsumeQueue来查找待消费的消息。其中，ConsumeQueue（逻辑消费队列）作为消费消息的索引，保存了指定Topic下的队列消息在CommitLog中的起始物理偏移量offset，消息大小size和消息Tag的HashCode值。consumequeue文件可以看成是基于topic的commitlog索引文件，故consumequeue文件夹的组织方式如下：topic/queue/file三层组织结构，具体存储路径为：$HOME/store/consumequeue/\{topic\}/\{queueId\}/\{fileName\}。同样consumequeue文件采取定长设计，每一个条目共20个字节，分别为8字节的commitlog物理偏移量、4字节的消息长度、8字节tag hashcode，单个文件由30W个条目组成，可以像数组一样随机访问每一个条目，每个ConsumeQueue文件大小约5.72M；
 
   ![](https://github.com/mxsm/picture/blob/main/rocketmq/consumequeue%E4%BD%8D%E7%BD%AE.png?raw=true)
 
 - **IndexFile**
 
-  IndexFile（索引文件）提供了一种可以通过key或时间区间来查询消息的方法。Index文件的存储位置是：$HOME \store\index\${fileName}，文件名fileName是以创建时的**时间戳命名**的，固定的单个IndexFile文件大小约为400M，一个IndexFile可以保存 2000W个索引，IndexFile的底层存储设计为在文件系统中实现HashMap结构，故rocketmq的索引文件其底层实现为hash索引。
+  IndexFile（索引文件）提供了一种可以通过key或时间区间来查询消息的方法。Index文件的存储位置是：$HOME \store\index\$\{fileName\}，文件名fileName是以创建时的**时间戳命名**的，固定的单个IndexFile文件大小约为400M，一个IndexFile可以保存 2000W个索引，IndexFile的底层存储设计为在文件系统中实现HashMap结构，故rocketmq的索引文件其底层实现为hash索引。
   
   ![](https://github.com/mxsm/picture/blob/main/rocketmq/indexLog.png?raw=true)
 
@@ -69,7 +69,7 @@ RocketMQ 以如下图所示存储格式将消息顺序写入 CommitLog，除了�
 
 > BLANK_MAGIC_CODE 的作用就是作为标记当前文件存储CommitLog纪录满了，接下来要用下一个文件存储。
 >
-> **存储的位置：${user.home}/store/commitlog** 
+> **存储的位置：$\{user.home\}/store/commitlog** 
 
 ![](https://github.com/mxsm/document/blob/master/image/MQ/RocketMQ/CommitLog%E8%AE%B0%E5%BD%95%E6%A0%BC%E5%BC%8F.png?raw=true)
 
@@ -163,7 +163,7 @@ public class MessageStoreConfig {
 
 ![](https://github.com/mxsm/document/blob/master/image/MQ/RocketMQ/ConsumeQueue.png?raw=true)
 
-> **存储的位置：${user.home}/store/consumequeue/${topicName}/${queueId}/${fileName}** 
+> **存储的位置：$\{user.home\}/store/consumequeue/$\{topicName\}/$\{queueId\}/$\{fileName\}** 
 >
 > 每一个文件存储30w条数据
 

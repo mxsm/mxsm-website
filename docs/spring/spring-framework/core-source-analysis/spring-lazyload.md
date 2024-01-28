@@ -147,7 +147,7 @@ private class AutowiredFieldElement extends InjectionMetadata.InjectedElement {
 	}
 ```
 
-> DefaultListableBeanFactory 默认为 private AutowireCandidateResolver autowireCandidateResolver = new SimpleAutowireCandidateResolver();对于注解类的在AnnotationConfigUtils进行了设置，AnnotationConfigUtils#registerAnnotationConfigProcessors方法中。if (!(beanFactory.getAutowireCandidateResolver() instanceof ContextAnnotationAutowireCandidateResolver)) {   beanFactory.setAutowireCandidateResolver(new ContextAnnotationAutowireCandidateResolver());}进行了设置
+> DefaultListableBeanFactory 默认为 private AutowireCandidateResolver autowireCandidateResolver = new SimpleAutowireCandidateResolver();对于注解类的在AnnotationConfigUtils进行了设置，AnnotationConfigUtils#registerAnnotationConfigProcessors方法中。if (!(beanFactory.getAutowireCandidateResolver() instanceof ContextAnnotationAutowireCandidateResolver)) \{   beanFactory.setAutowireCandidateResolver(new ContextAnnotationAutowireCandidateResolver());}进行了设置
 
 分析一下 **`ContextAnnotationAutowireCandidateResolver#getLazyResolutionProxyIfNecessary`** 的方法：
 

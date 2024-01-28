@@ -250,7 +250,7 @@ ThreadB 出去时间 1551162424481
 
 **从打印结果来看这里是非同步的，原因在于ThreadA获取的numRef1对象的对象锁，ThreadB获取的是numRef2的对象锁，他们并没有在获取锁上面有竞争关系。**
 
-**synchronized(this){…} 代码块**
+**synchronized(this)\{…\} 代码块**
 
 ```java
 class HasSelfPrivateNum{

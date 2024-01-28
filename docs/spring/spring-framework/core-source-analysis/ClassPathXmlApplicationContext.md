@@ -265,9 +265,9 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
   2. **getBeanFactory --- 抽象方法由子类(AbstractRefreshableApplicationContext)实现**
   
      ```java
-   @Override
+        @Override
      	public final ConfigurableListableBeanFactory getBeanFactory() {
-     ```
+
   
    		synchronized (this.beanFactoryMonitor) {
    			if (this.beanFactory == null) {

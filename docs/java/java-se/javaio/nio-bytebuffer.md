@@ -17,7 +17,7 @@ weight: 202209162213
 - **capacity（int类型）:** ByteBuffer的容量
 - **hb（byte array）:** 实际数据存储byte数组
 
-> Tips: 几个数据之间的大小关系mark <= position <= limit <= capacity
+> Tips: 几个数据之间的大小关系mark &lt;= position &lt;= limit &lt;= capacity
 
 示意图如下：
 
