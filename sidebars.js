@@ -13,6 +13,16 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
+    rocketmqrust: [
+        {
+            type: 'category',
+            label: 'Overview',
+            collapsed: true,
+            items: [
+                'rocketmq/rocketmq-rust/index',
+            ],
+        },
+    ],
     // By default, Docusaurus generates a sidebar from the docs folder structure
     rocketmq5: [
         {
