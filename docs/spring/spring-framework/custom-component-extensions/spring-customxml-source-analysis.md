@@ -6,7 +6,7 @@ date: 2018-10-19
 
 下面来通过代码的Debug来看Spring是如何加载自定义的xml Element
 
-> 代码：<https://github.com/mxsm/spring-sample/tree/master/namespace-handler>
+> 代码：https://github.com/mxsm/spring-sample/tree/master/namespace-handler
 
 ### 2. NamespaceHandler的继承关系
 

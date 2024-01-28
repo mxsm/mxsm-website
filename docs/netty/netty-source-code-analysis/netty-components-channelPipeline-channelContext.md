@@ -75,7 +75,7 @@ p.addLast("4", new OutboundHandlerB()); //实现了ChannelOutboundHandler
 p.addLast("5", new InboundOutboundHandlerX()); //实现了ChannelInboundHandler和实现了ChannelOutboundHandler
 ```
 
-上述代码ChannelPipeline中的ChannelHandler的链表顺序：head<--- 1  <--- 2 <--- 3 <--- 4 <--- 5 <--- tail。
+上述代码ChannelPipeline中的ChannelHandler的链表顺序：head&lt;--- 1  &lt;--- 2 &lt;--- 3 &lt;--- 4 &lt;--- 5 &lt;--- tail。
 
 入站的执行顺序： 1、2、5
 

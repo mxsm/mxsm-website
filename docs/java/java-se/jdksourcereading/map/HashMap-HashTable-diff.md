@@ -74,7 +74,7 @@ date: 2019-08-09
 
 4. **初始容量大小和每次扩充容量大小的不同 ：**
 
-   - 默认初始容量不一样：`HashMap`初始容量16，`HashTable`初始容量11。扩容HashMap都是变为原来的2倍，HashMap容量每次扩容都是2的幂次方大小(tableSizeFor方法保证)，HashTable的的扩容(oldCapacity << 1) + 1及2n+1
+   - 默认初始容量不一样：`HashMap`初始容量16，`HashTable`初始容量11。扩容HashMap都是变为原来的2倍，HashMap容量每次扩容都是2的幂次方大小(tableSizeFor方法保证)，HashTable的的扩容(oldCapacity &lt;&lt; 1) + 1及2n+1
 
      ```java
       public Hashtable() {

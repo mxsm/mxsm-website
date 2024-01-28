@@ -48,7 +48,7 @@ RocketMQ事务消息（Transactional Message）是指应用本地事务和发送
 broker有配置项messageDelayLevel，默认值为“1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m 9m 10m 20m 30m 1h 2h”，18个level。可以配置自定义messageDelayLevel。注意，messageDelayLevel是broker的属性，不属于某个topic。发消息时，设置delayLevel等级即可：msg.setDelayLevel(level)。level有以下三种情况：
 
 - level == 0，消息为非延迟消息
-- 1<=level<=maxLevel，消息延迟特定时间，例如level==1，延迟1s
+- 1&lt;=level&lt;=maxLevel，消息延迟特定时间，例如level==1，延迟1s
 - level > maxLevel，则level== maxLevel，例如level==20，延迟2h
 
 定时消息会暂存在名为SCHEDULE_TOPIC_XXXX的topic中，并根据delayTimeLevel存入特定的queue，queueId = delayTimeLevel – 1，即一个queue只存相同延迟的消息，保证具有相同发送延迟的消息能够顺序消费。broker会调度地消费SCHEDULE_TOPIC_XXXX，将消息写入真实的topic。
@@ -96,4 +96,3 @@ RocketMQ将这种正常情况下无法被消费的消息称为死信消息（Dea
 
 - [MQ特性](https://github.com/apache/rocketmq/blob/master/docs/cn/features.md)
 
-  

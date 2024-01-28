@@ -106,7 +106,7 @@ private void onApplicationEnvironmentPreparedEvent(ApplicationEnvironmentPrepare
 	}
 ```
 
-通过上面可以看出来通过 **`SpringApplication#getSpringFactoriesInstances`** 方法来获取实例。设置到私有变量：**private List<ApplicationListener<?>> listeners;** 分析到这里已经看到了把 **`ApplicationListener`** 相关实现实例加载。那么怎么样调用呢？
+通过上面可以看出来通过 **`SpringApplication#getSpringFactoriesInstances`** 方法来获取实例。设置到私有变量：**private List&lt;ApplicationListener&lt;?>> listeners;** 分析到这里已经看到了把 **`ApplicationListener`** 相关实现实例加载。那么怎么样调用呢？
 
 在 **SpringApplication#run** 方法，中是SpringBoot运行的关键方法，在这个方法中有一个一段代码
 

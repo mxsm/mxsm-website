@@ -70,7 +70,7 @@ rocketmq-remoting 模块是 RocketMQ消息队列中负责网络通信的模块�
 | opaque     | int                     | 相当于requestId，在同一个连接上的不同请求标识码，与响应消息中的相对应 | 应答不做修改直接返回                     |
 | flag       | int                     | 区分是普通RPC还是onewayRPC得标志                             | 区分是普通RPC还是onewayRPC得标志         |
 | remark     | String                  | 传输自定义文本信息                                           | 传输自定义文本信息                       |
-| extFields  | HashMap<String, String> | 请求自定义扩展信息                                           | 响应自定义扩展信息                       |
+| extFields  | HashMap&lt;String, String> | 请求自定义扩展信息                                           | 响应自定义扩展信息                       |
 
 ![](https://github.com/apache/rocketmq/raw/master/docs/cn/image/rocketmq_design_4.png)
 
