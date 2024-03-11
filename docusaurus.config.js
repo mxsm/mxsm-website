@@ -169,6 +169,12 @@ const config = {
                         items: [
                             {
                                 type: 'docSidebar',
+                                sidebarId: 'openjdk',
+                                to: '/docs/java/openjdk',
+                                label: 'OpenJDK',
+                            },
+                            {
+                                type: 'docSidebar',
                                 sidebarId: 'javase',
                                 to: '/docs/java/java-se',
                                 label: 'Java SE',
