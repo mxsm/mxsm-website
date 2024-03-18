@@ -209,6 +209,12 @@ const config = {
                                 to: '/docs/rust/rust-learn',
                                 label: 'Rust学习',
                             },
+                            {
+                                type: 'docSidebar',
+                                sidebarId: 'rustTokio',
+                                to: '/docs/rust/tokio',
+                                label: 'Tokio学习系列',
+                            },
                         ]
                     },
                     {
